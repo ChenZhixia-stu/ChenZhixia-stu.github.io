@@ -253,12 +253,12 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-02-05 22:44:25'>2020-02-04 00:00</time>
+        创建时间:<time class="date" title='更新时间: 2020-02-05 23:23:44'>2020-02-04 00:00</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:8.8k</span>
+        <span>字数:8.9k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -823,9 +823,11 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
 <p>​            2.根据不同的版本信息，设置filename不同的编码方式</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> util;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sun.misc.BASE64Encoder;</span><br><span class="line"><span class="keyword">import</span> java.io.UnsupportedEncodingException;</span><br><span class="line"><span class="keyword">import</span> java.net.URLEncoder;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DownLoadUtils</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getFileName</span><span class="params">(String agent, String filename)</span> <span class="keyword">throws</span> UnsupportedEncodingException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (agent.contains(<span class="string">"MSIE"</span>)) &#123;</span><br><span class="line">            <span class="comment">// IE浏览器</span></span><br><span class="line">            filename = URLEncoder.encode(filename, <span class="string">"utf-8"</span>);</span><br><span class="line">            filename = filename.replace(<span class="string">"+"</span>, <span class="string">" "</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (agent.contains(<span class="string">"Firefox"</span>)) &#123;</span><br><span class="line">            <span class="comment">// 火狐浏览器</span></span><br><span class="line">            BASE64Encoder base64Encoder = <span class="keyword">new</span> BASE64Encoder();</span><br><span class="line">            filename = <span class="string">"=?utf-8?B?"</span> + base64Encoder.encode(filename.getBytes(<span class="string">"utf-8"</span>)) + <span class="string">"?="</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 其它浏览器</span></span><br><span class="line">            filename = URLEncoder.encode(filename, <span class="string">"utf-8"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> filename;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">-----------------------------------------------------------------------------------------</span><br><span class="line">  <span class="comment">//3.2设置响应头的打开方式：content-disposition</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//解决中文文件名问题</span></span><br><span class="line">        <span class="comment">//1.获取请求头 user-agent</span></span><br><span class="line">        String agent = request.getHeader(<span class="string">"user-agent"</span>);</span><br><span class="line">        <span class="comment">//2.实用工具类方法编码文件</span></span><br><span class="line">        filename = DownLoadUtils.getFileName(agent, filename);</span><br><span class="line"></span><br><span class="line">        response.setHeader(<span class="string">"content-disposition"</span>,<span class="string">"attachment;filename="</span>+filename);</span><br></pre></td></tr></table></figure>
 
-<h3 id="6-注意事项"><a href="#6-注意事项" class="headerlink" title="6.注意事项"></a>6.注意事项</h3><p>特别要注意获取文件的真实路径 getRealPath</p>
+<h3 id="6-注意事项"><a href="#6-注意事项" class="headerlink" title="6.注意事项"></a>6.注意事项</h3><p>特别要注意获取文件的真实路径 getRealPath，具体路径写法，看 <strong>ServletContext对象</strong> 功能中第<strong>3</strong>条</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String realPath = servletContext.getRealPath(<span class="string">"/img/"</span>+filename);</span><br></pre></td></tr></table></figure>
 
+<p>如果发现报500（其中是中文文件名加载乱码），请跟换Tomcat服务器版本8.0或以上</p>
+<p><img src="C:%5CUsers%5Czhixia%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580916183085.png" alt="1580916183085"></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1760405308@qq.com </span>
@@ -836,10 +838,10 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>JavaWeb学习</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">8.8k</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">8.9k</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="’小伙子">’小伙子</a></p>
     <p><span class="copy-title">发布时间:</span>2020-02-04, 00:00:00</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-05, 22:44:25</p>
+    <p><span class="copy-title">最后更新:</span>2020-02-05, 23:23:44</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/" title="JavaWeb学习">http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
