@@ -6,23 +6,21 @@
   <meta name="keywords" content=" hexo , Mybatis ">
   <meta name="description" content="Mybatis | ‘小伙子的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Mybatis一、入门程序1.数据库准备先在MySql中创建一个简单的数据库 create database  user,建立User表，记住数据库的名字，登录账号，密码。 123456789Create database user;CREATE TABLE User (id INT PRIMARY KEY auto_increment,username VARCHAR ( 20 ),PASSWO">
+<meta name="description" content="1.测试测试博客图片加载">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mybatis">
-<meta property="og:url" content="http://yoursite.com/2020/02/04/Mybatis/index.html">
+<meta property="og:title" content="测试">
+<meta property="og:url" content="http://yoursite.com/2020/02/06/%E6%B5%8B%E8%AF%95/index.html">
 <meta property="og:site_name" content="‘小伙子的博客">
-<meta property="og:description" content="Mybatis一、入门程序1.数据库准备先在MySql中创建一个简单的数据库 create database  user,建立User表，记住数据库的名字，登录账号，密码。 123456789Create database user;CREATE TABLE User (id INT PRIMARY KEY auto_increment,username VARCHAR ( 20 ),PASSWO">
+<meta property="og:description" content="1.测试测试博客图片加载">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="c:/Users/zhixia/AppData/Roaming/Typora/typora-user-images/1578652631782.png">
-<meta property="og:image" content="c:%5CUsers%5Czhixia%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578652717582.png">
-<meta property="og:image" content="c:%5CUsers%5Czhixia%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578652888461.png">
-<meta property="article:published_time" content="2020-02-04T15:13:47.000Z">
-<meta property="article:modified_time" content="2020-02-04T15:08:08.067Z">
+<meta property="og:image" content="http://yoursite.com/2020/02/06/%E6%B5%8B%E8%AF%95/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579488348437.png">
+<meta property="article:published_time" content="2020-02-06T11:46:36.000Z">
+<meta property="article:modified_time" content="2020-02-06T11:59:04.601Z">
 <meta property="article:author" content="’小伙子">
 <meta property="article:tag" content="hexo">
-<meta property="article:tag" content="Mybatis">
+<meta property="article:tag" content="测试">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:/Users/zhixia/AppData/Roaming/Typora/typora-user-images/1578652631782.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/06/%E6%B5%8B%E8%AF%95/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579488348437.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -311,12 +309,12 @@
 
 
 <h3 id="2-新项目创建"><a href="#2-新项目创建" class="headerlink" title="2.新项目创建"></a>2.新项目创建</h3><p>新建maven，找到quickstart.</p>
-<img src="C:\Users\zhixia\AppData\Roaming\Typora\typora-user-images\1578652631782.png" alt="1578652631782"  />
+<img src="/2020/02/04/Mybatis/Users\zhixia\AppData\Roaming\Typora\typora-user-images\1578652631782.png" alt="1578652631782">
 
 <p> Group Id：项目的组织机构，也是包的目录结构，一般都是域名的倒序，比如 <code>com.shiyanlou.mybatis</code>； </p>
 <p> Artifactid:  项目实际的名字，比如 <code>MyBatisTest</code>； </p>
-<p><img src="C:%5CUsers%5Czhixia%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578652717582.png" alt="1578652717582">找到maven仓库下的conf-setting.xml,完成创建</p>
-<p><img src="C:%5CUsers%5Czhixia%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578652888461.png" alt="1578652888461"></p>
+<p><img src="/2020/02/04/Mybatis/C:%5CUsers%5Czhixia%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578652717582.png" alt="1578652717582">找到maven仓库下的conf-setting.xml,完成创建</p>
+<p><img src="/2020/02/04/Mybatis/C:%5CUsers%5Czhixia%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578652888461.png" alt="1578652888461"></p>
 <h3 id="3-导入需要的jar包"><a href="#3-导入需要的jar包" class="headerlink" title="3.导入需要的jar包"></a>3.导入需要的jar包</h3><p> 打开 pom.xml 文件，修改为以下内容 </p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;4.11&lt;/version&gt;</span><br><span class="line">    &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- mybatis jar 包依赖 --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.mybatis&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.4.1&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 数据库驱动 --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;			      			&lt;version&gt;8.0.11&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- log4j日志打印 --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;log4j&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;log4j&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.2.16&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;build&gt;</span><br><span class="line">        &lt;resources&gt;</span><br><span class="line">            &lt;resource&gt;</span><br><span class="line">                &lt;directory&gt;src/main/java&lt;/directory&gt;</span><br><span class="line">                &lt;includes&gt;</span><br><span class="line">                    &lt;include&gt;**<span class="comment">/*.xml&lt;/include&gt;</span></span><br><span class="line"><span class="comment">                &lt;/includes&gt;</span></span><br><span class="line"><span class="comment">            &lt;/resource&gt;</span></span><br><span class="line"><span class="comment">            &lt;resource&gt;</span></span><br><span class="line"><span class="comment">                &lt;directory&gt;src/main/resources&lt;/directory&gt;</span></span><br><span class="line"><span class="comment">                &lt;includes&gt;</span></span><br><span class="line">                    &lt;include&gt;**/*.*&lt;/include&gt;</span><br><span class="line">                &lt;/includes&gt;</span><br><span class="line">            &lt;/resource&gt;</span><br><span class="line">        &lt;/resources&gt;</span><br><span class="line">    &lt;/build&gt;</span><br></pre></td></tr></table></figure>
 
@@ -329,8 +327,8 @@
     <!-- 为 JavaBean 起类别名 -->
     <typeAliases>
         <!-- 指定一个包名起别名，将包内的 Java 类的类名作为类的类别名 -->
-        <package name="com.shiyanlou.mybatis.model" />
-    </typeAliases>
+        <package name="com.shiyanlou.mybatis.model">
+    </package></typeAliases>
 
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 配置 mybatis 运行环境 --&gt;</span><br><span class="line">&lt;environments <span class="keyword">default</span>=<span class="string">"development"</span>&gt;</span><br><span class="line">    &lt;environment id=<span class="string">"development"</span>&gt;</span><br><span class="line">        &lt;!-- type=<span class="string">"JDBC"</span> 代表直接使用 JDBC 的提交和回滚设置 --&gt;</span><br><span class="line">        &lt;transactionManager type=<span class="string">"JDBC"</span> /&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- POOLED 表示支持 JDBC 数据源连接池 --&gt;</span><br><span class="line">        &lt;!-- 数据库连接池，由 Mybatis 管理，数据库名是 mybatis，MySQL 用户名 root，密码为空 --&gt;</span><br><span class="line">        &lt;dataSource type=<span class="string">"POOLED"</span>&gt;</span><br><span class="line">            &lt;property name=<span class="string">"driver"</span> value=<span class="string">"com.mysql.cj.jdbc.Driver"</span> /&gt;</span><br><span class="line">            &lt;property name=<span class="string">"url"</span> value=<span class="string">"jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8&amp;amp;serverTimezone=UTC&amp;amp;useSSL=false"</span> /&gt;</span><br><span class="line">            &lt;property name=<span class="string">"username"</span> value=<span class="string">"root"</span> /&gt;</span><br><span class="line">            &lt;property name=<span class="string">"password"</span> value=<span class="string">"123456789"</span> /&gt;</span><br><span class="line">        &lt;/dataSource&gt;</span><br><span class="line">    &lt;/environment&gt;</span><br><span class="line">&lt;/environments&gt;</span><br><span class="line"></span><br><span class="line">&lt;mappers&gt;</span><br><span class="line">    &lt;!-- 通过 mapper 接口包加载整个包的映射文件 --&gt;</span><br><span class="line">    &lt;<span class="keyword">package</span> name=<span class="string">"com.shiyanlou.mybatis.mapper"</span> /&gt;</span><br><span class="line">&lt;/mappers&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="5-实体类User"><a href="#5-实体类User" class="headerlink" title="5.实体类User"></a>5.实体类User</h3><p>在包 <code>com.shiyanlou.mybatis.model</code> 下新建类 User.java ， 一个用户具有：id、username、password、sex、address 五个属性。作为 mybatis 进行 sql 映射使用，与数据库表对应。</p>
@@ -373,7 +371,7 @@
 <li><a href="http://blog.csdn.net/kutejava/article/details/9164353#t0" target="_blank" rel="noopener">mybatis 实战教程 (mybatis in action) 之一：开发环境搭建</a></li>
 <li><a href="http://www.mybatis.org/mybatis-3/zh/getting-started.html" target="_blank" rel="noopener">mybatis 中文文档</a></li>
 </ul>
-
+</configuration>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1760405308@qq.com </span>
     </div>
