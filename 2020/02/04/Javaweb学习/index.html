@@ -6,23 +6,48 @@
   <meta name="keywords" content=" Tomcat , Servlet ">
   <meta name="description" content="JavaWeb学习 | ‘小伙子的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Mybatis一、入门程序1.数据库准备先在MySql中创建一个简单的数据库 create database  user,建立User表，记住数据库的名字，登录账号，密码。 123456789Create database user;CREATE TABLE User (id INT PRIMARY KEY auto_increment,username VARCHAR ( 20 ),PASSWO">
+<meta name="description" content="一.web相关概念1.软件架构​    1.C&#x2F;S：客户端&#x2F;服务器端 ​    2.B&#x2F;S:  浏览器&#x2F;服务器端 2.资源分类​    1.静态资源：所有用户访问得到的结果一样，静态资源可以被浏览器直接解析。如：HTML，css,js 。 ​    2.动态资源：每个用户访问相同资源得到的结果可能不一样，动态资源被访问后，先转换成静态资源，再返回给    浏览器解析。如：Servlet&#x2F;jsp ,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mybatis">
-<meta property="og:url" content="http://yoursite.com/2020/02/04/Mybatis/index.html">
+<meta property="og:title" content="JavaWeb学习">
+<meta property="og:url" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="‘小伙子的博客">
-<meta property="og:description" content="Mybatis一、入门程序1.数据库准备先在MySql中创建一个简单的数据库 create database  user,建立User表，记住数据库的名字，登录账号，密码。 123456789Create database user;CREATE TABLE User (id INT PRIMARY KEY auto_increment,username VARCHAR ( 20 ),PASSWO">
+<meta property="og:description" content="一.web相关概念1.软件架构​    1.C&#x2F;S：客户端&#x2F;服务器端 ​    2.B&#x2F;S:  浏览器&#x2F;服务器端 2.资源分类​    1.静态资源：所有用户访问得到的结果一样，静态资源可以被浏览器直接解析。如：HTML，css,js 。 ​    2.动态资源：每个用户访问相同资源得到的结果可能不一样，动态资源被访问后，先转换成静态资源，再返回给    浏览器解析。如：Servlet&#x2F;jsp ,">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="c:/Users/zhixia/AppData/Roaming/Typora/typora-user-images/1578652631782.png">
-<meta property="og:image" content="c:%5CUsers%5Czhixia%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578652717582.png">
-<meta property="og:image" content="c:%5CUsers%5Czhixia%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1578652888461.png">
-<meta property="article:published_time" content="2020-02-04T15:13:47.000Z">
-<meta property="article:modified_time" content="2020-02-04T15:08:08.067Z">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579488348437.png">
+<meta property="og:image" content="d:/Program_Files/ChenZhixia-stu/source/_posts/Javaweb学习/1579490264742.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579533204601.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579611941546.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579612309305.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579613959218.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579614715821.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579614295619.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579700917169.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579700846914.png">
+<meta property="og:image" content="d:/Program_Files/ChenZhixia-stu/source/_posts/Javaweb学习/1579701509392.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579784560882.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579878481479.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579881854951.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579964276915.png">
+<meta property="og:image" content="c:%5CUsers%5Czhixia%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1579964408586.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580044331601.png">
+<meta property="og:image" content="c:%5CUsers%5Czhixia%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580045014418.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580047404685.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580048994074.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580049517778.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580218495306.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580218299410.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580218552623.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580304576428.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580391867342.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580476620004.png">
+<meta property="og:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580916183085.png">
+<meta property="article:published_time" content="2020-02-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-02-06T11:21:22.240Z">
 <meta property="article:author" content="’小伙子">
-<meta property="article:tag" content="hexo">
-<meta property="article:tag" content="Mybatis">
+<meta property="article:tag" content="Tomcat">
+<meta property="article:tag" content="Servlet">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:/Users/zhixia/AppData/Roaming/Typora/typora-user-images/1578652631782.png">
+<meta name="twitter:image" content="d:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579488348437.png">
 
 
 <link rel="icon" href="/img/avatar.jpg">
