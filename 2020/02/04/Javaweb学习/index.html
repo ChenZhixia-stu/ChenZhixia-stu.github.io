@@ -172,6 +172,14 @@
     <div class="tags-list">
     
     <li class="article-tag-list-item">
+        <a class="color2">Tomcat</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">Servlet</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a class="color5">hexo</a>
     </li>
     
@@ -183,14 +191,6 @@
         <a class="color3">测试</a>
     </li>
     
-    <li class="article-tag-list-item">
-        <a class="color2">Tomcat</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color3">Servlet</a>
-    </li>
-    
     <div class="clearfix"></div>
 </div>
 
@@ -200,6 +200,14 @@
     </div>
     
     <nav id="title-list-nav">
+        
+        <a  class="工具 "
+           href="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/"
+           data-tag="Tomcat,Servlet"
+           data-author="" >
+            <span class="post-title" title="JavaWeb学习">JavaWeb学习</span>
+            <span class="post-date" title="2020-02-04 00:00:00">2020/02/04</span>
+        </a>
         
         <a  class="工具 "
            href="/2020/02/04/Mybatis/"
@@ -215,14 +223,6 @@
            data-author="" >
             <span class="post-title" title="测试">测试</span>
             <span class="post-date" title="2020-02-06 19:46:36">2020/02/06</span>
-        </a>
-        
-        <a  class="工具 "
-           href="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/"
-           data-tag="Tomcat,Servlet"
-           data-author="" >
-            <span class="post-title" title="JavaWeb学习">JavaWeb学习</span>
-            <span class="post-date" title="2020-02-04 00:00:00">2020/02/04</span>
         </a>
         
     </nav>
@@ -263,12 +263,12 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-02-06 21:16:33'>2020-02-04 00:00</time>
+        创建时间:<time class="date" title='更新时间: 2020-02-06 21:35:22'>2020-02-04 00:00</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:8.9k</span>
+        <span>字数:8.8k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -318,13 +318,13 @@
 <h2 id="3-Tomcat三种项目部署"><a href="#3-Tomcat三种项目部署" class="headerlink" title="3.Tomcat三种项目部署"></a>3.Tomcat三种项目部署</h2><p>​    1.直接将项目放在webapps文件夹下面即可，如我的项目（Demo文件夹里包含Demo1_1.html）。运行此项目，打开bin目录下的startup.bat，启动服务器，在浏览器中输入 <a href="http://localhost:8080/Demo/Demo1_1.html" target="_blank" rel="noopener">http://localhost:8080/Demo/Demo1_1.html</a> 即可运行此项目。</p>
 <p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579533204601.png" alt="1579533204601"></p>
 <p>​    2.在config/service.xml的Host标签中，在浏览器中输入 <a href="http://localhost:8080/zxc/Demo1_1.html" target="_blank" rel="noopener">http://localhost:8080/zxc/Demo1_1.html</a> ，缺点在于易毁坏Tomcat本身的配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Host&gt;	</span><br><span class="line"></span><br><span class="line">&lt;Context docBase（项目部署的路径）&#x3D;&quot;D:\Program_Files\Database\Demo” path(虚拟路径自己随便取)&#x3D;&quot;&#x2F;zxc” &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&lt;Host&#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Host</span>&gt;</span>	</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">docBase</span>（项目部署的路径）=<span class="string">"D:\Program_Files\Database\Demo” path(虚拟路径自己随便取)="</span>/<span class="attr">zxc</span>” /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Host</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>​    3.在\conf\Catalina\localhost目录下自己新建一个项目的配置文件，如test.xml,但是不需要path虚拟路径，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Context docBase&#x3D;&quot;D:\BaiduNetdisk\AutoUpdate\Download\Demo&quot;  &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">docBase</span>=<span class="string">"D:\BaiduNetdisk\AutoUpdate\Download\Demo"</span>  /&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>在浏览器中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost:8080\test\Demo1_1.html</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost:8080\test\Demo1_1.html</span><br></pre></td></tr></table></figure>
 
 <p> 以上每种项目部署方法，都需要重启Tomcat服务器，推荐第3中项目部署方法。</p>
 <h2 id="4-动态项目目录结构"><a href="#4-动态项目目录结构" class="headerlink" title="4.动态项目目录结构"></a>4.动态项目目录结构</h2><p>含有WEB-INF的为动态项目：</p>
@@ -346,7 +346,7 @@
 <p>servlet就是一个接口，定义了被浏览器（或Tomcat）识别的Java类的规则。将来我们自定义一个java类，实现servlet接口，复写方法。</p>
 <h2 id="2-快速入门"><a href="#2-快速入门" class="headerlink" title="2.快速入门"></a>2.快速入门</h2><p><strong>1.创建Java EE项目</strong></p>
 <p><strong>2.定义一个类，实现servlet接口，如ServletDemo类，继承Servlet接口，报红用idea的代码补全。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">public class ServletDemo1 implements Servlet</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServletDemo1</span> <span class="keyword">implements</span> <span class="title">Servlet</span></span></span><br></pre></td></tr></table></figure>
 
 <p><strong>3.实现接口中的抽象类，在这里实现servlet中的五个方法</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServletDemo1</span> <span class="keyword">implements</span> <span class="title">Servlet</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span>    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(ServletConfig servletConfig)</span> <span class="keyword">throws</span> ServletException </span>&#123;    &#125;</span><br><span class="line">    <span class="meta">@Override</span>    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> ServletConfig <span class="title">getServletConfig</span><span class="params">()</span> </span>&#123;        <span class="keyword">return</span> <span class="keyword">null</span>;    &#125;</span><br><span class="line">    <span class="comment">//提供服务的方法</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"你好啊！ servlet"</span>);</span><br><span class="line">    &#125;     </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getServletInfo</span><span class="params">()</span> </span>&#123;        <span class="keyword">return</span> <span class="keyword">null</span>;    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -364,7 +364,7 @@
 <p><url-pattern>/demo1（访问路径，如：<a href="http://localhost:8080/666/demo1）" target="_blank" rel="noopener">http://localhost:8080/666/demo1）</a></url-pattern></p>
 </li>
 <li><p>如果有，则找到对应的<servlet-class>的全类名，如：</servlet-class></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;servlet-name&gt;demo1（自己为这个类取得名字）&lt;&#x2F;servlet-name&gt;</span><br><span class="line">&lt;servlet-class&gt;servlet.ServletDemo1（类的全限定名）&lt;&#x2F;servlet-class&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>demo1（自己为这个类取得名字）<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>servlet.ServletDemo1（类的全限定名）<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Tomcat加载字节码文件进内存，并创建其对象</p>
 </li>
@@ -525,14 +525,14 @@
 <p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579881854951.png" alt="1579881854951"></p>
 <p>​    </p>
 <h5 id="2-获取请求头数据"><a href="#2-获取请求头数据" class="headerlink" title="2.获取请求头数据"></a><strong>2.获取请求头数据</strong></h5><p><strong>方法①</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enumeration&lt;String&gt; headerNames &#x3D; request.getHeaderNames();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enumeration&lt;String&gt; headerNames = request.getHeaderNames();</span><br></pre></td></tr></table></figure>
 
 
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//演示获取请求头数据</span></span><br><span class="line"><span class="comment">//1.获取所有请求头名称</span></span><br><span class="line">Enumeration&lt;String&gt; headerNames = request.getHeaderNames();</span><br><span class="line"><span class="comment">//2.遍历</span></span><br><span class="line"><span class="keyword">while</span> (headerNames.hasMoreElements())&#123;</span><br><span class="line">    String name=headerNames.nextElement();</span><br><span class="line">    String header = request.getHeader(name);</span><br><span class="line">    System.out.println(name+<span class="string">"："</span>+header);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>方法②</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">※一般用这个 String header &#x3D; request.getHeader(&quot;user-agent（写你想知道的请求头）&quot;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">※一般用这个 String header = request.getHeader(<span class="string">"user-agent（写你想知道的请求头）"</span>);</span><br></pre></td></tr></table></figure>
 
 
 
@@ -711,7 +711,7 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
 <p>​            4.提供公共的get set 方法</p>
 <p>​        功能：封装数据</p>
 <h5 id="7-2概念："><a href="#7-2概念：" class="headerlink" title="7.2概念："></a><strong>7.2概念</strong>：</h5><p>​            成员变量，如：username，id,password</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">private String username;</span><br><span class="line">private int id;</span><br><span class="line">private String password;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> String username;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line"><span class="keyword">private</span> String password;</span><br></pre></td></tr></table></figure>
 
 <p>​            属性：set ，get方法截取后的产物，如：getUsername –&gt;Username–&gt;username</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getUsername</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> username;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUsername</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.username = username;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> id;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.id = id;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> password;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.password = password;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -851,10 +851,10 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
 
 <div class="article_copyright">
     <p><span class="copy-title">文章标题:</span>JavaWeb学习</p>
-    <p><span class="copy-title">文章字数:</span><span class="post-count">8.9k</span></p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">8.8k</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="’小伙子">’小伙子</a></p>
     <p><span class="copy-title">发布时间:</span>2020-02-04, 00:00:00</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-06, 21:16:33</p>
+    <p><span class="copy-title">最后更新:</span>2020-02-06, 21:35:22</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/" title="JavaWeb学习">http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
@@ -899,7 +899,7 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#hexo','#Mybatis','#测试','#Tomcat','#Servlet',],
+            'data': ['#Tomcat','#Servlet','#hexo','#Mybatis','#测试',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
