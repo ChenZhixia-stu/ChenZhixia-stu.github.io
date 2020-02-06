@@ -172,14 +172,6 @@
     <div class="tags-list">
     
     <li class="article-tag-list-item">
-        <a class="color2">Tomcat</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a class="color3">Servlet</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a class="color5">hexo</a>
     </li>
     
@@ -191,6 +183,14 @@
         <a class="color3">测试</a>
     </li>
     
+    <li class="article-tag-list-item">
+        <a class="color2">Tomcat</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a class="color3">Servlet</a>
+    </li>
+    
     <div class="clearfix"></div>
 </div>
 
@@ -200,14 +200,6 @@
     </div>
     
     <nav id="title-list-nav">
-        
-        <a  class="工具 "
-           href="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/"
-           data-tag="Tomcat,Servlet"
-           data-author="" >
-            <span class="post-title" title="JavaWeb学习">JavaWeb学习</span>
-            <span class="post-date" title="2020-02-04 00:00:00">2020/02/04</span>
-        </a>
         
         <a  class="工具 "
            href="/2020/02/04/Mybatis/"
@@ -223,6 +215,14 @@
            data-author="" >
             <span class="post-title" title="测试">测试</span>
             <span class="post-date" title="2020-02-06 19:46:36">2020/02/06</span>
+        </a>
+        
+        <a  class="工具 "
+           href="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/"
+           data-tag="Tomcat,Servlet"
+           data-author="" >
+            <span class="post-title" title="JavaWeb学习">JavaWeb学习</span>
+            <span class="post-date" title="2020-02-04 00:00:00">2020/02/04</span>
         </a>
         
     </nav>
@@ -263,7 +263,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-02-06 19:21:22'>2020-02-04 00:00</time>
+        创建时间:<time class="date" title='更新时间: 2020-02-06 21:16:33'>2020-02-04 00:00</time>
         
     </div>
     <div class="article-meta">
@@ -310,14 +310,13 @@
 <h2 id="3-网络通信三要素"><a href="#3-网络通信三要素" class="headerlink" title="3.网络通信三要素"></a>3.网络通信三要素</h2><p>​    1.IP地址：电脑在网络中的唯一标识。如我的计算机IP地址（ 192.168.0.106）。</p>
 <p>​    2.端口号：应用程序在计算机中的唯一标识。客户端可以通过ip地址找到对应的[服务器端]，但是服务器端是有    很多端口的，每个[应用程序]对应一个端口号，通过类似门牌号的端口号，客户端才能真正的访问到该服务器。    为了对端口进行区分，将每个端口进行了编号，这就是端口号 。</p>
 <p>​    3.传输协议：规定数据传输规则。</p>
-<h1 id="二-Tomcat服务器"><a href="#二-Tomcat服务器" class="headerlink" title="二.Tomcat服务器"></a>二.Tomcat服务器</h1><h2 id="1-Tomcat相关目录文件"><a href="#1-Tomcat相关目录文件" class="headerlink" title="1.Tomcat相关目录文件"></a>1.Tomcat相关目录文件</h2><p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579488348437.png" alt></p>
+<h1 id="二-Tomcat服务器"><a href="#二-Tomcat服务器" class="headerlink" title="二.Tomcat服务器"></a>二.Tomcat服务器</h1><h2 id="1-Tomcat相关目录文件"><a href="#1-Tomcat相关目录文件" class="headerlink" title="1.Tomcat相关目录文件"></a>1.Tomcat相关目录文件</h2><p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579488348437.png" alt="Tomcat目录"></p>
 <h2 id="2-Tomcat安装及配置"><a href="#2-Tomcat安装及配置" class="headerlink" title="2.Tomcat安装及配置"></a>2.Tomcat安装及配置</h2><p>​    1.下载直接百度Tomcat官网，download下载与自己电脑操作系统位数匹配即可（windows 32x/64x）。</p>
 <p>​    2.安装直接解压下载过来的安装包即可。</p>
 <p>​    3.运行Tomcat服务器，找到bin目录下的startup.bat，点击运行，出现启动时间ms 即配置成功。</p>
-<img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/Program_Files\ChenZhixia-stu\source\_posts\Javaweb学习\1579490264742.png" alt="1579490264742" style="zoom:80%;">
-
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579490264742.png" alt="安装配置"></p>
 <h2 id="3-Tomcat三种项目部署"><a href="#3-Tomcat三种项目部署" class="headerlink" title="3.Tomcat三种项目部署"></a>3.Tomcat三种项目部署</h2><p>​    1.直接将项目放在webapps文件夹下面即可，如我的项目（Demo文件夹里包含Demo1_1.html）。运行此项目，打开bin目录下的startup.bat，启动服务器，在浏览器中输入 <a href="http://localhost:8080/Demo/Demo1_1.html" target="_blank" rel="noopener">http://localhost:8080/Demo/Demo1_1.html</a> 即可运行此项目。</p>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579533204601.png" alt="1579533204601"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579533204601.png" alt="1579533204601"></p>
 <p>​    2.在config/service.xml的Host标签中，在浏览器中输入 <a href="http://localhost:8080/zxc/Demo1_1.html" target="_blank" rel="noopener">http://localhost:8080/zxc/Demo1_1.html</a> ，缺点在于易毁坏Tomcat本身的配置文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Host&gt;	</span><br><span class="line"></span><br><span class="line">&lt;Context docBase（项目部署的路径）&#x3D;&quot;D:\Program_Files\Database\Demo” path(虚拟路径自己随便取)&#x3D;&quot;&#x2F;zxc” &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">&lt;Host&#x2F;&gt;</span><br></pre></td></tr></table></figure>
 
@@ -333,16 +332,16 @@
 <p>2.lib目录存放依赖jar包;</p>
 <p>3.classes为存放字节码文件的目录;</p>
 <h2 id="5-Tomcat集成到IDEA"><a href="#5-Tomcat集成到IDEA" class="headerlink" title="5.Tomcat集成到IDEA"></a>5.Tomcat集成到IDEA</h2><p>1.在运行里找–编辑配置，Templates里找到Tomcat Server下的local，点击configure，在Tomcat Home找到Tomcat的安装目录，确定就行。</p>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579611941546.png" alt="1579611941546"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579611941546.png" alt="1579611941546"></p>
 <h2 id="6-IDEA中创建Web项目"><a href="#6-IDEA中创建Web项目" class="headerlink" title="6.IDEA中创建Web项目"></a>6.IDEA中创建Web项目</h2><h3 id="①创建web项目"><a href="#①创建web项目" class="headerlink" title="①创建web项目"></a>①创建web项目</h3><p>​    文件（file）-new-项目（project）或者模块（module）-java Enterprise- 勾选Web Application 和Create web.xml - 选择Java EE 8 - Tomcat 7.0.96（自己集成到IDEA的Tomcat版本）</p>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579612309305.png" alt="1579612309305"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579612309305.png" alt="1579612309305"></p>
 <h3 id="②运行web项目"><a href="#②运行web项目" class="headerlink" title="②运行web项目"></a>②运行web项目</h3><p>​    先在index.jsp（这里暂时把它当HTML用）的body中输入一些东西，如：hello Tomcat！，点击运行Tomcat。待连接成功后会自动跳转到index的页面。</p>
 <p>index.jsp 是默认的首页，在web,xml中声明的。</p>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579613959218.png" alt="1579613959218"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579613959218.png" alt="1579613959218"></p>
 <p>​    也可以在web文件夹下创建xxx.html文件，重启Tomcat（重新运行），在网页输入 <a href="http://localhost:8080/xxx.html" target="_blank" rel="noopener">http://localhost:8080/xxx.html</a> 访问此页面。</p>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579614715821.png" alt="1579614715821"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579614715821.png" alt="1579614715821"></p>
 <p>​    为了节省重新连接Tomcat时间，可以在运行配置的server中On ‘<u>U</u>pdate’ action 中选择Update resources，这样运行新文件可以不用重新连接。</p>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579614295619.png" alt="1579614295619"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579614295619.png" alt="1579614295619"></p>
 <h1 id="三-Servlet"><a href="#三-Servlet" class="headerlink" title="三.Servlet"></a>三.Servlet</h1><h2 id="1-概念"><a href="#1-概念" class="headerlink" title="1.概念"></a>1.概念</h2><p>servlet：server applet，运行在服务端的小程序。</p>
 <p>servlet就是一个接口，定义了被浏览器（或Tomcat）识别的Java类的规则。将来我们自定义一个java类，实现servlet接口，复写方法。</p>
 <h2 id="2-快速入门"><a href="#2-快速入门" class="headerlink" title="2.快速入门"></a>2.快速入门</h2><p><strong>1.创建Java EE项目</strong></p>
@@ -380,15 +379,20 @@
 <p>​            在<serlvet>标签下配置</serlvet></p>
 <p>​                    <strong>①第一次被访问时创建 <load-on-startup>的值为负数</load-on-startup></strong></p>
 <p>​                        如：<load-on-startup>-1</load-on-startup></p>
-<p>​                        服务器启动后，需要被访问才会调用init方法<img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579700917169.png" alt="1579700917169"></p>
+<p>​                        服务器启动后，需要被访问才会调用init方法</p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579700917169.png" alt="1579700917169"></p>
 <p>​                    <strong>②在服务器启动时创建<load-on-startup>的值为0或者正整数</load-on-startup></strong></p>
 <p>​                        如：<load-on-startup>5</load-on-startup></p>
 <p>​                        服务器启动时， init 方法打印的 init…. 在启动的日志里</p>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579700846914.png" alt="1579700846914"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579700846914.png" alt="1579700846914"></p>
 <ul>
-<li><strong>servlet的init方法只执行一次，说明servlet在内存中只存在一个对象，servlet是单例的</strong><ul>
-<li>多个用户同时访问时，可能存在线程安全问题。</li>
-<li>解决：尽量不要在servlet中定义成员变量，即使定义了也不要对其修改<img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/Program_Files\ChenZhixia-stu\source\_posts\Javaweb学习\1579701509392.png" alt="1579701509392" style="zoom: 80%;"></li>
+<li><p><strong>servlet的init方法只执行一次，说明servlet在内存中只存在一个对象，servlet是单例的</strong></p>
+<ul>
+<li><p>多个用户同时访问时，可能存在线程安全问题。</p>
+</li>
+<li><p>解决：尽量不要在servlet中定义成员变量，即使定义了也不要对其修改</p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579701509392.png" alt></p>
+</li>
 </ul>
 </li>
 </ul>
@@ -435,7 +439,7 @@
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"doPost方法被执行"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579784560882.png" alt="1579784560882"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579784560882.png" alt="1579784560882"></p>
 <h2 id="7-servlet-相关配置"><a href="#7-servlet-相关配置" class="headerlink" title="7.servlet 相关配置"></a>7.servlet 相关配置</h2><p>​    <strong>urlPartten:Servlet访问路径：</strong></p>
 <ul>
 <li><p>一个Servlet可以定义多个访问路径：</p>
@@ -485,7 +489,7 @@
 <p>格式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Host: localhost:8080  （请求头，都是键值对）</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko&#x2F;20100101 Firefox&#x2F;71.0</span><br><span class="line">Accept: text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9,*&#x2F;*;q&#x3D;0.8</span><br><span class="line">Accept-Language: zh-CN,zh;q&#x3D;0.8,zh-TW;q&#x3D;0.7,zh-HK;q&#x3D;0.5,en-US;q&#x3D;0.3,en;q&#x3D;0.2</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Content-Type: application&#x2F;x-www-form-urlencoded</span><br><span class="line">Content-Length: 12</span><br><span class="line">Origin: http:&#x2F;&#x2F;localhost:8080</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Referer: http:&#x2F;&#x2F;localhost:8080&#x2F;login.html</span><br><span class="line">Cookie: Idea-2ea85be7&#x3D;5dfefb11-22ed-4f7c-9bdd-556c760a5174</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">  （请求空行）</span><br><span class="line">username&#x3D;123  （请求体）</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-Request"><a href="#3-Request" class="headerlink" title="3.Request"></a>3.Request</h2><h3 id="1-request对象和response对象的原理"><a href="#1-request对象和response对象的原理" class="headerlink" title="1.request对象和response对象的原理"></a><strong>1.request对象和response对象的原理</strong></h3><p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579878481479.png" alt="1579878481479"></p>
+<h2 id="3-Request"><a href="#3-Request" class="headerlink" title="3.Request"></a>3.Request</h2><h3 id="1-request对象和response对象的原理"><a href="#1-request对象和response对象的原理" class="headerlink" title="1.request对象和response对象的原理"></a><strong>1.request对象和response对象的原理</strong></h3><p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579878481479.png" alt="1579878481479"></p>
 <p>request和response对象是由服务器创建的，我们来使用它</p>
 <p>request对象是来获取请求信息的，response对象是来设置响应信息</p>
 <h3 id="2-request对象继承体系结构："><a href="#2-request对象继承体系结构：" class="headerlink" title="2.request对象继承体系结构："></a><strong>2.request对象继承体系结构</strong>：</h3><p>​        ServletRequest       –接口</p>
@@ -518,7 +522,7 @@
 <p>⑦.获取IP</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String remoteAddr = req.getRemoteAddr();</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579881854951.png" alt="1579881854951"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579881854951.png" alt="1579881854951"></p>
 <p>​    </p>
 <h5 id="2-获取请求头数据"><a href="#2-获取请求头数据" class="headerlink" title="2.获取请求头数据"></a><strong>2.获取请求头数据</strong></h5><p><strong>方法①</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enumeration&lt;String&gt; headerNames &#x3D; request.getHeaderNames();</span><br></pre></td></tr></table></figure>
@@ -541,9 +545,9 @@
 
 <p>2.再配置另一个Tomcat服务器，记住要改<strong>JMX port</strong>,跟你的主Tomcat服务器不一样就行，要不然会报端口号已被占用</p>
 <p>3.启动盗链服务器和主Tomcat服务器，打开daolian.html，点击<strong>盗取</strong></p>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1579964276915.png" alt="1579964276915"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579964276915.png" alt="1579964276915"></p>
 <p>从主服务器来则是</p>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/C:%5CUsers%5Czhixia%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1579964408586.png" alt="1579964408586"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579964408586.png" alt="1579964408586"></p>
 <h5 id="3-获取请求体数据"><a href="#3-获取请求体数据" class="headerlink" title="3.获取请求体数据"></a><strong>3.获取请求体数据</strong></h5><p>​        请求体：只有POST请求才有请求体，在请求体中封装了POST请求的请求参数；</p>
 <p>​        先写一个register.html注册页面</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"/Servlet_Demo/demo6"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span>  <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"请输入账号"</span> <span class="attr">name</span>=<span class="string">"username"</span> /&gt;</span> <span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">   		<span class="tag">&lt;<span class="name">input</span>  <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span> <span class="attr">name</span>=<span class="string">"password"</span> /&gt;</span> <span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span>  <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -584,11 +588,11 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
 </code></pre>
 </li>
 </ul>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580044331601.png" alt="1580044331601"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580044331601.png" alt="1580044331601"></p>
 <p>④(<strong>常用</strong>)<strong>Map&lt;String, String[]&gt; parameterMap = request.getParameterMap();</strong>  获取所有参数的map集合</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取所有参数的map集合</span></span><br><span class="line">Map&lt;String, String[]&gt; parameterMap = request.getParameterMap();</span><br><span class="line"><span class="comment">//遍历</span></span><br><span class="line">Set&lt;String&gt; keyset = parameterMap.keySet();</span><br><span class="line"><span class="keyword">for</span> (String name : keyset) &#123;</span><br><span class="line">    System.out.println(name+<span class="string">":"</span>);</span><br><span class="line">    String[] values = parameterMap.get(name);</span><br><span class="line">    <span class="keyword">for</span> (String value : values) &#123;</span><br><span class="line">        System.out.println(value);</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">"----------------------"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/C:%5CUsers%5Czhixia%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1580045014418.png" alt="1580045014418"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580045014418.png" alt="1580045014418"></p>
 <p><strong>中文乱码问题</strong>：在获取参数前面加一行代码即可 ：req.setCharacterEncoding(“UTF-8”);</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">       req.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">       System.out.println(<span class="string">"POST"</span>);</span><br><span class="line">       String username = req.getParameter(<span class="string">"username"</span>);</span><br><span class="line">       System.out.println(username);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
@@ -608,12 +612,12 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
 
 
 
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580047404685.png" alt="1580047404685">)<img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580048994074.png" alt="1580048994074"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580047404685.png" alt="1580047404685">)<img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580048994074.png" alt="1580048994074"></p>
 <p>​    <strong>2.特点</strong></p>
 <p>​            1.浏览器地址栏路径不发生变化</p>
 <p>​            2.只能转发当前服务器内部资源中</p>
 <p>​            3.转发是一次请求（在浏览器中F12查看）,可以使用request对象共享数据</p>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580049517778.png" alt="1580049517778"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580049517778.png" alt="1580049517778"></p>
 <h5 id="3-共享数据"><a href="#3-共享数据" class="headerlink" title="3.共享数据"></a>3.共享数据</h5><ul>
 <li><p>域对象：一个有作用范围的对象，可以在范围内共享数据</p>
 </li>
@@ -662,7 +666,7 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
 <p>​    4.登陆成功跳转到SuccessServlet，显示登录成功！</p>
 <p>​    5.登录失败跳转到FailServlet，显示登陆失败，用户名或密码错误</p>
 <h3 id="2-开发步骤"><a href="#2-开发步骤" class="headerlink" title="2.开发步骤"></a>2.开发步骤</h3><p>目录结构</p>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580218495306.png" alt="1580218495306"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580218495306.png" alt="1580218495306"></p>
 <h4 id="1-编写login-HTML页面，配置文件，jar包"><a href="#1-编写login-HTML页面，配置文件，jar包" class="headerlink" title="1.编写login.HTML页面，配置文件，jar包"></a>1.编写login.HTML页面，配置文件，jar包</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"/Login_Test/LoginServlet（/虚拟目录/servlet资源路径）"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span>  <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"请输入账号"</span> <span class="attr">name</span>=<span class="string">"username"</span> /&gt;</span> <span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">        	<span class="tag">&lt;<span class="name">input</span>  <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"请输入密码"</span> <span class="attr">name</span>=<span class="string">"password"</span> /&gt;</span> <span class="tag">&lt;/<span class="name">br</span>&gt;</span>        	 <span class="tag">&lt;<span class="name">input</span>  <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登录"</span>/&gt;</span></span><br><span class="line">    	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>​    配置文件 druid.properties</p>
@@ -670,7 +674,7 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
 
 <p>​    所需要的jar包</p>
 <p>这里注意，<strong>mysql-connector.jar一定要8.0及以上。</strong></p>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580218299410.png" alt="1580218299410"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580218299410.png" alt="1580218299410"></p>
 <h4 id="2-创建数据库"><a href="#2-创建数据库" class="headerlink" title="2.创建数据库"></a>2.创建数据库</h4><p>​    create database login;</p>
 <p>​    create table user(</p>
 <p>​    id int primary key auto_increment,</p>
@@ -688,7 +692,7 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
 <h4 id="6-测试"><a href="#6-测试" class="headerlink" title="6.测试"></a>6.测试</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test;</span><br><span class="line"><span class="keyword">import</span> dao.UserDao;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> user.User;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDaoTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testLogin</span><span class="params">()</span></span>&#123;</span><br><span class="line">        User loginuser=<span class="keyword">new</span> User();</span><br><span class="line">        loginuser.setUsername(<span class="string">"123"</span>);</span><br><span class="line">        loginuser.setPassword(<span class="string">"123"</span>);</span><br><span class="line">        UserDao dao=<span class="keyword">new</span> UserDao();</span><br><span class="line">        User user=dao.login(loginuser);</span><br><span class="line">        System.out.println(user);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>结果：</p>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580218552623.png" alt="1580218552623"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580218552623.png" alt="1580218552623"></p>
 <p>7.编写LoginServlet类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> web;<span class="keyword">import</span> dao.UserDao;<span class="keyword">import</span> user.User;<span class="keyword">import</span> javax.servlet.ServletException;<span class="keyword">import</span> javax.servlet.annotation.WebServlet;<span class="keyword">import</span> javax.servlet.http.HttpServlet;<span class="keyword">import</span> javax.servlet.http.HttpServletRequest;<span class="keyword">import</span> javax.servlet.http.HttpServletResponse;<span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/LoginServlet"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginServlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="comment">//1.编码</span></span><br><span class="line">        request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br><span class="line">        <span class="comment">//2.获取请求参数</span></span><br><span class="line">        String username=request.getParameter(<span class="string">"username"</span>);</span><br><span class="line">        String pwd=request.getParameter(<span class="string">"password"</span>);</span><br><span class="line">        <span class="comment">//3.封装user对象</span></span><br><span class="line">        User loginUser =<span class="keyword">new</span> User();</span><br><span class="line">        loginUser.setUsername(username);</span><br><span class="line">        loginUser.setPassword(pwd);</span><br><span class="line">        <span class="comment">//4.调用UserDao的login方法</span></span><br><span class="line">        UserDao dao=<span class="keyword">new</span> UserDao();</span><br><span class="line">        User user=dao.login(loginUser);</span><br><span class="line">        <span class="comment">//5.判断user</span></span><br><span class="line">        <span class="keyword">if</span>(user==<span class="keyword">null</span>)&#123; </span><br><span class="line">            <span class="comment">//登陆失败          </span></span><br><span class="line">            request.getRequestDispatcher(<span class="string">"/FailServlet"</span>).forward(request,response);        			&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//登陆成功</span></span><br><span class="line">            <span class="comment">//存储数据</span></span><br><span class="line">            request.setAttribute(<span class="string">"user"</span>,user);</span><br><span class="line">            <span class="comment">//转发</span></span><br><span class="line">            request.getRequestDispatcher(<span class="string">"/SuccessServlet"</span>).forward(request,response);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -717,7 +721,7 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
 <p>​        3.populate</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.beanutils.BeanUtils;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;<span class="keyword">import</span> user.User;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationTargetException;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BeanUtilTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> <span class="keyword">throws</span> InvocationTargetException, IllegalAccessException, NoSuchMethodException </span>&#123;</span><br><span class="line">        User user=<span class="keyword">new</span> User();</span><br><span class="line">        BeanUtils.setProperty(user,<span class="string">"username"</span>,<span class="string">"zxc"</span>);</span><br><span class="line">        System.out.println(user);</span><br><span class="line">        String password = BeanUtils.getProperty(user, <span class="string">"username"</span>);</span><br><span class="line">        System.out.println(password);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580304576428.png" alt="1580304576428"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580304576428.png" alt="1580304576428"></p>
 <h2 id="5-Response"><a href="#5-Response" class="headerlink" title="5.Response"></a>5.Response</h2><p>概念：服务器端发送给客户端的数据</p>
 <p>数据格式：</p>
 <p>1.响应行</p>
@@ -759,7 +763,7 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
 <p>​                        字符输出流：PrinterWriter getWriter()</p>
 <p>​                        字节输出流：ServletOutPutStream getOutPutStream()</p>
 <p>​                2.使用输出流，将数据输出到客户端浏览器</p>
-<h5 id="2-案例："><a href="#2-案例：" class="headerlink" title="2.案例："></a>2.案例：</h5><h6 id="1-完成重定向"><a href="#1-完成重定向" class="headerlink" title="1.完成重定向"></a><strong>1.完成重定向</strong></h6><p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580391867342.png" alt="1580391867342"></p>
+<h5 id="2-案例："><a href="#2-案例：" class="headerlink" title="2.案例："></a>2.案例：</h5><h6 id="1-完成重定向"><a href="#1-完成重定向" class="headerlink" title="1.完成重定向"></a><strong>1.完成重定向</strong></h6><p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580391867342.png" alt="1580391867342"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/ResponseDemo1"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResponseDemo1</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.doGet(request,response);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"ResponseDemo1被访问"</span>);</span><br><span class="line">        <span class="comment">//访问ResponseDemo1，会自动跳转到ResponseDemo2</span></span><br><span class="line">        <span class="comment">//1.设置状态码</span></span><br><span class="line">        <span class="comment">//response.setStatus(302);</span></span><br><span class="line">        <span class="comment">//2.设置响应头location</span></span><br><span class="line">       <span class="comment">// response.setHeader("location","/Response/ResponseDemo2");</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//简单的重定向，只需要写路径</span></span><br><span class="line">        response.sendRediect(<span class="string">"/Response/ResponseDemo2"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="meta">@WebServlet</span>(<span class="string">"/ResponseDemo2"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ResponseDemo2</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.doGet(request,response);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"ResponseDemo2被访问"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -789,7 +793,7 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
 </ul>
 <p>​            ①给客户端浏览器使用，需要加虚拟目录（项目的访问路径），建议虚拟目录动态获取  ,getContextPath();</p>
 <p>​                <a herf="xxxx">标签，<form> ,重定向等。</form></a></p>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580476620004.png" alt="1580476620004"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580476620004.png" alt="1580476620004"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//动态获取虚拟目录</span></span><br><span class="line">String contextPath = request.getContextPath();</span><br><span class="line"><span class="comment">//response.sendRedirect("Response/ResponseDemo2");</span></span><br><span class="line"><span class="comment">//这样用getContextPath动态虚拟目录，就不会写死代码，只改Application context就行了</span></span><br><span class="line">response.sendRedirect(contextPath+<span class="string">"/ResponseDemo2"</span>);</span><br></pre></td></tr></table></figure>
 
 <p>​            ②给服务器使用：不需要加虚拟目录，如转发路径</p>
@@ -836,7 +840,7 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String realPath = servletContext.getRealPath(<span class="string">"/img/"</span>+filename);</span><br></pre></td></tr></table></figure>
 
 <p>如果发现报500（其中是中文文件名加载乱码），请跟换Tomcat服务器版本8.0或以上</p>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource_posts%5CJavaweb%E5%AD%A6%E4%B9%A0%5C1580916183085.png" alt="1580916183085"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580916183085.png" alt="1580916183085"></p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1760405308@qq.com </span>
@@ -850,7 +854,7 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
     <p><span class="copy-title">文章字数:</span><span class="post-count">8.9k</span></p>
     <p><span class="copy-title">本文作者:</span><a  title="’小伙子">’小伙子</a></p>
     <p><span class="copy-title">发布时间:</span>2020-02-04, 00:00:00</p>
-    <p><span class="copy-title">最后更新:</span>2020-02-06, 19:21:22</p>
+    <p><span class="copy-title">最后更新:</span>2020-02-06, 21:16:33</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/" title="JavaWeb学习">http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
@@ -895,7 +899,7 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#Tomcat','#Servlet','#hexo','#Mybatis','#测试',],
+            'data': ['#hexo','#Mybatis','#测试','#Tomcat','#Servlet',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
