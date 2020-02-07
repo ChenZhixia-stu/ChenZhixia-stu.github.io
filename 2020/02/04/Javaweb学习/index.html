@@ -1,89 +1,129 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  
 
-    
-      <link rel="icon" href="/favicon.png" />
-    
-
-    <title>
-        
-          JavaWeb学习 - ‘小伙子的博客
-        
-    </title>
-
-    <!-- Spectre.css framework -->
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
-
-    <!-- theme css & js -->
-    
-<link rel="stylesheet" href="/css/book.css">
-
-    
-<script src="/js/book.js"></script>
-
-
-    <!-- tocbot -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
-    
-    <!-- katex -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-
-    
-    
-<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const zooming = new Zooming()
-    zooming.listen('.book-content img')
-})
-</script>
+  
+  <title>JavaWeb学习 | ‘小伙子的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一.web相关概念1.软件架构​    1.C&#x2F;S：客户端&#x2F;服务器端 ​    2.B&#x2F;S:  浏览器&#x2F;服务器端 2.资源分类​    1.静态资源：所有用户访问得到的结果一样，静态资源可以被浏览器直接解析。如：HTML，css,js 。 ​    2.动态资源：每个用户访问相同资源得到的结果可能不一样，动态资源被访问后，先转换成静态资源，再返回给    浏览器解析。如：Servlet&#x2F;jsp ,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWeb学习">
+<meta property="og:url" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="‘小伙子的博客">
+<meta property="og:description" content="一.web相关概念1.软件架构​    1.C&#x2F;S：客户端&#x2F;服务器端 ​    2.B&#x2F;S:  浏览器&#x2F;服务器端 2.资源分类​    1.静态资源：所有用户访问得到的结果一样，静态资源可以被浏览器直接解析。如：HTML，css,js 。 ​    2.动态资源：每个用户访问相同资源得到的结果可能不一样，动态资源被访问后，先转换成静态资源，再返回给    浏览器解析。如：Servlet&#x2F;jsp ,">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579488348437.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579490264742.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579533204601.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579611941546.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579612309305.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579613959218.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579614715821.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579614295619.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579700917169.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579700846914.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579701509392.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579784560882.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579878481479.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579881854951.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579964276915.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579964408586.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580044331601.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580045014418.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580047404685.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580048994074.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580049517778.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580218495306.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580218299410.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580218552623.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580304576428.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580391867342.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580476620004.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580916183085.png">
+<meta property="article:published_time" content="2020-02-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-02-06T15:35:26.432Z">
+<meta property="article:author" content="’小伙子">
+<meta property="article:tag" content="Tomcat">
+<meta property="article:tag" content="Servlet">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579488348437.png">
+  
+    <link rel="alternate" href="/atom.xml" title="‘小伙子的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 <body>
-
-<div class="book-container">
-  <div class="book-sidebar">
-    <div class="book-brand">
-  <a href="/">
-    <img src="/favicon.png">
-    <span>‘小伙子的博客</span>
-  </a>
-</div>
-    <div class="book-menu">
-  
-</div>
-
-
-<script src="/js/book-menu.js"></script>
-
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">‘小伙子的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Javaweb学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2020-02-03T16:00:00.000Z" itemprop="datePublished">2020-02-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
   </div>
 
-  <div class="off-canvas-content">
-    <div class="columns">
-      <div class="column col-10 col-lg-12">
-        <div class="book-navbar">
-          <!-- For Responsive Layout -->
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaWeb学习
+    </h1>
+  
 
-<header class="navbar">
-  <section class="navbar-section">
-    <a onclick="open_sidebar()">
-      <i class="icon icon-menu"></i>
-    </a>
-  </section>
-</header>
-
-        </div>
-        <div class="book-content">
-          <div class="book-post">
-  <h1 id="一-web相关概念"><a href="#一-web相关概念" class="headerlink" title="一.web相关概念"></a>一.web相关概念</h1><h2 id="1-软件架构"><a href="#1-软件架构" class="headerlink" title="1.软件架构"></a>1.软件架构</h2><p>​    1.C/S：客户端/服务器端</p>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一-web相关概念"><a href="#一-web相关概念" class="headerlink" title="一.web相关概念"></a>一.web相关概念</h1><h2 id="1-软件架构"><a href="#1-软件架构" class="headerlink" title="1.软件架构"></a>1.软件架构</h2><p>​    1.C/S：客户端/服务器端</p>
 <p>​    2.B/S:  浏览器/服务器端</p>
 <h2 id="2-资源分类"><a href="#2-资源分类" class="headerlink" title="2.资源分类"></a>2.资源分类</h2><p>​    1.静态资源：所有用户访问得到的结果一样，静态资源可以被浏览器直接解析。如：HTML，css,js 。</p>
 <p>​    2.动态资源：每个用户访问相同资源得到的结果可能不一样，动态资源被访问后，先转换成静态资源，再返回给    浏览器解析。如：Servlet/jsp , php等。</p>
@@ -631,84 +671,140 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
 <p>如果发现报500（其中是中文文件名加载乱码），请跟换Tomcat服务器版本8.0或以上</p>
 <p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1580916183085.png" alt="1580916183085"></p>
 
-</div>
-
-
-  <div class="book-comments">
-    
-
-
-
-
-  </div>
-
-
-
-<script src="/js/book-post.js"></script>
-
-        </div>
-      </div>
-      <div class="column col-2 hide-lg">
-        <div class="book-post-info">
-  
-    <div class="book-post-meta">
-
-  <div class="author">
-
-    <!-- Author image -->
-    <div class="author-img">
-      
-        <figure
-          class="avatar avatar-lg"
-          data-initial="’"
-          style="background-color: #3b4351;">
-        </figure>
       
     </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/" data-id="ck6c053l5000448vg4ybwe7uw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tomcat/" rel="tag">Tomcat</a></li></ul>
 
-    <!-- Author title -->
-    <div class="author-title">
-      <div>’小伙子</div>
-      <div>2020-02-04</div>
-    </div>
+    </footer>
   </div>
-
   
-    <div class="divider"></div>
-
-    <div class="link">
-      <a class="category-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
-
-      <a class="tag-link" href="/tags/Servlet/" rel="tag">#Servlet</a> <a class="tag-link" href="/tags/Tomcat/" rel="tag">#Tomcat</a>
-    </div>
     
+<nav id="article-nav">
   
-
-  <div class="divider"></div>
-</div>
-  
-
-  <div class="book-tocbot">
-</div>
-<div class="book-tocbot-menu">
-  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
-  <a onclick="go_top()">Back to top</a>
-  <a onclick="go_bottom()">Go to bottom</a>
-</div>
-
-
-<script src="/js/book-toc.js"></script>
-
-</div>
+    <a href="/2020/02/04/Mybatis/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Mybatis
+        
       </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a></li></ul>
     </div>
   </div>
-  
-  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
-</div>
 
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mybatis/" rel="tag">Mybatis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Servlet/" rel="tag">Servlet</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tomcat/" rel="tag">Tomcat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Mybatis/" style="font-size: 10px;">Mybatis</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Tomcat/" style="font-size: 10px;">Tomcat</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 10px;">测试</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/02/06/%E6%B5%8B%E8%AF%95/">测试</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/04/Mybatis/">Mybatis</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/">JavaWeb学习</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 ’小伙子<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
 </body>
 </html>
-
-
-<script src="/js/book.js"></script>
