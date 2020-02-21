@@ -37,10 +37,10 @@
 <meta property="og:image" content="http://yoursite.com/2020/02/12/Mybatis2/1581685825405.png">
 <meta property="og:image" content="http://yoursite.com/2020/02/12/Mybatis2/C:%5CUsers%5Czhixia%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1582290567085.png">
 <meta property="og:image" content="http://yoursite.com/2020/02/12/Mybatis2/C:%5CUsers%5Czhixia%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1582290777294.png">
-<meta property="og:image" content="http://yoursite.com/2020/02/12/Mybatis2/Mybatis2%5C1582297068104.png">
-<meta property="og:image" content="http://yoursite.com/2020/02/12/Mybatis2/Mybatis2%5C1582297135413.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/Mybatis2/1582297068104.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/12/Mybatis2/1582297135413.png">
 <meta property="article:published_time" content="2020-02-12T10:10:45.790Z">
-<meta property="article:modified_time" content="2020-02-21T15:06:40.441Z">
+<meta property="article:modified_time" content="2020-02-21T15:08:46.950Z">
 <meta property="article:author" content="’小伙子">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/02/12/Mybatis2/1581423288477.png">
@@ -214,7 +214,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-21 23:06:40" itemprop="dateModified" datetime="2020-02-21T23:06:40+08:00">2020-02-21</time>
+                <time title="修改时间：2020-02-21 23:08:46" itemprop="dateModified" datetime="2020-02-21T23:08:46+08:00">2020-02-21</time>
               </span>
 
           
@@ -468,9 +468,9 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"getUserByNameLikeReturnMap"</span> <span class="attr">resultType</span>=<span class="string">"java.util.Map"</span>&gt;</span></span><br><span class="line">    select * from user where name like #&#123;name&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>以name为MapKey查询结果：其中name  为insert ，mysql就是Key</p>
-<p><img src="/2020/02/12/Mybatis2/Mybatis2%5C1582297068104.png" alt="1582297068104"></p>
+<p><img src="/2020/02/12/Mybatis2/1582297068104.png" alt="1582297068104"></p>
 <p>以id 为MapKey查询结果：1,2就是Key</p>
-<p><img src="/2020/02/12/Mybatis2/Mybatis2%5C1582297135413.png" alt="1582297135413"></p>
+<p><img src="/2020/02/12/Mybatis2/1582297135413.png" alt="1582297135413"></p>
 <p>这里的 @MapKey(“id”)修改后，Map&lt;String,User&gt;要改为Map&lt;Integer,User&gt;。 </p>
 
     </div>
