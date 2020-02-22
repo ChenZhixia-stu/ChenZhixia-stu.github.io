@@ -198,7 +198,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-21 23:08:46" itemprop="dateModified" datetime="2020-02-21T23:08:46+08:00">2020-02-21</time>
+                <time title="修改时间：2020-02-22 23:01:03" itemprop="dateModified" datetime="2020-02-22T23:01:03+08:00">2020-02-22</time>
               </span>
 
           
@@ -456,6 +456,23 @@
 <p>以id 为MapKey查询结果：1,2就是Key</p>
 <p><img src="/2020/02/12/Mybatis2/1582297135413.png" alt="1582297135413"></p>
 <p>这里的 @MapKey(“id”)修改后，Map&lt;String,User&gt;要改为Map&lt;Integer,User&gt;。 </p>
+<h3 id="3-resultMap"><a href="#3-resultMap" class="headerlink" title="3.resultMap"></a>3.resultMap</h3><p>自定义结果映射规则，在SQL语句外</p>
+<!--这里的type写Javabean的相对路径-->
+<pre><code>&lt;resultMap id=&quot;666&quot; type=&quot;com.ecjtu.user.User&quot;&gt;
+    &lt;!--
+    指定主键列的封装规则
+    column：指定哪一列
+    property：指定对应的javabean属性
+    --&gt;
+    &lt;id column=&quot;id&quot; property=&quot;id&quot;&gt;&lt;/id&gt;
+    &lt;!--column对应数据库的列名，property为javabean中的属性--&gt;
+    &lt;!-- 其他不指定的列会自动封装
+    result标签中，如果数据库列名和Javabean属性名一致也可以不写，如果不一致就要写--&gt;
+    &lt;result column=&quot;name&quot; property=&quot;name&quot;/&gt;</code></pre><p>​    </p>
+<p>这样自定义之后，查询语句中应选择resultMap，且值为resultMap id=”666”</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"queryUserById"</span> <span class="attr">resultMap</span>=<span class="string">"666"</span> &gt;</span></span><br><span class="line">        select * from user where id=#&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>1</p>
 
       
     </div>
