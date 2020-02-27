@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":"ture","preload":"ture"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="二. 数值数据的表示 1.原码1.整数原码定义 2.小数原码定义 3.原码编码规则负号用1表示  2.反码1.整数反码定义 2.小数反码定义 3.反码编码规则 3.补码1.整数补码定义 2.小数补码定义 3.补码编码规则负号用1表示  4.补码特别说明 5.常用的求补码方法 4.移码 补码的数值部分不变，符号取反，即得移码。反之亦然。  5. 原码·反码·补码·移码之间的关系 真值：现实中真实的数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机组成原理">
+<meta property="og:url" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="‘小伙子的博客">
+<meta property="og:description" content="二. 数值数据的表示 1.原码1.整数原码定义 2.小数原码定义 3.原码编码规则负号用1表示  2.反码1.整数反码定义 2.小数反码定义 3.反码编码规则 3.补码1.整数补码定义 2.小数补码定义 3.补码编码规则负号用1表示  4.补码特别说明 5.常用的求补码方法 4.移码 补码的数值部分不变，符号取反，即得移码。反之亦然。  5. 原码·反码·补码·移码之间的关系 真值：现实中真实的数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582531868956.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582529503232.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582529528410.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582529569191.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582529603962.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582529627669.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582529718991.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582529773668.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582530076498.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582530182367.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582530777289.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582531004017.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582797139022.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582797219000.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582807604498.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582807645622.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582808087703.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582808406602.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582809165502.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582808965364.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582808996353.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582809064102.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582809913646.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582809869364.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582810029986.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582812009801.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582812214664.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582812225347.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582812827960.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582812835519.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582814019495.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582814033105.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582814796465.png">
+<meta property="article:published_time" content="2020-02-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-02-27T15:33:49.335Z">
+<meta property="article:author" content="’小伙子">
+<meta property="article:tag" content="原理">
+<meta property="article:tag" content="计算机">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582531868956.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>计算机组成原理 | ‘小伙子的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">‘小伙子的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/ChenZhixia-stu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/66.jpg">
+      <meta itemprop="name" content="’小伙子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="‘小伙子的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          计算机组成原理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-27 00:00:00 / 修改时间：23:33:49" itemprop="dateCreated datePublished" datetime="2020-02-27T00:00:00+08:00">2020-02-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="计算机组成原理" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="二-数值数据的表示"><a href="#二-数值数据的表示" class="headerlink" title="二. 数值数据的表示"></a>二. 数值数据的表示</h1><p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582531868956.png" alt="1582531868956"></p>
+<h2 id="1-原码"><a href="#1-原码" class="headerlink" title="1.原码"></a>1.原码</h2><h3 id="1-整数原码定义"><a href="#1-整数原码定义" class="headerlink" title="1.整数原码定义"></a>1.整数原码定义</h3><p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582529503232.png" alt="1582529503232"></p>
+<h3 id="2-小数原码定义"><a href="#2-小数原码定义" class="headerlink" title="2.小数原码定义"></a>2.小数原码定义</h3><p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582529528410.png" alt="1582529528410"></p>
+<h3 id="3-原码编码规则"><a href="#3-原码编码规则" class="headerlink" title="3.原码编码规则"></a>3.原码编码规则</h3><p>负号用1表示</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582529569191.png" alt="1582529569191"></p>
+<h2 id="2-反码"><a href="#2-反码" class="headerlink" title="2.反码"></a>2.反码</h2><h3 id="1-整数反码定义"><a href="#1-整数反码定义" class="headerlink" title="1.整数反码定义"></a>1.整数反码定义</h3><p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582529603962.png" alt="1582529603962"></p>
+<h3 id="2-小数反码定义"><a href="#2-小数反码定义" class="headerlink" title="2.小数反码定义"></a>2.小数反码定义</h3><p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582529627669.png" alt="1582529627669"></p>
+<h3 id="3-反码编码规则"><a href="#3-反码编码规则" class="headerlink" title="3.反码编码规则"></a>3.反码编码规则</h3><p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582529718991.png" alt="1582529718991"></p>
+<h2 id="3-补码"><a href="#3-补码" class="headerlink" title="3.补码"></a>3.补码</h2><h3 id="1-整数补码定义"><a href="#1-整数补码定义" class="headerlink" title="1.整数补码定义"></a>1.整数补码定义</h3><p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582529773668.png" alt="1582529773668"></p>
+<h3 id="2-小数补码定义"><a href="#2-小数补码定义" class="headerlink" title="2.小数补码定义"></a>2.小数补码定义</h3><p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582530076498.png" alt="1582530076498"></p>
+<h3 id="3-补码编码规则"><a href="#3-补码编码规则" class="headerlink" title="3.补码编码规则"></a>3.补码编码规则</h3><p><strong>负号</strong>用1表示</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582530182367.png" alt="1582530182367"></p>
+<h3 id="4-补码特别说明"><a href="#4-补码特别说明" class="headerlink" title="4.补码特别说明"></a>4.补码特别说明</h3><p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582530777289.png" alt="1582530777289"></p>
+<h3 id="5-常用的求补码方法"><a href="#5-常用的求补码方法" class="headerlink" title="5.常用的求补码方法"></a>5.常用的求补码方法</h3><p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582531004017.png" alt="1582531004017"></p>
+<h2 id="4-移码"><a href="#4-移码" class="headerlink" title="4.移码"></a>4.移码</h2><p> 补码的数值部分不变，符号取反，即得移码。反之亦然。 </p>
+<h2 id="5-原码·反码·补码·移码之间的关系"><a href="#5-原码·反码·补码·移码之间的关系" class="headerlink" title="5. 原码·反码·补码·移码之间的关系"></a>5. 原码·反码·补码·移码之间的关系</h2><p> 真值：现实中真实的数值<br>机器数：计算机中用编码表达的数值，包括原码、反码、补码、移码等。<br>1》原码：保持原有的数值部分的形式不变，只将符号用二进制代码表示。0为正，1为负。<br>2》反码：原码数值部分各位取反，符号位：0为正，1为负。<br>3》补码：方法1：原码取反末尾加一，符号位：0为正，1为负。<br>方法2：从右到左遇见的第一个1的位置开始，第一个1位置右边所有的数值位全部取反，符号位：0为正，1为负<br>4》移码：补码的数值部分不变，符号取反，即得移码。反之亦然。</p>
+<p>例如：已知x＝－1100101 ，求[x]补和[x]移。<br>x＝－1100101 ——》 [x]补＝10011011 ——–只将符号位取反—》[x]移＝00011011</p>
+<p>同理，已知移码求原码的话 ，一步一步倒着推：先由移码 —》得补码—-》再得原码 </p>
+<h2 id="6-定点数和浮点数的表示方法"><a href="#6-定点数和浮点数的表示方法" class="headerlink" title="6.定点数和浮点数的表示方法"></a>6.定点数和浮点数的表示方法</h2><h3 id="1-定点数"><a href="#1-定点数" class="headerlink" title="1.定点数"></a>1.定点数</h3><p>定点数就是小数点位置固定的数。它又分为：</p>
+<p><strong>1.定点小数</strong>：是指小数点位置固定在最高位之前，符号位之后 。如：</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582797139022.png" alt="."></p>
+<p><strong>2.定点整数</strong>：是指小数点位置固定在最低位之后的数。 如：</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582797219000.png" alt="1582797219000"></p>
+<h3 id="2-定点数的表示范围"><a href="#2-定点数的表示范围" class="headerlink" title="2.定点数的表示范围"></a>2.定点数的表示范围</h3><h4 id="1-n-1位进制小数"><a href="#1-n-1位进制小数" class="headerlink" title="1.n+1位进制小数"></a>1.n+1位进制小数</h4><p><strong>1.最大正数</strong></p>
+<p>n为小数点后位数</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582807604498.png" alt="1582807604498"></p>
+<p><strong>2.最小正数</strong></p>
+<p>n 为小数点后位数</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582807645622.png" alt="1582807645622"></p>
+<p><strong>3.绝对值最大的负数</strong></p>
+<p><strong>原码</strong>：</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582808087703.png" alt="1582808087703"></p>
+<p><strong>补码</strong>：</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582808406602.png" alt="1582808406602"></p>
+<p><strong>4.举例</strong>：</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582809165502.png" alt="1582809165502"></p>
+<h4 id="2-n-1位进制整数"><a href="#2-n-1位进制整数" class="headerlink" title="2.n+1位进制整数"></a>2.n+1位进制整数</h4><p><strong>最大整数</strong>：</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582808965364.png" alt="1582808965364"></p>
+<p><strong>最小整数</strong>：</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582808996353.png" alt="1582808996353"></p>
+<p><strong>绝对值最大的负数</strong>：</p>
+<p><strong>原码</strong>：</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582809064102.png" alt="1582809064102"></p>
+<p><strong>举例</strong>：</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582809913646.png" alt="1582809913646"></p>
+<p><strong>补码</strong>：</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582809869364.png" alt="1582809869364"></p>
+<p><strong>举例</strong>：</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582810029986.png" alt="1582810029986"></p>
+<h3 id="3-浮点数"><a href="#3-浮点数" class="headerlink" title="3.浮点数"></a>3.浮点数</h3><p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582812009801.png" alt="1582812009801"></p>
+<h3 id="4-浮点数表示范围"><a href="#4-浮点数表示范围" class="headerlink" title="4.浮点数表示范围"></a>4.浮点数表示范围</h3><p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582812214664.png" alt="1582812214664"></p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582812225347.png" alt="1582812225347"></p>
+<h3 id="5-浮点数的规格化"><a href="#5-浮点数的规格化" class="headerlink" title="5.浮点数的规格化"></a>5.浮点数的规格化</h3><p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582812827960.png" alt="1582812827960"></p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582812835519.png" alt="1582812835519"></p>
+<h3 id="6-IEEE754标准"><a href="#6-IEEE754标准" class="headerlink" title="6.IEEE754标准"></a>6.IEEE754标准</h3><p>IEEE754标准定义了三种浮点数基本格式：<strong>单精度格式，双精度格式，扩展精度格式</strong></p>
+<p>例如：</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582814019495.png" alt="1582814019495"></p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582814033105.png" alt="1582814033105"></p>
+<h2 id="7-校验码"><a href="#7-校验码" class="headerlink" title="7.校验码"></a>7.校验码</h2><p>校验码：是具有检测错误或带有自动纠错能力的数据编码。</p>
+<p>校验码原理：数据校验码的实现原理就是在原有码的基础上一些冗余码，使得合法编码数据出现某些错误的时候，就称为非法编码。</p>
+<p>通常，将正确的数据编码称为合法编码，将错误的数据编码称为非法编码。</p>
+<p><strong>校验过程</strong></p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582814796465.png" alt="1582814796465"></p>
+<h3 id="1-码距与校验位"><a href="#1-码距与校验位" class="headerlink" title="1.码距与校验位"></a>1.码距与校验位</h3><ul>
+<li><strong>码距</strong>：任何一种编码都是由码字构成，任意两个码字之间最少变化的二进制位位数，被称为“数据校验码的码距”。</li>
+<li>码距≥2的数据校验码，才开始具有检错能力。码距越大，检、纠错能力就越强，而且检错能力总是大于纠错能力。</li>
+<li><strong>校验位</strong>：编码系统中包含的非法编码称为冗余码。为了形成冗余码，在编码中增加冗余位称为校验码。</li>
+</ul>
+<h3 id="2-奇偶校验码"><a href="#2-奇偶校验码" class="headerlink" title="2.奇偶校验码"></a>2.奇偶校验码</h3><p><strong>编码规则</strong>：在K位数值码之外增加1位校验码，使K+1位码字中取值为1的位数总数保持为 偶数（偶校验）或奇数（奇校验）。</p>
+<p><strong>偶校验</strong>：整个编码中包含1的个数为偶数。</p>
+<p><strong>奇校验</strong>：整个编码中包含1的个数为奇数。</p>
+<p>例如：原始数据为 1011</p>
+<p>奇校验码为：<strong>0</strong>1011；</p>
+<p>偶校验码为：<strong>1</strong>1011；</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8E%9F%E7%90%86/" rel="tag"># 原理</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"># 计算机</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/12/Mybatis2/" rel="prev" title="Mybatis2">
+      <i class="fa fa-chevron-left"></i> Mybatis2
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二-数值数据的表示"><span class="nav-number">1.</span> <span class="nav-text">二. 数值数据的表示</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-原码"><span class="nav-number">1.1.</span> <span class="nav-text">1.原码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-整数原码定义"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.整数原码定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-小数原码定义"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.小数原码定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-原码编码规则"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.原码编码规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-反码"><span class="nav-number">1.2.</span> <span class="nav-text">2.反码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-整数反码定义"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.整数反码定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-小数反码定义"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.小数反码定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-反码编码规则"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.反码编码规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-补码"><span class="nav-number">1.3.</span> <span class="nav-text">3.补码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-整数补码定义"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.整数补码定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-小数补码定义"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.小数补码定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-补码编码规则"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.补码编码规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-补码特别说明"><span class="nav-number">1.3.4.</span> <span class="nav-text">4.补码特别说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-常用的求补码方法"><span class="nav-number">1.3.5.</span> <span class="nav-text">5.常用的求补码方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-移码"><span class="nav-number">1.4.</span> <span class="nav-text">4.移码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-原码·反码·补码·移码之间的关系"><span class="nav-number">1.5.</span> <span class="nav-text">5. 原码·反码·补码·移码之间的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-定点数和浮点数的表示方法"><span class="nav-number">1.6.</span> <span class="nav-text">6.定点数和浮点数的表示方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-定点数"><span class="nav-number">1.6.1.</span> <span class="nav-text">1.定点数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-定点数的表示范围"><span class="nav-number">1.6.2.</span> <span class="nav-text">2.定点数的表示范围</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-n-1位进制小数"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">1.n+1位进制小数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-n-1位进制整数"><span class="nav-number">1.6.2.2.</span> <span class="nav-text">2.n+1位进制整数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-浮点数"><span class="nav-number">1.6.3.</span> <span class="nav-text">3.浮点数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-浮点数表示范围"><span class="nav-number">1.6.4.</span> <span class="nav-text">4.浮点数表示范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-浮点数的规格化"><span class="nav-number">1.6.5.</span> <span class="nav-text">5.浮点数的规格化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-IEEE754标准"><span class="nav-number">1.6.6.</span> <span class="nav-text">6.IEEE754标准</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-校验码"><span class="nav-number">1.7.</span> <span class="nav-text">7.校验码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-码距与校验位"><span class="nav-number">1.7.1.</span> <span class="nav-text">1.码距与校验位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-奇偶校验码"><span class="nav-number">1.7.2.</span> <span class="nav-text">2.奇偶校验码</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="’小伙子"
+      src="/images/66.jpg">
+  <p class="site-author-name" itemprop="name">’小伙子</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ChenZhixia-stu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ChenZhixia-stu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1760405308@qq.com" title="E-Mail → mailto:1760405308@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://music.163.com/#/user/home?id=411741257" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;411741257" rel="noopener" target="_blank">网易云音乐</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">’小伙子</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id'     : '',
+            'X-LC-Key'    : '',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout: 3000,
+        priority: true,
+        ignores: [uri => uri.includes('#'),uri => uri == 'http://yoursite.com/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/',]
+      });
+      });
+  </script>
+
+</body>
+</html>
