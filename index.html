@@ -190,10 +190,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-02-27 00:00:00 / 修改时间：23:33:49" itemprop="dateCreated datePublished" datetime="2020-02-27T00:00:00+08:00">2020-02-27</time>
+              <time title="创建时间：2020-02-27 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-27T00:00:00+08:00">2020-02-27</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-03 19:19:19" itemprop="dateModified" datetime="2020-03-03T19:19:19+08:00">2020-03-03</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -280,6 +286,7 @@
 <p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582812835519.png" alt="1582812835519"></p>
 <h3 id="6-IEEE754标准"><a href="#6-IEEE754标准" class="headerlink" title="6.IEEE754标准"></a>6.IEEE754标准</h3><p>IEEE754标准定义了三种浮点数基本格式：<strong>单精度格式，双精度格式，扩展精度格式</strong></p>
 <p>例如：</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/QQ%E5%9B%BE%E7%89%8720200227234445.jpg" alt></p>
 <p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582814019495.png" alt="1582814019495"></p>
 <p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1582814033105.png" alt="1582814033105"></p>
 <h2 id="7-校验码"><a href="#7-校验码" class="headerlink" title="7.校验码"></a>7.校验码</h2><p>校验码：是具有检测错误或带有自动纠错能力的数据编码。</p>
@@ -298,6 +305,16 @@
 <p>例如：原始数据为 1011</p>
 <p>奇校验码为：<strong>0</strong>1011；</p>
 <p>偶校验码为：<strong>1</strong>1011；</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/C:%5CUsers%5C%E5%BF%97%E4%BE%A0%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1583074350224.png" alt="1583074350224"></p>
+<h3 id="3-海明校验码"><a href="#3-海明校验码" class="headerlink" title="3.海明校验码"></a>3.海明校验码</h3><p>海明校验码是一种能够纠正一位出错，检测两位出错，并自动恢复出错的校验码。是有Richard Hamming于1950年提出，主要用于并行数据的传输中。</p>
+<p><strong>编码原则</strong>：</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/C:%5CUsers%5C%E5%BF%97%E4%BE%A0%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1583074536961.png" alt="1583074536961"></p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/C:%5CUsers%5C%E5%BF%97%E4%BE%A0%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1583074976534.png" alt="1583074976534"></p>
+<p>例如：</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/C:%5CUsers%5C%E5%BF%97%E4%BE%A0%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1583074798739.png" alt="1583074798739"></p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/C:%5CUsers%5C%E5%BF%97%E4%BE%A0%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1583075468804.png" alt="1583075468804"></p>
+<h3 id="4-循环冗余校验码"><a href="#4-循环冗余校验码" class="headerlink" title="4.循环冗余校验码"></a>4.循环冗余校验码</h3><p>用于多位串行数据传送中的检错纠错处理，在K位数据位串行移位输出的过程中，用带有异或门控制的移位寄存器形成r个校验位的值，跟随在数据位之后传送走。在接收端再对K+r位的码字进行合法与出错检查</p>
+<p><img src="/2020/02/27/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/C:%5CUsers%5C%E5%BF%97%E4%BE%A0%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1583076831492.png" alt="1583076831492"></p>
 
       
     </div>
@@ -796,7 +813,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-18 19:52:13" itemprop="dateModified" datetime="2020-02-18T19:52:13+08:00">2020-02-18</time>
+                <time title="修改时间：2020-03-08 14:44:09" itemprop="dateModified" datetime="2020-03-08T14:44:09+08:00">2020-03-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -840,12 +857,22 @@
 <p>​    2.安装直接解压下载过来的安装包即可。</p>
 <p>​    3.运行Tomcat服务器，找到bin目录下的startup.bat，点击运行，出现启动时间ms 即配置成功。</p>
 <p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579490264742.png" alt="安装配置"></p>
-<h2 id="3-Tomcat三种项目部署"><a href="#3-Tomcat三种项目部署" class="headerlink" title="3.Tomcat三种项目部署"></a>3.Tomcat三种项目部署</h2><p>​    1.直接将项目放在webapps文件夹下面即可，如我的项目（Demo文件夹里包含Demo1_1.html）。运行此项目，打开bin目录下的startup.bat，启动服务器，在浏览器中输入 <a href="http://localhost:8080/Demo/Demo1_1.html" target="_blank" rel="noopener">http://localhost:8080/Demo/Demo1_1.html</a> 即可运行此项目。</p>
-<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1579533204601.png" alt="1579533204601"></p>
-<p>​    2.在config/service.xml的Host标签中，在浏览器中输入 <a href="http://localhost:8080/zxc/Demo1_1.html" target="_blank" rel="noopener">http://localhost:8080/zxc/Demo1_1.html</a> ，缺点在于易毁坏Tomcat本身的配置文件</p>
+<h2 id="3-Tomcat三种项目部署"><a href="#3-Tomcat三种项目部署" class="headerlink" title="3.Tomcat三种项目部署"></a>3.Tomcat三种项目部署</h2><p>​    <strong>1</strong>.直接将项目放在webapps文件夹下面，目录结构如图( Time/WEB-INF/classes )，在WEB-INF目录下放web.xml文件。</p>
+<p>运行项目，在Tomcat的bin目录下找到startup.bat，点击运行；</p>
+<p>在浏览器中输入 <code>localhost:8080/Time(项目名字)/timedemo(xml文件中自己取的)</code>，敲回车。</p>
+<p>xml文件配置：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">version</span>=<span class="string">"4.0"</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>time<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>TimeServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">		 </span><br><span class="line">		 <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>time<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/timedemo<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">		 <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1583649776522.png" alt="1583649776522"></p>
+<p><img src="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/1583649366606.png" alt="1583649366606"></p>
+<p>​    </p>
+<p><strong>2</strong>.在config/service.xml的Host标签中，在浏览器中输入 <a href="http://localhost:8080/zxc/Demo1_1.html" target="_blank" rel="noopener">http://localhost:8080/zxc/Demo1_1.html</a> ，缺点在于易毁坏Tomcat本身的配置文件</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Host</span>&gt;</span>	</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">docBase</span>（项目部署的路径）=<span class="string">"D:\Program_Files\Database\Demo” path(虚拟路径自己随便取)="</span>/<span class="attr">zxc</span>” /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">Host</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>​    3.在\conf\Catalina\localhost目录下自己新建一个项目的配置文件，如test.xml,但是不需要path虚拟路径，</p>
+<p>​    </p>
+<p><strong>3</strong>.在\conf\Catalina\localhost目录下自己新建一个项目的配置文件，如test.xml,但是不需要path虚拟路径，</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">docBase</span>=<span class="string">"D:\BaiduNetdisk\AutoUpdate\Download\Demo"</span>  /&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>在浏览器中输入</p>
@@ -1104,7 +1131,7 @@
     }
 }
 
-&lt;!--￼<span class="number">32</span>--&gt;
+&lt;!--￼<span class="number">33</span>--&gt;
 
 
 </code></pre>
@@ -1117,7 +1144,7 @@ String[] hobbies = request.getParameterValues(<span class="string">"hobby"</span
 <span class="keyword">for</span> (String hobby:hobbies) {
     System.out.println(hobby);
 }
-&lt;!--￼<span class="number">33</span>--&gt;
+&lt;!--￼<span class="number">34</span>--&gt;
 
 
 </code></pre>
