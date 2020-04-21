@@ -28,15 +28,15 @@
 <meta property="og:description" content="一.SpringBoot入门1.maven设置先在maven&#x2F;config&#x2F;settings.xml的Profiles中添加以下代码 123456789101112&lt;profile&gt;			&lt;id&gt;jdk-1.8&lt;&#x2F;id&gt;			&lt;activation&gt;				&lt;activeByDefault&gt;true&lt;&#x2F;activeByDefault">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/04/15/Spring-Boot/1586966261257.png">
-<meta property="og:image" content="http://yoursite.com/2020/04/15/Spring-Boot/1587127594158.png">
-<meta property="og:image" content="http://yoursite.com/2020/04/15/Spring-Boot/1587127741852.png">
-<meta property="og:image" content="http://yoursite.com/2020/04/15/Spring-Boot/1587134099445.png">
-<meta property="og:image" content="http://yoursite.com/2020/04/15/Spring-Boot/1587134612063.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/15/Spring-Boot/Program_FilesChenZhixia-stusource_postsSpring-Boot/1587127594158.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/15/Spring-Boot/Program_FilesChenZhixia-stusource_postsSpring-Boot/1587127741852.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/15/Spring-Boot/Program_FilesChenZhixia-stusource_postsSpring-Boot/1587134099445.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/15/Spring-Boot/Program_FilesChenZhixia-stusource_postsSpring-Boot/1587134612063.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/15/Spring-Boot/D:%5CTypora%E5%9B%BE%E7%89%87%5C1587304421353.png">
 <meta property="og:image" content="http://yoursite.com/Typora%E5%9B%BE%E7%89%87/1587385118014.png">
 <meta property="og:image" content="http://yoursite.com/Typora%E5%9B%BE%E7%89%87/1587391589892.png">
 <meta property="article:published_time" content="2020-04-15T13:28:35.028Z">
-<meta property="article:modified_time" content="2020-04-20T14:57:35.270Z">
+<meta property="article:modified_time" content="2020-04-21T15:20:13.628Z">
 <meta property="article:author" content="’小伙子">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/04/15/Spring-Boot/1586966261257.png">
@@ -210,7 +210,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-20 22:57:35" itemprop="dateModified" datetime="2020-04-20T22:57:35+08:00">2020-04-20</time>
+                <time title="修改时间：2020-04-21 23:20:13" itemprop="dateModified" datetime="2020-04-21T23:20:13+08:00">2020-04-21</time>
               </span>
 
           
@@ -246,13 +246,8 @@
 <h3 id="5-简化部署"><a href="#5-简化部署" class="headerlink" title="5.简化部署"></a>5.简化部署</h3><p>在pom.xml中添加这个插件，可以简化部署，并可以在idea中使用此方法打成jar包,并将打好的jar包保存在target中</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--可将应用打包成一个可执行的jar包--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<img src="/2020/04/15/Spring-Boot/1587127594158.png" alt="1587127594158" style="zoom:80%;">
-
-
-
-
-
-<p><img src="/2020/04/15/Spring-Boot/1587127741852.png" alt="1587127741852"></p>
+<p><img src="/2020/04/15/Spring-Boot/Program_FilesChenZhixia-stusource_postsSpring-Boot/1587127594158.png" alt></p>
+<p><img src="/2020/04/15/Spring-Boot/Program_FilesChenZhixia-stusource_postsSpring-Boot/1587127741852.png" alt></p>
 <p>在没有Tomcat服务器的计算机上也可以使用该命令执行此jar包</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar spring-boot-<span class="number">01</span>-helloworld-<span class="number">1.0</span>-SNAPSHOT.jar</span><br></pre></td></tr></table></figure>
 
@@ -261,13 +256,9 @@
 <p><strong>@SpringBootApplication</strong>:SringBoot应用标注在某个类上，说明这个类是SpringBoot的主配置类，</p>
 <p>SpringBoot应该运行这个类的main()方法来启动Springboot应用。</p>
 <h2 id="3-使用Spring-Initiallizer快速创建SpringBoot-应用工程"><a href="#3-使用Spring-Initiallizer快速创建SpringBoot-应用工程" class="headerlink" title="3.使用Spring Initiallizer快速创建SpringBoot 应用工程"></a>3.使用Spring Initiallizer快速创建SpringBoot 应用工程</h2><p>1.新建项目——选择Spring Initiallizer——Default——填好项目名——选择模块（这里选择Web）下一步——等待IDE创建完项目。</p>
-<img src="/2020/04/15/Spring-Boot/1587134099445.png" alt="1587134099445" style="zoom: 67%;">
-
-
-
+<p><img src="/2020/04/15/Spring-Boot/Program_FilesChenZhixia-stusource_postsSpring-Boot/1587134099445.png" alt></p>
 <p>2.创建后的项目目录为下图所示，其他的文件可以删除.</p>
-<img src="/2020/04/15/Spring-Boot/1587134612063.png" alt="1587134612063" style="zoom: 80%;">
-
+<p><img src="/2020/04/15/Spring-Boot/Program_FilesChenZhixia-stusource_postsSpring-Boot/1587134612063.png" alt></p>
 <p>3.编写HelloController类,在类上使用@ResController注解来代替@ResponseBody和@Controller两个注解。运行后即可在页面上得到    hello world quick 。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ecjtu.springboot.contoller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span>: spring-boot-helloworld-quick</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: Chenzhixia</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2020-04-17 22:29</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="comment">//@ResponseBody</span></span><br><span class="line"><span class="comment">//@Controller</span></span><br><span class="line"><span class="meta">@RestController</span>  <span class="comment">//RestController是ResponseBody和Controller的组合</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"hello world quick"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -436,11 +427,31 @@
 <p>​    3、虚拟机参数；</p>
 <p>​        -Dspring.profiles.active=66</p>
 <h2 id="6-配置文件加载位置"><a href="#6-配置文件加载位置" class="headerlink" title="6.配置文件加载位置"></a>6.配置文件加载位置</h2><p>springboot 启动会扫描以下位置的application.properties或者application.yml文件作为Spring boot的默认配置文件</p>
-<p>–file:./config/</p>
-<p>–file:./</p>
-<p>–classpath:/config/</p>
-<p>–classpath:/</p>
-<p>优先级由高到底，高优先级的配置会覆盖低优先级的配置；</p>
+<p>–file:./config/   项目文件夹下的config文件</p>
+<p>–file:./                直接放在项目文件夹最高目录</p>
+<p>–classpath:/config/   类路径（resource）下的config文件夹下</p>
+<p>–classpath:/                类路径下</p>
+<p>优先级由高到底，高优先级的配置会覆盖低优先级的配置，SpringBoot会把四个位置的配置文件都加载，互补配置。</p>
+<h2 id="7-外部配置加载顺序"><a href="#7-外部配置加载顺序" class="headerlink" title="7.外部配置加载顺序"></a>7.外部配置加载顺序</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server.servlet.context-path=/boot2</span><br><span class="line">配置项目的访问路径</span><br></pre></td></tr></table></figure>
+
+<p><strong>==SpringBoot也可以从以下位置加载配置； 优先级从高到低；高优先级的配置覆盖低优先级的配置，所有的配置会形成互补配置==</strong></p>
+<p><strong>1.命令行参数</strong></p>
+<p>所有的配置都可以在命令行上进行指定</p>
+<p>java -jar spring-boot-02-config-02-0.0.1-SNAPSHOT.jar –server.port=8087  –server.context-path=/abc</p>
+<p>多个配置用空格分开；</p>
+<p>2.来自java:comp/env的JNDI属性</p>
+<p>3.Java系统属性（System.getProperties()）</p>
+<p>4.操作系统环境变量</p>
+<p>5.RandomValuePropertySource配置的random.*属性值</p>
+<p>==<strong>由jar包外向jar包内进行寻找；</strong>==</p>
+<p>==<strong>优先加载带profile</strong>==</p>
+<p><strong>6.jar包外部的application-{profile}.properties或application.yml(带spring.profile)配置文件</strong></p>
+<p><strong>7.jar包内部的application-{profile}.properties或application.yml(带spring.profile)配置文件</strong></p>
+<p>==<strong>再来加载不带profile</strong>==</p>
+<p><strong>8.jar包外部的application.properties或application.yml(不带spring.profile)配置文件</strong></p>
+<p><strong>9.jar包内部的application.properties或application.yml(不带spring.profile)配置文件</strong></p>
+<p>10.@Configuration注解类上的@PropertySource</p>
+<p>11.通过SpringApplication.setDefaultProperties指定的默认属性</p>
 
     </div>
 
@@ -519,7 +530,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-SpringBoot入门"><span class="nav-number">1.</span> <span class="nav-text">一.SpringBoot入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-maven设置"><span class="nav-number">1.1.</span> <span class="nav-text">1.maven设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-HelloWord"><span class="nav-number">1.2.</span> <span class="nav-text">2.HelloWord</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-配置pom-xml"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.配置pom.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-编写主程序"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.编写主程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-编写controller"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.编写controller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-运行"><span class="nav-number">1.2.4.</span> <span class="nav-text">4.运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-简化部署"><span class="nav-number">1.2.5.</span> <span class="nav-text">5.简化部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-主程序类，入口类"><span class="nav-number">1.2.6.</span> <span class="nav-text">6.主程序类，入口类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用Spring-Initiallizer快速创建SpringBoot-应用工程"><span class="nav-number">1.3.</span> <span class="nav-text">3.使用Spring Initiallizer快速创建SpringBoot 应用工程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、配置文件"><span class="nav-number">2.</span> <span class="nav-text">二、配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-配置文件"><span class="nav-number">2.1.</span> <span class="nav-text">1.配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-yaml语法"><span class="nav-number">2.2.</span> <span class="nav-text">2.yaml语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基本语法"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-值的写法"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.值的写法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-获取配置文件注入"><span class="nav-number">2.3.</span> <span class="nav-text">3.获取配置文件注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-application-properties在idea中文乱码问题"><span class="nav-number">2.3.1.</span> <span class="nav-text">1.application.properties在idea中文乱码问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Value和-ConfigurationProperties获取值比较"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.@Value和@ConfigurationProperties获取值比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-配置文件注入值数据校验（JSR303）"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.配置文件注入值数据校验（JSR303）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-PropertySource和-ImportSource"><span class="nav-number">2.3.4.</span> <span class="nav-text">4.@PropertySource和@ImportSource</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-配置文件占位符"><span class="nav-number">2.4.</span> <span class="nav-text">4.配置文件占位符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-随机数"><span class="nav-number">2.4.1.</span> <span class="nav-text">1.随机数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-占位符获取以前配置的值，如果没有可以指定默认值"><span class="nav-number">2.4.2.</span> <span class="nav-text">2.占位符获取以前配置的值，如果没有可以指定默认值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Profile"><span class="nav-number">2.5.</span> <span class="nav-text">5.Profile</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-多Profile文件"><span class="nav-number">2.5.1.</span> <span class="nav-text">1.多Profile文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-yml支持多文档块方式"><span class="nav-number">2.5.2.</span> <span class="nav-text">2.yml支持多文档块方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-激活指定profie"><span class="nav-number">2.5.3.</span> <span class="nav-text">3.激活指定profie</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-配置文件加载位置"><span class="nav-number">2.6.</span> <span class="nav-text">6.配置文件加载位置</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一-SpringBoot入门"><span class="nav-number">1.</span> <span class="nav-text">一.SpringBoot入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-maven设置"><span class="nav-number">1.1.</span> <span class="nav-text">1.maven设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-HelloWord"><span class="nav-number">1.2.</span> <span class="nav-text">2.HelloWord</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-配置pom-xml"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.配置pom.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-编写主程序"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.编写主程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-编写controller"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.编写controller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-运行"><span class="nav-number">1.2.4.</span> <span class="nav-text">4.运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-简化部署"><span class="nav-number">1.2.5.</span> <span class="nav-text">5.简化部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-主程序类，入口类"><span class="nav-number">1.2.6.</span> <span class="nav-text">6.主程序类，入口类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用Spring-Initiallizer快速创建SpringBoot-应用工程"><span class="nav-number">1.3.</span> <span class="nav-text">3.使用Spring Initiallizer快速创建SpringBoot 应用工程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、配置文件"><span class="nav-number">2.</span> <span class="nav-text">二、配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-配置文件"><span class="nav-number">2.1.</span> <span class="nav-text">1.配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-yaml语法"><span class="nav-number">2.2.</span> <span class="nav-text">2.yaml语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基本语法"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-值的写法"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.值的写法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-获取配置文件注入"><span class="nav-number">2.3.</span> <span class="nav-text">3.获取配置文件注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-application-properties在idea中文乱码问题"><span class="nav-number">2.3.1.</span> <span class="nav-text">1.application.properties在idea中文乱码问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Value和-ConfigurationProperties获取值比较"><span class="nav-number">2.3.2.</span> <span class="nav-text">2.@Value和@ConfigurationProperties获取值比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-配置文件注入值数据校验（JSR303）"><span class="nav-number">2.3.3.</span> <span class="nav-text">3.配置文件注入值数据校验（JSR303）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-PropertySource和-ImportSource"><span class="nav-number">2.3.4.</span> <span class="nav-text">4.@PropertySource和@ImportSource</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-配置文件占位符"><span class="nav-number">2.4.</span> <span class="nav-text">4.配置文件占位符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-随机数"><span class="nav-number">2.4.1.</span> <span class="nav-text">1.随机数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-占位符获取以前配置的值，如果没有可以指定默认值"><span class="nav-number">2.4.2.</span> <span class="nav-text">2.占位符获取以前配置的值，如果没有可以指定默认值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Profile"><span class="nav-number">2.5.</span> <span class="nav-text">5.Profile</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-多Profile文件"><span class="nav-number">2.5.1.</span> <span class="nav-text">1.多Profile文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-yml支持多文档块方式"><span class="nav-number">2.5.2.</span> <span class="nav-text">2.yml支持多文档块方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-激活指定profie"><span class="nav-number">2.5.3.</span> <span class="nav-text">3.激活指定profie</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-配置文件加载位置"><span class="nav-number">2.6.</span> <span class="nav-text">6.配置文件加载位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-外部配置加载顺序"><span class="nav-number">2.7.</span> <span class="nav-text">7.外部配置加载顺序</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
