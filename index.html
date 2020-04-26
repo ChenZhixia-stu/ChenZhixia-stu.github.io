@@ -198,7 +198,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-04-25 22:56:43" itemprop="dateModified" datetime="2020-04-25T22:56:43+08:00">2020-04-25</time>
+                <time title="修改时间：2020-04-26 22:37:33" itemprop="dateModified" datetime="2020-04-26T22:37:33+08:00">2020-04-26</time>
               </span>
 
           
@@ -449,6 +449,24 @@
 <p>图示；</p>
 <p><img src="/2020/04/15/Spring-Boot/concrete-bindings.png" alt></p>
 <p>每一个日志的实现框架都有自己的配置文件。使用slf4j以后，<strong>配置文件还是做成日志实现框架自己本身的配置文件；</strong></p>
+<h2 id="3-统一使用Slf4j"><a href="#3-统一使用Slf4j" class="headerlink" title="3.统一使用Slf4j"></a>3.统一使用Slf4j</h2><p>统一日志记录，即使是别的框架和我一起统一使用slf4j进行输出？</p>
+<p><img src="/2020/04/15/Spring-Boot/legacy.png" alt></p>
+<p><strong>如何让系统中所有的日志都统一到slf4j；</strong></p>
+<p>1、将系统中其他日志框架先排除出去；</p>
+<p>2、用中间包来替换原有的日志框架；.</p>
+<p>3、我们导入slf4j其他的实现</p>
+<h2 id="4-SpringBoot日志关系"><a href="#4-SpringBoot日志关系" class="headerlink" title="4.SpringBoot日志关系"></a>4.SpringBoot日志关系</h2><p>springboot使用它来做日志功能</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2020/04/15/Spring-Boot/1587908117467.png" alt="1587908117467"></p>
+<h2 id="5-日志使用"><a href="#5-日志使用" class="headerlink" title="5.日志使用"></a>5.日志使用</h2><h3 id="1-默认设置"><a href="#1-默认设置" class="headerlink" title="1.默认设置"></a>1.默认设置</h3><p>springboot默认设置了info及以上的日志打印</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//日志的级别   trace &lt; debug &lt; info &lt; warn &lt; error</span></span><br><span class="line">       <span class="comment">//springboot默认使用的是info及以上级别的日志</span></span><br><span class="line">       logger.trace(<span class="string">"这是trace日志。。。"</span>);</span><br><span class="line">       logger.debug(<span class="string">"这是debug日志。。。"</span>);</span><br><span class="line">       logger.info(<span class="string">"这是info日志。、"</span>);</span><br><span class="line">       logger.warn(<span class="string">"这是警告日志。。"</span>);</span><br><span class="line">       logger.error(<span class="string">"这是错误日志"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>如果要设置日志级别可以在application.properties里设置</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置日志打印的级别为trace及以上</span></span><br><span class="line"><span class="meta">logging.level.com.ecjtut</span>=<span class="string">trace;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#不指定路径，将日志文件打印在项目文件夹下，并且自动创建666.log</span></span><br><span class="line"><span class="comment">#logging.file.name=666.log</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#在当电磁盘的根目录下创建spring文件夹和log文件夹，springboot会使用spring.log作为默认文件</span></span><br><span class="line"><span class="meta">logging.file.path</span>=<span class="string">/spring/log</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
