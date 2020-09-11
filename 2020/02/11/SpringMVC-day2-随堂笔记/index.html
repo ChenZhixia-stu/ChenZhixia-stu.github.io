@@ -20,15 +20,21 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":"ture","preload":"ture"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="‘小伙子的博客">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="SpringMVC：    Spring框架的一个子模块，主要是用来将前后台两者进行数据传递时，进行封装处理的。 项目搭建流程：     1.配置前端控制器          web.xml文件中，针对整个项目的配置。       2.编写真正实现逻辑的Controller处理器         如何将请求传递到Controller？          127.0.0.1:8889&#x2F;springM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringMVC-day2">
+<meta property="og:url" content="http://yoursite.com/2020/02/11/SpringMVC-day2-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="‘小伙子的博客">
+<meta property="og:description" content="SpringMVC：    Spring框架的一个子模块，主要是用来将前后台两者进行数据传递时，进行封装处理的。 项目搭建流程：     1.配置前端控制器          web.xml文件中，针对整个项目的配置。       2.编写真正实现逻辑的Controller处理器         如何将请求传递到Controller？          127.0.0.1:8889&#x2F;springM">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-11T07:13:47.000Z">
+<meta property="article:modified_time" content="2020-09-11T08:41:28.076Z">
 <meta property="article:author" content="’小伙子">
+<meta property="article:tag" content="author-czx">
+<meta property="article:tag" content="SpringMVC">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/archives/page/2/">
+<link rel="canonical" href="http://yoursite.com/2020/02/11/SpringMVC-day2-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -36,11 +42,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>归档 | ‘小伙子的博客</title>
+  <title>SpringMVC-day2 | ‘小伙子的博客</title>
   
 
 
@@ -162,92 +168,155 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 13 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/11/SpringMVC-day2-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/66.jpg">
+      <meta itemprop="name" content="’小伙子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="‘小伙子的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SpringMVC-day2
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-11 15:13:47" itemprop="dateCreated datePublished" datetime="2020-02-11T15:13:47+08:00">2020-02-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-11 16:41:28" itemprop="dateModified" datetime="2020-09-11T16:41:28+08:00">2020-09-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index">
+                    <span itemprop="name">框架</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/02/11/SpringMVC-day2-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="SpringMVC-day2" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
+        <p>SpringMVC：<br>    Spring框架的一个子模块，主要是用来将前后台两者进行数据传递时，进行封装处理的。</p>
+<pre><code>项目搭建流程：
+    1.配置前端控制器 
+        web.xml文件中，针对整个项目的配置。
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-11T15:13:47+08:00"
-              content="2020-02-11">
-          02-11
-        </time>
-      </div>
+    2.编写真正实现逻辑的Controller处理器
+        如何将请求传递到Controller？
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/11/SpringMVC/" itemprop="url">
-            <span itemprop="name">SpringMVC</span>
-          </a>
-      </h2>
+        127.0.0.1:8889/springMVCDemo/first2
 
-    </header>
-  </article>
+        通过映射器：通过bean对象的name值,和url请求的资源名 做匹配
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+        如何触发Controller的方法？
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-04T00:00:00+08:00"
-              content="2020-02-04">
-          02-04
-        </time>
-      </div>
+        通过适配器：先判断处理类是不是实现Controller接口，如果实现调用handleRequest方法。
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/" itemprop="url">
-            <span itemprop="name">JavaWeb学习</span>
-          </a>
-      </h2>
 
-    </header>
-  </article>
+    3.返回ModelAndView对象
+        Model携带数据
+        View表示显示页面的逻辑视图名，将来视图解析器会加前缀后缀找到唯一的资源。
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    4.前端控制器，渲染视图
+        将Model的数据传递给view视图。</code></pre><p>SpringMVC的注解方式编写代码：</p>
+<p>1.将服务器的所有项目先移除<br>2.再将mvc添加到服务器中</p>
+<p>编写完的代码，一定要保存。ctrl+s</p>
+<p>一起看一下，大家统一出现的问题：<br>    1.在web.xml文件中，通过 / 拦截所有请求；<br>    2.SpringMVC-servlet.xml<br>        1)&lt;context:component-scan base-package=”com.briup.web.controller”&gt;<br>                                                包名，写错了。<br>        2)视图解析器：<br>    3.在FormController中，<br>        1）@RequestMapping(value = “/t1”)</p>
+<p>public class Student{</p>
+<pre><code>private int id = 10;
+private String name= &quot;tom&quot;;
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-04T00:00:00+08:00"
-              content="2020-02-04">
-          02-04
-        </time>
-      </div>
+public void run(){
+//.....
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/04/Spring/" itemprop="url">
-            <span itemprop="name">Spring学习</span>
-          </a>
-      </h2>
+}</code></pre><p>}</p>
+<p>后台可以向前台传递数据。<br>    后台—&gt;前台<br>     1.后台的Controller ，返回结果：ModelAndView,就可以携带数据给前台；</p>
+<pre><code>2.后台的Controller，返回结果：String,表示需要加载的逻辑视图名是谁。
+                    方法参数列表：HttpSession  session携带参数给前台。
 
-    </header>
-  </article>
-
+3.后台的Controller，上面添加了@ResponseBody的注解，表示直接将返回的结果，以响应体的形式传递给前台。</code></pre><p>前台如何将数据传递给后台，后台该如何接收？</p>
+<pre><code>前台页面的，form表单。</code></pre><p>FormTwoController</p>
+<p>异步交互<br>同步操作</p>
+<p>get请求<br><a href="http://127.0.0.1:8889/mvc/submit/t1?name=张三&amp;pwd=123&amp;age=20#" target="_blank" rel="noopener">http://127.0.0.1:8889/mvc/submit/t1?name=张三&amp;pwd=123&amp;age=20#</a></p>
+<pre><code>url?name</code></pre><p>post请求<br><a href="http://127.0.0.1:8889/mvc/submit/t1" target="_blank" rel="noopener">http://127.0.0.1:8889/mvc/submit/t1</a><br>    url, 数据是放到请求体中的。</p>
+<p>javascript        js</p>
+<p>获取组建，添加事件。</p>
+<p>学习：1.如何跳过controller，直接访问页面<br>     2.如何使用js。</p>
 
     </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/author-czx/" rel="tag"># author-czx</a>
+              <a href="/tags/SpringMVC/" rel="tag"># SpringMVC</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/11/SpringMVC/" rel="prev" title="SpringMVC">
+      <i class="fa fa-chevron-left"></i> SpringMVC
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/11/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="next" title="多线程">
+      多线程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-  </nav>
-
 
 
           </div>
@@ -521,6 +590,16 @@
   
 
   
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout: 3000,
+        priority: true,
+        ignores: [uri => uri.includes('#'),uri => uri == 'http://yoursite.com/2020/02/11/SpringMVC-day2-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/',]
+      });
+      });
+  </script>
 
 </body>
 </html>
