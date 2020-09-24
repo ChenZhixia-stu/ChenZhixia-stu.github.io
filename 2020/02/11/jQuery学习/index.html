@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":"ture","preload":"ture"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="jQuery学习1.jQuery对象jQuery是js的后续，让js代码编写更简单。 1.1jQuery的使用1.下载与安装  http:&#x2F;&#x2F;jquery.com&#x2F; 下载  ，在HTML中引用，注意引入的路径，不要编写错误。  1&lt;script src&#x3D;&quot;js&#x2F;jquery-3.4.1.js&quot; type&#x3D;&quot;text&#x2F;javascript&quot; &gt;&lt;&#x2F;script&gt;  1.2DO">
+  <meta name="description" content="jQuery学习1.jQuery对象jQuery是js的后续，让js代码编写更简单。 1.1jQuery的使用1.下载与安装  http:&#x2F;&#x2F;jquery.com&#x2F; 下载  ，在HTML中引用，注意引入的路径，不要编写错误。  1&lt;script src&#x3D;&quot;js&#x2F;jquery-3.5.1.js&quot; type&#x3D;&quot;text&#x2F;javascript&quot; &gt;&lt;&#x2F;script&gt;  1.2DO">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery学习">
 <meta property="og:url" content="http://yoursite.com/2020/02/11/jQuery%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="‘小伙子的博客">
-<meta property="og:description" content="jQuery学习1.jQuery对象jQuery是js的后续，让js代码编写更简单。 1.1jQuery的使用1.下载与安装  http:&#x2F;&#x2F;jquery.com&#x2F; 下载  ，在HTML中引用，注意引入的路径，不要编写错误。  1&lt;script src&#x3D;&quot;js&#x2F;jquery-3.4.1.js&quot; type&#x3D;&quot;text&#x2F;javascript&quot; &gt;&lt;&#x2F;script&gt;  1.2DO">
+<meta property="og:description" content="jQuery学习1.jQuery对象jQuery是js的后续，让js代码编写更简单。 1.1jQuery的使用1.下载与安装  http:&#x2F;&#x2F;jquery.com&#x2F; 下载  ，在HTML中引用，注意引入的路径，不要编写错误。  1&lt;script src&#x3D;&quot;js&#x2F;jquery-3.5.1.js&quot; type&#x3D;&quot;text&#x2F;javascript&quot; &gt;&lt;&#x2F;script&gt;  1.2DO">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/2020/02/11/jQuery%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CjQuery%E5%AD%A6%E4%B9%A0%5C1599811602160.png">
 <meta property="article:published_time" content="2020-02-11T07:13:47.000Z">
-<meta property="article:modified_time" content="2020-09-11T08:35:53.558Z">
+<meta property="article:modified_time" content="2020-09-22T15:05:22.942Z">
 <meta property="article:author" content="’小伙子">
 <meta property="article:tag" content="author-czx">
 <meta property="article:tag" content="jQuery">
@@ -205,7 +205,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-11 16:35:53" itemprop="dateModified" datetime="2020-09-11T16:35:53+08:00">2020-09-11</time>
+                <time title="修改时间：2020-09-22 23:05:22" itemprop="dateModified" datetime="2020-09-22T23:05:22+08:00">2020-09-22</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -241,9 +241,235 @@
 <h3 id="1-1jQuery的使用"><a href="#1-1jQuery的使用" class="headerlink" title="1.1jQuery的使用"></a>1.1jQuery的使用</h3><p>1.下载与安装</p>
 <p> <a href="http://jquery.com/" target="_blank" rel="noopener">http://jquery.com/</a> 下载  ，在HTML中引用，注意引入的路径，不要编写错误。</p>
 <p><img src="/2020/02/11/jQuery%E5%AD%A6%E4%B9%A0/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CjQuery%E5%AD%A6%E4%B9%A0%5C1599811602160.png" alt="1599811602160"></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery-3.4.1.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> &gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery-3.5.1.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> &gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="1-2DOM对象与jQuery包装集对象"><a href="#1-2DOM对象与jQuery包装集对象" class="headerlink" title="1.2DOM对象与jQuery包装集对象"></a>1.2DOM对象与jQuery包装集对象</h3><h2 id="2-jQuery选择器"><a href="#2-jQuery选择器" class="headerlink" title="2.jQuery选择器"></a>2.jQuery选择器</h2><h3 id="基础选择器"><a href="#基础选择器" class="headerlink" title="基础选择器"></a>基础选择器</h3><h3 id="层次选择器"><a href="#层次选择器" class="headerlink" title="层次选择器"></a>层次选择器</h3>
+<h3 id="1-2DOM对象与jQuery包装集对象"><a href="#1-2DOM对象与jQuery包装集对象" class="headerlink" title="1.2DOM对象与jQuery包装集对象"></a>1.2DOM对象与jQuery包装集对象</h3><p><strong>DOM对象</strong>：JavaScript中获取DOM对象，DOM对象只有有限的方法和属性</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var div1 = document.getElementById("div1");</span><br><span class="line">var divs = document.getElementsByTagName("div");</span><br></pre></td></tr></table></figure>
+
+<p><strong>jQuery包装集对象</strong>：是Dom对象的扩充，jQuery将所有的对象包装成一个包装集。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var jQueryObject = $("#flag");</span><br></pre></td></tr></table></figure>
+
+<p><strong>Dom对象转jQuery对象</strong>：</p>
+<p>只需把dom对象放进$()中；</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var domObject = document.getElementById("#flag");</span><br><span class="line">jQueryObject = $(domObject);</span><br></pre></td></tr></table></figure>
+
+<p><strong>jQuery对象转Dom对象</strong>：</p>
+<p>只需要取出jQuery的数组中的元素即可</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var jQueryObject = $("#flag");</span><br><span class="line">var domObject = jQueryObject[0];</span><br></pre></td></tr></table></figure>
+
+<p>也可以遍历jQuery对象数组，得到Dom对象：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$("#flag").each(function()&#123;</span><br><span class="line">	var dom = this;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-jQuery选择器"><a href="#2-jQuery选择器" class="headerlink" title="2.jQuery选择器"></a><strong>2.jQuery</strong>选择器</h2><h3 id="1-基础选择器"><a href="#1-基础选择器" class="headerlink" title="1.基础选择器"></a>1.基础选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>名称</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id选择器</td>
+<td>#id</td>
+<td>$(“#flag”)选择id为flag的元素(id=”flag”)</td>
+</tr>
+<tr>
+<td>元素(标签)选择器</td>
+<td>element</td>
+<td>$(“div”)选择所有div元素(标签)</td>
+</tr>
+<tr>
+<td>类选择器</td>
+<td>.class</td>
+<td>$(“.blue”)选择所有class=”bule”的元素</td>
+</tr>
+<tr>
+<td>选择所有元素</td>
+<td>*</td>
+<td>$(“*”)选择页面所有元素</td>
+</tr>
+<tr>
+<td>组合选择器</td>
+<td>selector1，selector2，selectorN</td>
+<td>$(“#flag,span,.blue”)同时选中多个元素</td>
+</tr>
+</tbody></table>
+<h3 id="2-层次选择器"><a href="#2-层次选择器" class="headerlink" title="2.层次选择器"></a>2.层次选择器</h3><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>名称</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>后代选择器</td>
+<td>ancestor descendant</td>
+<td>$(“#parent div”)选择id为parent的元素的所有div元素</td>
+</tr>
+<tr>
+<td>子代选择器</td>
+<td>parent &gt; child</td>
+<td>$(“#parent&gt;div”)选择id为parent的直接div子元素</td>
+</tr>
+<tr>
+<td>相邻选择器</td>
+<td>prev + next</td>
+<td>$(“.blue + img”)选择css类为blue的下一个img元素</td>
+</tr>
+<tr>
+<td>同辈选择器</td>
+<td>prev ~ sibling</td>
+<td>$(“.blue ~ img”)选择css类为blue的之后的img元素</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>层次选择器<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery-3.4.1.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.testColor</span>&#123;</span></span><br><span class="line">    background: green;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.gray</span>&#123;</span></span><br><span class="line">    background: gray;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"parent"</span>&gt;</span>层次择器</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"child"</span> <span class="attr">class</span>=<span class="string">"testColor"</span>&gt;</span>父选择器</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"gray"</span>&gt;</span>子选择器<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://www.baidu.com/img/bd_logo1.png"</span><span class="attr">width</span>=<span class="string">"270"</span> <span class="attr">height</span>=<span class="string">"129"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://www.baidu.com/img/bd_logo1.png"</span><span class="attr">width</span>=<span class="string">"270"</span> <span class="attr">height</span>=<span class="string">"129"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    选择器2<span class="tag">&lt;<span class="name">div</span>&gt;</span>选择器2中的div<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"=========后代选择器-选择所有后代====="</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> ancestorS = $(<span class="string">'#parent div'</span>);</span></span><br><span class="line"><span class="actionscript">        ancestorS.each(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log($(<span class="keyword">this</span>).text());</span></span><br><span class="line">    &#125;);</span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"=========子代选择器-选择儿子辈====="</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> child = $(<span class="string">'#parent&gt;div'</span>);</span></span><br><span class="line"><span class="actionscript">        child.each(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log($(<span class="keyword">this</span>).text());</span></span><br><span class="line">    &#125;);</span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"=========相邻选择器====="</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> pre_next = $(<span class="string">".gray + img"</span>);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(pre_next.length);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"=========同辈选择器,其后，（弟弟）====="</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> pre_siblings = $(<span class="string">".gray ~ img"</span>);</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(pre_siblings.length);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-表单选择器"><a href="#3-表单选择器" class="headerlink" title="3.表单选择器"></a>3.表单选择器</h3><table>
+<thead>
+<tr>
+<th>Forms</th>
+<th>名称</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>表单选择器</td>
+<td>:input</td>
+<td>查找所有的input元素：$(“:input”)； 注意：会匹配所有的input、textarea、select和button元素。</td>
+</tr>
+<tr>
+<td>文本框选择器</td>
+<td>:text</td>
+<td>查找所有文本框：$(“:text”)</td>
+</tr>
+<tr>
+<td>密码框选择器</td>
+<td>:password</td>
+<td>查找所有密码框：$(“:password”)</td>
+</tr>
+<tr>
+<td>单选按钮选择器</td>
+<td>:radio</td>
+<td>查找所有单选按钮：$(“:radio”)</td>
+</tr>
+<tr>
+<td>复选框选择器</td>
+<td>:checkbox</td>
+<td>查找所有复选框：$(“:checkbox”)</td>
+</tr>
+<tr>
+<td>提交按钮选择器</td>
+<td>:submit</td>
+<td>查找所有提交按钮：$(“:submit”)</td>
+</tr>
+<tr>
+<td>图像域选择器</td>
+<td>:image</td>
+<td>查找所有图像域：$(“:image”)</td>
+</tr>
+<tr>
+<td>重置按钮选择器</td>
+<td>:reset</td>
+<td>查找所有重置按钮：$(“:reset”)</td>
+</tr>
+<tr>
+<td>按钮选择器</td>
+<td>:button</td>
+<td>查找所有按钮：$(“:button”)</td>
+</tr>
+<tr>
+<td>文件域选择器</td>
+<td>:file</td>
+<td>查找所有文件域：$(“:file”)</td>
+</tr>
+</tbody></table>
+<p>测试代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>表单验证<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery-3.4.1.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">'myform'</span> <span class="attr">name</span>=<span class="string">"myform"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"uno"</span> <span class="attr">value</span>=<span class="string">"9999"</span> <span class="attr">disabled</span>=<span class="string">"disabled"</span>/&gt;</span></span><br><span class="line">    姓名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"uname"</span> <span class="attr">name</span>=<span class="string">"uname"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    密码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">id</span>=<span class="string">"upwd"</span> <span class="attr">name</span>=<span class="string">"upwd"</span> <span class="attr">value</span>=<span class="string">"123456"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    年龄:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"uage"</span> <span class="attr">value</span>=<span class="string">"0"</span> <span class="attr">checked</span>=<span class="string">"checked"</span>/&gt;</span>小屁</span><br><span class="line">    孩</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">name</span>=<span class="string">"uage"</span> <span class="attr">value</span>=<span class="string">"1"</span>/&gt;</span>你懂得 <span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    爱好:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"ufav"</span> <span class="attr">value</span>=<span class="string">"篮球"</span>/&gt;</span>篮球</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"ufav"</span> <span class="attr">value</span>=<span class="string">"爬床"</span>/&gt;</span>爬床</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"ufav"</span> <span class="attr">value</span>=<span class="string">"代码"</span>/&gt;</span>代码<span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    来自:<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"ufrom"</span> <span class="attr">name</span>=<span class="string">"ufrom"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"-1"</span> <span class="attr">selected</span>=<span class="string">"selected"</span>&gt;</span>请选择<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"0"</span>&gt;</span>北京<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"1"</span>&gt;</span>上海<span class="tag">&lt;/<span class="name">option</span></span></span><br><span class="line">        &lt;/select&gt;&lt;br /&gt;</span><br><span class="line">    简介:<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">rows</span>=<span class="string">"10"</span> <span class="attr">cols</span>=<span class="string">"30"</span> <span class="attr">name</span>=<span class="string">"uintro"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    头像:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"image"</span> <span class="attr">src</span>=<span class="string">"http://www.baidu.com/img/bd_logo1.png"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">width</span>=<span class="string">"20"</span> <span class="attr">height</span>=<span class="string">"20"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">onclick</span>=<span class="string">"return checkForm();"</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"reset"</span> &gt;</span>重置<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">checkForm</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 获取 所有的表单元素</span></span></span><br><span class="line"><span class="javascript">    $(<span class="string">":input"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// console.log($(this)[0]);</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log($(<span class="keyword">this</span>)[<span class="number">0</span>].tagName);</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"------+++++++++++++++++++++--------"</span>)</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 获取 text</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"text--&gt;"</span> + $(<span class="string">":text"</span>).length); <span class="comment">// 1</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 获取 password</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"password--&gt;"</span> + $(<span class="string">":password"</span>).length); <span class="comment">// 1</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 获取radio</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"radio--&gt;"</span> + $(<span class="string">":radio"</span>).length); <span class="comment">// 2</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 获取checkbox</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"checkbox--&gt;"</span> + $(<span class="string">":checkbox"</span>).length); <span class="comment">// 3</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 获取file</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"file--&gt;"</span> + $(<span class="string">":file"</span>).length); <span class="comment">// 1</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 获取按钮</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"button--&gt;"</span> + $(<span class="string">":button"</span>).length); <span class="comment">// 2</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 获取submit按钮</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"submit--&gt;"</span> + $(<span class="string">":submit"</span>).length); <span class="comment">// 1</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 获取image按钮</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"image--&gt;"</span> + $(<span class="string">":image"</span>).length); <span class="comment">// 1</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 获取reset按钮</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(<span class="string">"reset--&gt;"</span> + $(<span class="string">":reset"</span>).length); <span class="comment">// 1</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">return</span> <span class="literal">false</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-jQuery-Dom操作"><a href="#3-jQuery-Dom操作" class="headerlink" title="3.jQuery Dom操作"></a>3.jQuery Dom操作</h2><h4 id="1-操作元素的属性"><a href="#1-操作元素的属性" class="headerlink" title="1.操作元素的属性"></a>1.操作元素的属性</h4><h5 id="获取属性："><a href="#获取属性：" class="headerlink" title="获取属性："></a><strong>获取属性</strong>：</h5><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>attr(属性名称)</td>
+<td>获取指定的属性值，操作 checkbox 时， 选中返回 checked，没有选中返回 undefined。</td>
+<td>attr(‘checked’) attr(‘name’)</td>
+</tr>
+<tr>
+<td>prop(属性名称)</td>
+<td>获取具有true和false两个属性的属性值</td>
+<td>prop(‘checked’)</td>
+</tr>
+</tbody></table>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"myform"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"ch"</span> <span class="attr">checked</span>=<span class="string">"checked"</span>/&gt;</span> aa</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"ch"</span> /&gt;</span> bb</span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> ch = $(<span class="string">"input[type='checkbox']"</span>)</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(ch)</span></span><br><span class="line"><span class="actionscript">    ch.each(<span class="function"><span class="keyword">function</span><span class="params">(idx, em)</span></span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(idx + <span class="string">"-"</span> + $(em) + <span class="string">"="</span> + <span class="keyword">this</span>)</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log($(em).attr(<span class="string">'checked'</span>) + <span class="string">"=="</span> + $(em).prop(<span class="string">'checked'</span>))</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(<span class="string">'--------------'</span>)</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="设置属性："><a href="#设置属性：" class="headerlink" title="设置属性："></a>设置属性：</h5><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>attr(属性名称，属性值)</td>
+<td>设置指定的属性值， 操作 checkbox 时， 选中返回 checked， 没有选中返回 undefined。</td>
+<td>attr(‘checked’,’checked’) attr(‘name’,’zs’)</td>
+</tr>
+<tr>
+<td>prop(属性名称，属性值)</td>
+<td>设置具有true和false的属性值</td>
+<td>prop(‘checked’,’true’)</td>
+</tr>
+</tbody></table>
+<h5 id="移除属性："><a href="#移除属性：" class="headerlink" title="移除属性："></a>移除属性：</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>属性操作<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery-3.4.1.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">pre</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h5</span>&gt;</span>1.attr()<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">        设置或者返回元素的属性 ;</span><br><span class="line">        <span class="tag">&lt;<span class="name">h5</span>&gt;</span>2.prop()<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">    设置 具有 true 和 false 两个属性的属性，如 checked, selected 或者</span><br><span class="line">    disabled。</span><br><span class="line">    <span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.baidu.com"</span> <span class="attr">id</span>=<span class="string">"a1"</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.sina.com"</span> <span class="attr">id</span>=<span class="string">"a2"</span>&gt;</span>新浪<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"all"</span> <span class="attr">checked</span>=<span class="string">"checked"</span>/&gt;</span>全选</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 获取属性值：attr</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log($(<span class="string">'#a1'</span>).attr(<span class="string">'href'</span>));</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log($(<span class="string">':checkbox'</span>).attr(<span class="string">'name'</span>));</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 若未选中显示undefined，选中显示 checked</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log($(<span class="string">':checkbox'</span>).attr(<span class="string">'checked'</span>));</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 获取属性值：prop</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 若未选中显示false，选中显示 true</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log($(<span class="string">":checkbox"</span>).prop(<span class="string">'checked'</span>));</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log($(<span class="string">'#a2'</span>).prop(<span class="string">'href'</span>))</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 设置属性值</span></span></span><br><span class="line"><span class="javascript">        $(<span class="string">'#a1'</span>).attr(<span class="string">'href'</span>,<span class="string">'https://jquery.com'</span>);</span></span><br><span class="line"><span class="javascript">        $(<span class="string">":checkbox"</span>).prop(<span class="string">"checked"</span>,<span class="literal">false</span>);</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 移除属性</span></span></span><br><span class="line"><span class="javascript">        $(<span class="string">'#a2'</span>).removeAttr(<span class="string">'href'</span>);</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="操作元素的样式："><a href="#操作元素的样式：" class="headerlink" title="操作元素的样式："></a>操作元素的样式：</h5><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>attr(“class”)</td>
+<td>获取class属性的值，即样式名称</td>
+</tr>
+<tr>
+<td>attr(“class”,”样式名”)</td>
+<td>修改class属性的值，修改样式</td>
+</tr>
+<tr>
+<td>addClass(“样式名”)</td>
+<td>添加样式名称</td>
+</tr>
+<tr>
+<td>css()</td>
+<td>添加具体的样式</td>
+</tr>
+<tr>
+<td>removeClass(class)</td>
+<td>移除样式名称</td>
+</tr>
+</tbody></table>
+<p> 增加元素的具体样式，格式：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1）css(&#123;‘样式名’:’样式值’,’样式名2’:’样式值2’&#125;)</span><br><span class="line">例：css(&#123;&quot;background-color&quot;:&quot;red&quot;,&quot;color&quot;:&quot;#fff&quot;&#125;);</span><br><span class="line">2）css(“样式名”,”样式值”)</span><br><span class="line">例：css(&#39;color&#39;,&#39;white&#39;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>设置元素样式<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"jquery-3.4.1.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> &gt;</span>		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line">    div&#123;</span><br><span class="line">    padding: 8px;</span><br><span class="line">    width: 180px;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.blue</span>&#123;</span></span><br><span class="line">    background: blue;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.larger</span>&#123;</span></span><br><span class="line">    font-size: 30px;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.green</span> &#123;</span></span><br><span class="line">    background : green;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span>&gt;</span>css()方法设置元素样式<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"conBlue"</span> <span class="attr">class</span>=<span class="string">"blue larger"</span>&gt;</span>天蓝色<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"conRed"</span>&gt;</span>大红色<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"remove"</span> <span class="attr">class</span>=<span class="string">"blue larger"</span>&gt;</span>天蓝色<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 获取样式名称</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log($(<span class="string">"#remove"</span>).attr(<span class="string">"class"</span>));</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 修改样式，那么id为remove的元素样式class只有green</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// $('#remove').attr("class","green")</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 添加样式名称，class名称 --叠加</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// $('#conBlue').addClass("blue larger");</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 添加元素具体样式</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// &#123; "":"" , "":"" &#125; 名:值 对</span></span></span><br><span class="line"><span class="javascript">        $(<span class="string">'#conRed'</span>).css(&#123;<span class="string">"background-color"</span>:<span class="string">"red"</span>,<span class="string">"color"</span>:<span class="string">"#fff"</span>&#125;);</span></span><br><span class="line"><span class="javascript">        $(<span class="string">'#remove'</span>).css(<span class="string">'color'</span>,<span class="string">'red'</span>);</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// 移除样式</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">// $("#remove").removeClass("blue larger");</span></span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-操作元素的内容"><a href="#2-操作元素的内容" class="headerlink" title="2.操作元素的内容"></a>2.操作元素的内容</h4><p> 对于元素还可以操作其中的内容，例如文本，值，甚至是html。  </p>
+
     </div>
 
     
@@ -262,12 +488,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/02/11/SpringDataJpa/" rel="prev" title="SpringDataJpa">
-      <i class="fa fa-chevron-left"></i> SpringDataJpa
+    <a href="/2020/02/11/Tomcat%E7%9A%84%E5%86%8D%E6%AC%A1%E8%AE%A4%E8%AF%86/" rel="prev" title="Tomcat的再次认识">
+      <i class="fa fa-chevron-left"></i> Tomcat的再次认识
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/02/11/Spring-Boot/" rel="next" title="Springboot">
-      Springboot <i class="fa fa-chevron-right"></i>
+    <a href="/2020/02/11/SpringDataJpa/" rel="next" title="SpringDataJpa">
+      SpringDataJpa <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -328,7 +554,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery学习"><span class="nav-number">1.</span> <span class="nav-text">jQuery学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-jQuery对象"><span class="nav-number">1.1.</span> <span class="nav-text">1.jQuery对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1jQuery的使用"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1jQuery的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2DOM对象与jQuery包装集对象"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2DOM对象与jQuery包装集对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-jQuery选择器"><span class="nav-number">1.2.</span> <span class="nav-text">2.jQuery选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础选择器"><span class="nav-number">1.2.1.</span> <span class="nav-text">基础选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#层次选择器"><span class="nav-number">1.2.2.</span> <span class="nav-text">层次选择器</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#jQuery学习"><span class="nav-number">1.</span> <span class="nav-text">jQuery学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-jQuery对象"><span class="nav-number">1.1.</span> <span class="nav-text">1.jQuery对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1jQuery的使用"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1jQuery的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2DOM对象与jQuery包装集对象"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2DOM对象与jQuery包装集对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-jQuery选择器"><span class="nav-number">1.2.</span> <span class="nav-text">2.jQuery选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基础选择器"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.基础选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-层次选择器"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.层次选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-表单选择器"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.表单选择器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-jQuery-Dom操作"><span class="nav-number">1.3.</span> <span class="nav-text">3.jQuery Dom操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-操作元素的属性"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">1.操作元素的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#获取属性："><span class="nav-number">1.3.0.1.1.</span> <span class="nav-text">获取属性：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#设置属性："><span class="nav-number">1.3.0.1.2.</span> <span class="nav-text">设置属性：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#移除属性："><span class="nav-number">1.3.0.1.3.</span> <span class="nav-text">移除属性：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#操作元素的样式："><span class="nav-number">1.3.0.1.4.</span> <span class="nav-text">操作元素的样式：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-操作元素的内容"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">2.操作元素的内容</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -344,7 +570,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -353,7 +579,7 @@
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>

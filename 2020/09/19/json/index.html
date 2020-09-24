@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":"ture","preload":"ture"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Json交互处理Json 什么是JSON？  JSON(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式，目前使用特别广泛。 采用完全独立于编程语言的文本格式来存储和表示数据。 简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。  在 JavaScript 语言中，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="json">
+<meta property="og:url" content="http://yoursite.com/2020/09/19/json/index.html">
+<meta property="og:site_name" content="‘小伙子的博客">
+<meta property="og:description" content="Json交互处理Json 什么是JSON？  JSON(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式，目前使用特别广泛。 采用完全独立于编程语言的文本格式来存储和表示数据。 简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。  在 JavaScript 语言中，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Kr2Q3b19mdVPRfiaSSR0OQ2Q8qXVmDPs7ZNuhAueQdj9ibOh9O9lw1535ibtKD0R7VAwPjUQ2kXmVHg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Kr2Q3b19mdVPRfiaSSR0OQ2QCNxRSJebDzgryI1iapfrwBWibv6Ww2CgofjS5K59zdO02OvpoRXCz2w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Kr2Q3b19mdVPRfiaSSR0OQ2Dib7IK6ugTmbm4JhqphKhoeEh2wyjzj4CWCjpibSh0Lge5zcxxJOib3hQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Kr2Q3b19mdVPRfiaSSR0OQ28xBricP4KKliaicvQJJlG989xjEUftuqcibuRPWGHjOZfEA3HiaVTq4GDRw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Kr2Q3b19mdVPRfiaSSR0OQ2wC0G9p8rYjxUNdyVK8oCUicN5LJ9XVsLJddll3tYr28kVaXoUfO0LaQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Kr2Q3b19mdVPRfiaSSR0OQ2AVT1icKIk8UDdWlERvmsWdgcOPvsEUr3s0lIRVzPd6IhrjiaPCDSibt2Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="article:published_time" content="2020-09-19T08:20:48.892Z">
+<meta property="article:modified_time" content="2020-09-19T11:24:04.129Z">
+<meta property="article:author" content="’小伙子">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Kr2Q3b19mdVPRfiaSSR0OQ2Q8qXVmDPs7ZNuhAueQdj9ibOh9O9lw1535ibtKD0R7VAwPjUQ2kXmVHg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+
+<link rel="canonical" href="http://yoursite.com/2020/09/19/json/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>json | ‘小伙子的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">‘小伙子的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/ChenZhixia-stu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/19/json/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/66.jpg">
+      <meta itemprop="name" content="’小伙子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="‘小伙子的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          json
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-19 16:20:48 / 修改时间：19:24:04" itemprop="dateCreated datePublished" datetime="2020-09-19T16:20:48+08:00">2020-09-19</time>
+            </span>
+
+          
+            <span id="/2020/09/19/json/" class="post-meta-item leancloud_visitors" data-flag-title="json" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Json交互处理"><a href="#Json交互处理" class="headerlink" title="Json交互处理"></a>Json交互处理</h2><p>Json</p>
+<p>什么是JSON？</p>
+<ul>
+<li>JSON(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式，目前使用特别广泛。</li>
+<li>采用完全独立于编程语言的<strong>文本格式</strong>来存储和表示数据。</li>
+<li>简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。</li>
+<li>易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。</li>
+</ul>
+<p>在 JavaScript 语言中，一切都是对象。因此，任何JavaScript 支持的类型都可以通过 JSON 来表示，例如字符串、数字、对象、数组等。看看他的要求和语法格式：</p>
+<ul>
+<li>对象表示为键值对，数据由逗号分隔</li>
+<li>花括号保存对象</li>
+<li>方括号保存数组</li>
+</ul>
+<p><strong>JSON 键值对</strong>是用来保存 JavaScript 对象的一种方式，和 JavaScript 对象的写法也大同小异，键/值对组合中的键名写在前面并用双引号 “” 包裹，使用冒号 : 分隔，然后紧接着值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;name&quot;: &quot;QinJiang&quot;&#125;&#123;&quot;age&quot;: &quot;3&quot;&#125;&#123;&quot;sex&quot;: &quot;男&quot;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>很多人搞不清楚 JSON 和 JavaScript 对象的关系，甚至连谁是谁都不清楚。其实，可以这么理解：</p>
+<p>JSON 是 JavaScript 对象的字符串表示法，它使用文本表示一个 JS 对象的信息，本质是一个字符串。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; &#123;a: &#39;Hello&#39;, b: &#39;World&#39;&#125;; &#x2F;&#x2F;这是一个对象，注意键名也是可以使用引号包裹的var json &#x3D; &#39;&#123;&quot;a&quot;: &quot;Hello&quot;, &quot;b&quot;: &quot;World&quot;&#125;&#39;; &#x2F;&#x2F;这是一个 JSON 字符串，本质是一个字符串</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>JSON 和 JavaScript 对象互转</strong></p>
+<p>要实现从JSON字符串转换为JavaScript 对象，使用 JSON.parse() 方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var obj &#x3D; JSON.parse(&#39;&#123;&quot;a&quot;: &quot;Hello&quot;, &quot;b&quot;: &quot;World&quot;&#125;&#39;);&#x2F;&#x2F;结果是 &#123;a: &#39;Hello&#39;, b: &#39;World&#39;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要实现从JavaScript 对象转换为JSON字符串，使用 JSON.stringify() 方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var json &#x3D; JSON.stringify(&#123;a: &#39;Hello&#39;, b: &#39;World&#39;&#125;);&#x2F;&#x2F;结果是 &#39;&#123;&quot;a&quot;: &quot;Hello&quot;, &quot;b&quot;: &quot;World&quot;&#125;&#39;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>代码测试</strong></p>
+<p>1、新建一个module ，springmvc-05-json ， 添加web的支持</p>
+<p>2、在web目录下新建一个 json-1.html ， 编写测试内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;&lt;html lang&#x3D;&quot;en&quot;&gt;&lt;head&gt;    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;    &lt;title&gt;JSON_秦疆&lt;&#x2F;title&gt;&lt;&#x2F;head&gt;&lt;body&gt;&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;    &#x2F;&#x2F;编写一个js的对象    var user &#x3D; &#123;        name:&quot;秦疆&quot;,        age:3,        sex:&quot;男&quot;    &#125;;    &#x2F;&#x2F;将js对象转换成json字符串    var str &#x3D; JSON.stringify(user);    console.log(str);        &#x2F;&#x2F;将json字符串转换为js对象    var user2 &#x3D; JSON.parse(str);    console.log(user2.age,user2.name,user2.sex);&lt;&#x2F;script&gt;&lt;&#x2F;body&gt;&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3、在IDEA中使用浏览器打开，查看控制台输出！</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Kr2Q3b19mdVPRfiaSSR0OQ2Q8qXVmDPs7ZNuhAueQdj9ibOh9O9lw1535ibtKD0R7VAwPjUQ2kXmVHg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<blockquote>
+<p>Controller返回JSON数据</p>
+</blockquote>
+<p>Jackson应该是目前比较好的json解析工具了</p>
+<p>当然工具不止这一个，比如还有阿里巴巴的 fastjson 等等。</p>
+<p>我们这里使用Jackson，使用它需要导入它的jar包；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;com.fasterxml.jackson.core&#x2F;jackson-core --&gt;&lt;dependency&gt;    &lt;groupId&gt;com.fasterxml.jackson.core&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;jackson-databind&lt;&#x2F;artifactId&gt;    &lt;version&gt;2.9.8&lt;&#x2F;version&gt;&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>配置SpringMVC需要的配置</p>
+<p>web.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;&lt;web-app xmlns&#x3D;&quot;http:&#x2F;&#x2F;xmlns.jcp.org&#x2F;xml&#x2F;ns&#x2F;javaee&quot;         xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;         xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;xmlns.jcp.org&#x2F;xml&#x2F;ns&#x2F;javaee http:&#x2F;&#x2F;xmlns.jcp.org&#x2F;xml&#x2F;ns&#x2F;javaee&#x2F;web-app_4_0.xsd&quot;         version&#x3D;&quot;4.0&quot;&gt;    &lt;!--1.注册servlet--&gt;    &lt;servlet&gt;        &lt;servlet-name&gt;SpringMVC&lt;&#x2F;servlet-name&gt;        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;&#x2F;servlet-class&gt;        &lt;!--通过初始化参数指定SpringMVC配置文件的位置，进行关联--&gt;        &lt;init-param&gt;            &lt;param-name&gt;contextConfigLocation&lt;&#x2F;param-name&gt;            &lt;param-value&gt;classpath:springmvc-servlet.xml&lt;&#x2F;param-value&gt;        &lt;&#x2F;init-param&gt;        &lt;!-- 启动顺序，数字越小，启动越早 --&gt;        &lt;load-on-startup&gt;1&lt;&#x2F;load-on-startup&gt;    &lt;&#x2F;servlet&gt;    &lt;!--所有请求都会被springmvc拦截 --&gt;    &lt;servlet-mapping&gt;        &lt;servlet-name&gt;SpringMVC&lt;&#x2F;servlet-name&gt;        &lt;url-pattern&gt;&#x2F;&lt;&#x2F;url-pattern&gt;    &lt;&#x2F;servlet-mapping&gt;    &lt;filter&gt;        &lt;filter-name&gt;encoding&lt;&#x2F;filter-name&gt;        &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;&#x2F;filter-class&gt;        &lt;init-param&gt;            &lt;param-name&gt;encoding&lt;&#x2F;param-name&gt;            &lt;param-value&gt;utf-8&lt;&#x2F;param-value&gt;        &lt;&#x2F;init-param&gt;    &lt;&#x2F;filter&gt;    &lt;filter-mapping&gt;        &lt;filter-name&gt;encoding&lt;&#x2F;filter-name&gt;        &lt;url-pattern&gt;&#x2F;&lt;&#x2F;url-pattern&gt;    &lt;&#x2F;filter-mapping&gt;&lt;&#x2F;web-app&gt;</span><br></pre></td></tr></table></figure>
+
+<p>springmvc-servlet.xml</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;UTF-8&quot;?&gt;&lt;beans xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&quot;       xmlns:xsi&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;2001&#x2F;XMLSchema-instance&quot;       xmlns:context&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context&quot;       xmlns:mvc&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;mvc&quot;       xsi:schemaLocation&#x3D;&quot;http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans        http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;beans&#x2F;spring-beans.xsd        http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context        https:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;context&#x2F;spring-context.xsd        http:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;mvc        https:&#x2F;&#x2F;www.springframework.org&#x2F;schema&#x2F;mvc&#x2F;spring-mvc.xsd&quot;&gt;    &lt;!-- 自动扫描指定的包，下面所有注解类交给IOC容器管理 --&gt;    &lt;context:component-scan base-package&#x3D;&quot;com.kuang.controller&quot;&#x2F;&gt;    &lt;!-- 视图解析器 --&gt;    &lt;bean class&#x3D;&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;          id&#x3D;&quot;internalResourceViewResolver&quot;&gt;        &lt;!-- 前缀 --&gt;        &lt;property name&#x3D;&quot;prefix&quot; value&#x3D;&quot;&#x2F;WEB-INF&#x2F;jsp&#x2F;&quot; &#x2F;&gt;        &lt;!-- 后缀 --&gt;        &lt;property name&#x3D;&quot;suffix&quot; value&#x3D;&quot;.jsp&quot; &#x2F;&gt;    &lt;&#x2F;bean&gt;&lt;&#x2F;beans&gt;</span><br></pre></td></tr></table></figure>
+
+<p>我们随便编写一个User的实体类，然后我们去编写我们的测试Controller；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package com.kuang.pojo;import lombok.AllArgsConstructor;import lombok.Data;import lombok.NoArgsConstructor;&#x2F;&#x2F;需要导入lombok@Data@AllArgsConstructor@NoArgsConstructorpublic class User &#123;    private String name;    private int age;    private String sex;    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里我们需要两个新东西，一个是@ResponseBody，一个是ObjectMapper对象，我们看下具体的用法</p>
+<p>编写一个Controller；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Controllerpublic class UserController &#123;    @RequestMapping(&quot;&#x2F;json1&quot;)    @ResponseBody    public String json1() throws JsonProcessingException &#123;        &#x2F;&#x2F;创建一个jackson的对象映射器，用来解析数据        ObjectMapper mapper &#x3D; new ObjectMapper();        &#x2F;&#x2F;创建一个对象        User user &#x3D; new User(&quot;秦疆1号&quot;, 3, &quot;男&quot;);        &#x2F;&#x2F;将我们的对象解析成为json格式        String str &#x3D; mapper.writeValueAsString(user);        &#x2F;&#x2F;由于@ResponseBody注解，这里会将str转成json格式返回；十分方便        return str;    &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置Tomcat ， 启动测试一下！</p>
+<p><a href="http://localhost:8080/json1" target="_blank" rel="noopener">http://localhost:8080/json1</a></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Kr2Q3b19mdVPRfiaSSR0OQ2QCNxRSJebDzgryI1iapfrwBWibv6Ww2CgofjS5K59zdO02OvpoRXCz2w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>发现出现了乱码问题，我们需要设置一下他的编码格式为utf-8，以及它返回的类型；</p>
+<p>通过@RequestMaping的produces属性来实现，修改下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;produces:指定响应体返回类型和编码@RequestMapping(value &#x3D; &quot;&#x2F;json1&quot;,produces &#x3D; &quot;application&#x2F;json;charset&#x3D;utf-8&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>再次测试， <a href="http://localhost:8080/json1" target="_blank" rel="noopener">http://localhost:8080/json1</a> ， 乱码问题OK！</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Kr2Q3b19mdVPRfiaSSR0OQ2Dib7IK6ugTmbm4JhqphKhoeEh2wyjzj4CWCjpibSh0Lge5zcxxJOib3hQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>【注意：使用json记得处理乱码问题】</p>
+<blockquote>
+<p>代码优化</p>
+</blockquote>
+<p><strong>乱码统一解决</strong></p>
+<p>上一种方法比较麻烦，如果项目中有许多请求则每一个都要添加，可以通过Spring配置统一指定，这样就不用每次都去处理了！</p>
+<p>我们可以在springmvc的配置文件上添加一段消息StringHttpMessageConverter转换配置！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;mvc:annotation-driven&gt;    &lt;mvc:message-converters register-defaults&#x3D;&quot;true&quot;&gt;        &lt;bean class&#x3D;&quot;org.springframework.http.converter.StringHttpMessageConverter&quot;&gt;            &lt;constructor-arg value&#x3D;&quot;UTF-8&quot;&#x2F;&gt;        &lt;&#x2F;bean&gt;        &lt;bean class&#x3D;&quot;org.springframework.http.converter.json.MappingJackson2HttpMessageConverter&quot;&gt;            &lt;property name&#x3D;&quot;objectMapper&quot;&gt;                &lt;bean class&#x3D;&quot;org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean&quot;&gt;                    &lt;property name&#x3D;&quot;failOnEmptyBeans&quot; value&#x3D;&quot;false&quot;&#x2F;&gt;                &lt;&#x2F;bean&gt;            &lt;&#x2F;property&gt;        &lt;&#x2F;bean&gt;    &lt;&#x2F;mvc:message-converters&gt;&lt;&#x2F;mvc:annotation-driven&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>返回json字符串统一解决</strong></p>
+<p>在类上直接使用 <strong>@RestController</strong> ，这样子，里面所有的方法都只会返回 json 字符串了，不用再每一个都添加@ResponseBody ！我们在前后端分离开发中，一般都使用 @RestController ，十分便捷！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@RestControllerpublic class UserController &#123;    &#x2F;&#x2F;produces:指定响应体返回类型和编码    @RequestMapping(value &#x3D; &quot;&#x2F;json1&quot;)    public String json1() throws JsonProcessingException &#123;        &#x2F;&#x2F;创建一个jackson的对象映射器，用来解析数据        ObjectMapper mapper &#x3D; new ObjectMapper();        &#x2F;&#x2F;创建一个对象        User user &#x3D; new User(&quot;秦疆1号&quot;, 3, &quot;男&quot;);        &#x2F;&#x2F;将我们的对象解析成为json格式        String str &#x3D; mapper.writeValueAsString(user);        &#x2F;&#x2F;由于@ResponseBody注解，这里会将str转成json格式返回；十分方便        return str;    &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>启动tomcat测试，结果都正常输出！</p>
+<blockquote>
+<p>测试集合输出</p>
+</blockquote>
+<p>增加一个新的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;&#x2F;json2&quot;)public String json2() throws JsonProcessingException &#123;    &#x2F;&#x2F;创建一个jackson的对象映射器，用来解析数据    ObjectMapper mapper &#x3D; new ObjectMapper();    &#x2F;&#x2F;创建一个对象    User user1 &#x3D; new User(&quot;秦疆1号&quot;, 3, &quot;男&quot;);    User user2 &#x3D; new User(&quot;秦疆2号&quot;, 3, &quot;男&quot;);    User user3 &#x3D; new User(&quot;秦疆3号&quot;, 3, &quot;男&quot;);    User user4 &#x3D; new User(&quot;秦疆4号&quot;, 3, &quot;男&quot;);    List&lt;User&gt; list &#x3D; new ArrayList&lt;User&gt;();    list.add(user1);    list.add(user2);    list.add(user3);    list.add(user4);    &#x2F;&#x2F;将我们的对象解析成为json格式    String str &#x3D; mapper.writeValueAsString(list);    return str;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果 : 十分完美，没有任何问题！</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Kr2Q3b19mdVPRfiaSSR0OQ28xBricP4KKliaicvQJJlG989xjEUftuqcibuRPWGHjOZfEA3HiaVTq4GDRw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<blockquote>
+<p>输出时间对象</p>
+</blockquote>
+<p>增加一个新的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;&#x2F;json3&quot;)public String json3() throws JsonProcessingException &#123;    ObjectMapper mapper &#x3D; new ObjectMapper();    &#x2F;&#x2F;创建时间一个对象，java.util.Date    Date date &#x3D; new Date();    &#x2F;&#x2F;将我们的对象解析成为json格式    String str &#x3D; mapper.writeValueAsString(date);    return str;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果 :</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Kr2Q3b19mdVPRfiaSSR0OQ2wC0G9p8rYjxUNdyVK8oCUicN5LJ9XVsLJddll3tYr28kVaXoUfO0LaQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<ul>
+<li>默认日期格式会变成一个数字，是1970年1月1日到当前日期的毫秒数！</li>
+<li>Jackson 默认是会把时间转成timestamps形式</li>
+</ul>
+<p><strong>解决方案：取消timestamps形式 ， 自定义时间格式</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;&#x2F;json4&quot;)public String json4() throws JsonProcessingException &#123;    ObjectMapper mapper &#x3D; new ObjectMapper();    &#x2F;&#x2F;不使用时间戳的方式    mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);    &#x2F;&#x2F;自定义日期格式对象    SimpleDateFormat sdf &#x3D; new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);    &#x2F;&#x2F;指定日期格式    mapper.setDateFormat(sdf);    Date date &#x3D; new Date();    String str &#x3D; mapper.writeValueAsString(date);    return str;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果 : 成功的输出了时间！</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7Kr2Q3b19mdVPRfiaSSR0OQ2AVT1icKIk8UDdWlERvmsWdgcOPvsEUr3s0lIRVzPd6IhrjiaPCDSibt2Q/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<blockquote>
+<p>抽取为工具类</p>
+</blockquote>
+<p><strong>如果要经常使用的话，这样是比较麻烦的，我们可以将这些代码封装到一个工具类中；我们去编写下</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package com.kuang.utils;import com.fasterxml.jackson.core.JsonProcessingException;import com.fasterxml.jackson.databind.ObjectMapper;import com.fasterxml.jackson.databind.SerializationFeature;import java.text.SimpleDateFormat;public class JsonUtils &#123;        public static String getJson(Object object) &#123;        return getJson(object,&quot;yyyy-MM-dd HH:mm:ss&quot;);    &#125;    public static String getJson(Object object,String dateFormat) &#123;        ObjectMapper mapper &#x3D; new ObjectMapper();        &#x2F;&#x2F;不使用时间差的方式        mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);        &#x2F;&#x2F;自定义日期格式对象        SimpleDateFormat sdf &#x3D; new SimpleDateFormat(dateFormat);        &#x2F;&#x2F;指定日期格式        mapper.setDateFormat(sdf);        try &#123;            return mapper.writeValueAsString(object);        &#125; catch (JsonProcessingException e) &#123;            e.printStackTrace();        &#125;        return null;    &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们使用工具类，代码就更加简洁了！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@RequestMapping(&quot;&#x2F;json5&quot;)public String json5() throws JsonProcessingException &#123;    Date date &#x3D; new Date();    String json &#x3D; JsonUtils.getJson(date);    return json;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>大功告成！完美！</p>
+<blockquote>
+<p>FastJson</p>
+</blockquote>
+<p>fastjson.jar是阿里开发的一款专门用于Java开发的包，可以方便的实现json对象与JavaBean对象的转换，实现JavaBean对象与json字符串的转换，实现json对象与json字符串的转换。实现json的转换方法很多，最后的实现结果都是一样的。</p>
+<p>fastjson 的 pom依赖！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;    &lt;groupId&gt;com.alibaba&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;fastjson&lt;&#x2F;artifactId&gt;    &lt;version&gt;1.2.60&lt;&#x2F;version&gt;&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>fastjson 三个主要的类：</p>
+<p><strong>JSONObject  代表 json 对象</strong> </p>
+<ul>
+<li>JSONObject实现了Map接口, 猜想 JSONObject底层操作是由Map实现的。</li>
+<li>JSONObject对应json对象，通过各种形式的get()方法可以获取json对象中的数据，也可利用诸如size()，isEmpty()等方法获取”键：值”对的个数和判断是否为空。其本质是通过实现Map接口并调用接口中的方法完成的。</li>
+</ul>
+<p><strong>JSONArray  代表 json 对象数组</strong></p>
+<ul>
+<li>内部是有List接口中的方法来完成操作的。</li>
+</ul>
+<p><strong>JSON代表 JSONObject和JSONArray的转化</strong></p>
+<ul>
+<li>JSON类源码分析与使用</li>
+<li>仔细观察这些方法，主要是实现json对象，json对象数组，javabean对象，json字符串之间的相互转化。</li>
+</ul>
+<p><strong>代码测试，我们新建一个FastJsonDemo 类</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package com.kuang.controller;import com.alibaba.fastjson.JSON;import com.alibaba.fastjson.JSONObject;import com.kuang.pojo.User;import java.util.ArrayList;import java.util.List;public class FastJsonDemo &#123;    public static void main(String[] args) &#123;        &#x2F;&#x2F;创建一个对象        User user1 &#x3D; new User(&quot;秦疆1号&quot;, 3, &quot;男&quot;);        User user2 &#x3D; new User(&quot;秦疆2号&quot;, 3, &quot;男&quot;);        User user3 &#x3D; new User(&quot;秦疆3号&quot;, 3, &quot;男&quot;);        User user4 &#x3D; new User(&quot;秦疆4号&quot;, 3, &quot;男&quot;);        List&lt;User&gt; list &#x3D; new ArrayList&lt;User&gt;();        list.add(user1);        list.add(user2);        list.add(user3);        list.add(user4);        System.out.println(&quot;*******Java对象 转 JSON字符串*******&quot;);        String str1 &#x3D; JSON.toJSONString(list);        System.out.println(&quot;JSON.toJSONString(list)&#x3D;&#x3D;&gt;&quot;+str1);        String str2 &#x3D; JSON.toJSONString(user1);        System.out.println(&quot;JSON.toJSONString(user1)&#x3D;&#x3D;&gt;&quot;+str2);        System.out.println(&quot;\n****** JSON字符串 转 Java对象*******&quot;);        User jp_user1&#x3D;JSON.parseObject(str2,User.class);        System.out.println(&quot;JSON.parseObject(str2,User.class)&#x3D;&#x3D;&gt;&quot;+jp_user1);        System.out.println(&quot;\n****** Java对象 转 JSON对象 ******&quot;);        JSONObject jsonObject1 &#x3D; (JSONObject) JSON.toJSON(user2);        System.out.println(&quot;(JSONObject) JSON.toJSON(user2)&#x3D;&#x3D;&gt;&quot;+jsonObject1.getString(&quot;name&quot;));        System.out.println(&quot;\n****** JSON对象 转 Java对象 ******&quot;);        User to_java_user &#x3D; JSON.toJavaObject(jsonObject1, User.class);        System.out.println(&quot;JSON.toJavaObject(jsonObject1, User.class)&#x3D;&#x3D;&gt;&quot;+to_java_user);    &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这种工具类，我们只需要掌握使用就好了，在使用的时候在根据具体的业务去找对应的实现。和以前的commons-io那种工具包一样，拿来用就好了！</p>
+<p>Json在我们数据传输中十分重要，一定要学会使用！</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/17/%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1/" rel="prev" title="网页设计">
+      <i class="fa fa-chevron-left"></i> 网页设计
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Json交互处理"><span class="nav-number">1.</span> <span class="nav-text">Json交互处理</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="’小伙子"
+      src="/images/66.jpg">
+  <p class="site-author-name" itemprop="name">’小伙子</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ChenZhixia-stu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ChenZhixia-stu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1760405308@qq.com" title="E-Mail → mailto:1760405308@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://music.163.com/#/user/home?id=411741257" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;411741257" rel="noopener" target="_blank">网易云音乐</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">’小伙子</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id'     : '',
+            'X-LC-Key'    : '',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout: 3000,
+        priority: true,
+        ignores: [uri => uri.includes('#'),uri => uri == 'http://yoursite.com/2020/09/19/json/',]
+      });
+      });
+  </script>
+
+</body>
+</html>
