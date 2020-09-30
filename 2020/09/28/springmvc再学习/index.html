@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    
+        <title>springmvc再学习 | </title>
+    
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="’小伙子" />
+<meta name="designer" content="minfive" />
+<meta name="keywords" content="null"/>
+<meta name="description" content="" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="robots" content="all" />
+
+<link rel="canonical" href="http://yoursite.com/2020/09/28/springmvc%E5%86%8D%E5%AD%A6%E4%B9%A0/index.html">
+
+<link rel="icon" type="image/png" href="undefined" sizes="32x32">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Prefetch -->
+
+
+
+
+
+
+<!-- CSS -->
+
+<link rel="stylesheet" href="/scss/base/index.css">
+
+
+<!-- RSS -->
+<link rel="alternate" href="/atom.xml" title="‘小伙子的博客">
+
+<!-- 统计 -->
+<!-- 百度统计 -->
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    
+    
+    
+<link rel="stylesheet" href="/scss/views/page/post.css">
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body ontouchstart>
+    
+        <!-- loading 页面 -->
+<div id="page-loading" class="page page-loading" style="background-image: url('undefined')"></div>
+    
+
+    <div id="page" class="page js-hidden">
+        
+    <!-- 页头 -->
+<header class="page__small-header page__header--small">
+    <nav class="page__navbar">
+        <div class="page__container navbar-container">
+            <a class="page__logo" href="/" title="‘小伙子的博客" alt="‘小伙子的博客">
+                <img src="undefined" alt="‘小伙子的博客">
+            </a>
+
+            <nav class="page__nav">
+                <ul class="nav__list clearfix">
+                    
+                </ul>
+            </nav>
+
+            <button class="page__menu-btn" type="button">
+                <i class="iconfont icon-menu"></i>
+            </button>
+        </div>
+    </nav>
+</header>
+
+
+        
+    <main class="page__container page__main">
+    <div class="page__content">
+        <article class="page__post">
+    <div class="post__cover">
+        <img src="undefined" alt="springmvc再学习">
+    </div>
+
+    <header class="post__info">
+        <h1 class="post__title">springmvc再学习</h1>
+
+        <div class="post__mark">
+            <div class="mark__block">
+                <i class="mark__icon iconfont icon-write"></i>
+                <ul class="mark__list clearfix">
+                    
+                        <li class="mark__item">
+                            <a href="/">undefined</a>
+                        </li>
+                    
+                </ul>
+            </div>
+            
+            <div class="mark__block">
+                <i class="mark__icon iconfont icon-time"></i>
+                <ul class="mark__list clearfix">
+                    <li class="mark__item"><span>2020-09-28</span></li>
+                </ul>
+            </div>
+
+            <div class="mark__block">
+                <i class="mark__icon iconfont icon-tab"></i>
+                <ul class="mark__list clearfix">
+                    
+                </ul>
+            </div>
+
+            
+        </div>
+    </header>
+
+    <div class="post__content">
+        <h1 id="一、web项目步骤："><a href="#一、web项目步骤：" class="headerlink" title="一、web项目步骤："></a>一、web项目步骤：</h1><p>1.创建一个web项目；</p>
+<p>2.编写servlet类对象，需要继承httpservlet；</p>
+<p>3.去web.xml中配置servlet</p>
+<p>4.将web项目部署到服务器上</p>
+<p>5.</p>
+<p>二、</p>
+<h1 id="三、客户端如何访问服务器端资源"><a href="#三、客户端如何访问服务器端资源" class="headerlink" title="三、客户端如何访问服务器端资源"></a>三、客户端如何访问服务器端资源</h1><p>1.通过IP地址找到一台电脑</p>
+<p>2.通过port端口号找到电脑上运行的服务器</p>
+<p>3.通过项目名找到服务器中部署的指定项目</p>
+<p>4.通过资源名找到项目中配置的资源信息，客户端</p>
+<p>注：服务器在管理web项目资源时：</p>
+<ul>
+<li>是根据web.xml文件来管理整个servlet类对象的</li>
+<li>静态资源是根据web（WebContent）目录下的内容来管理的。webcontent下的内容客户是可以直接访问的。</li>
+<li>WebContent下面的WEB-INF中的资源，客户端无法直接访问。只能通过服务器内部跳转访问。</li>
+</ul>
+
+
+        
+        <div class="post-announce">
+            感谢您的阅读，本文由
+            <a href="http://yoursite.com">‘小伙子的博客</a>
+            版权所有。如若转载，请注明出处：‘小伙子的博客（<a href="http://yoursite.com/2020/09/28/springmvc%E5%86%8D%E5%AD%A6%E4%B9%A0/">http://yoursite.com/2020/09/28/springmvc%E5%86%8D%E5%AD%A6%E4%B9%A0/</a>）
+        </div>
+        
+
+        <div class="post__prevs">
+            <div class="post__prev">
+                
+                <a href="/2020/09/26/Swagger/" title="Swagger"><i class="iconfont icon-prev"></i>Swagger</a>
+                
+            </div>
+            <div class="post__prev post__prev--right">
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+        
+        
+    </div>
+
+    <aside class="page__sidebar">
+    <!--  -->
+
+    <form id="page-search-from" class="page__search-from" action="/search/">
+        <label class="search-form__item">
+            <input class="input" type="text" name="search" placeholder="Search...">
+            <i class="iconfont icon-search"></i>
+        </label>
+    </form>
+
+    
+
+    <div class="sidebar__block">
+        <h3 class="block__title">文章分类</h3>
+        <ul class="block-list"><li class="block-list-item"><a class="block-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><span class="block-list-count">4</span></li><li class="block-list-item"><a class="block-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="block-list-count">1</span></li><li class="block-list-item"><a class="block-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="block-list-count">1</span></li><li class="block-list-item"><a class="block-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><span class="block-list-count">2</span></li><li class="block-list-item"><a class="block-list-link" href="/categories/lyc/">lyc</a><span class="block-list-count">1</span></li><li class="block-list-item"><a class="block-list-link" href="/categories/czx/">czx</a><span class="block-list-count">4</span></li></ul>
+    </div>
+    
+    <div class="sidebar__block">
+        <h3 class="block__title">最新文章</h3>
+        
+        <ul class="block-list latest-post-list">
+            
+                    <li class="latest-post-item">
+                        <a href="/2020/09/28/springmvc%E5%86%8D%E5%AD%A6%E4%B9%A0/" title="springmvc再学习">
+                            <div class="item__cover">
+                                <img src="undefined" alt="springmvc再学习" />
+                            </div>
+                            <div class="item__info">
+                                <h3 class="item__title">springmvc再学习</h3>
+                                <span class="item__text">2020-09-28</span>
+                            </div>
+                        </a>
+                    </li>
+                
+                    <li class="latest-post-item">
+                        <a href="/2020/09/26/Swagger/" title="Swagger">
+                            <div class="item__cover">
+                                <img src="undefined" alt="Swagger" />
+                            </div>
+                            <div class="item__info">
+                                <h3 class="item__title">Swagger</h3>
+                                <span class="item__text">2020-09-26</span>
+                            </div>
+                        </a>
+                    </li>
+                
+                    <li class="latest-post-item">
+                        <a href="/2020/09/25/BootStrap/" title="BootStrap">
+                            <div class="item__cover">
+                                <img src="undefined" alt="BootStrap" />
+                            </div>
+                            <div class="item__info">
+                                <h3 class="item__title">BootStrap</h3>
+                                <span class="item__text">2020-09-25</span>
+                            </div>
+                        </a>
+                    </li>
+                
+                    <li class="latest-post-item">
+                        <a href="/2020/09/19/json/" title="json">
+                            <div class="item__cover">
+                                <img src="undefined" alt="json" />
+                            </div>
+                            <div class="item__info">
+                                <h3 class="item__title">json</h3>
+                                <span class="item__text">2020-09-19</span>
+                            </div>
+                        </a>
+                    </li>
+                
+        </ul>
+    
+    </div>
+
+    <div class="sidebar__block">
+        <h3 class="block__title">文章标签</h3>
+        
+        <ul class="block-list tag-list clearfix">
+            
+                    <li class="tag-item">
+                        <a class="tag-link" href="/tags/Mybatis/">Mybatis</a>
+                    </li>  
+                
+                    <li class="tag-item">
+                        <a class="tag-link" href="/tags/Servlet/">Servlet</a>
+                    </li>  
+                
+                    <li class="tag-item">
+                        <a class="tag-link" href="/tags/Spring/">Spring</a>
+                    </li>  
+                
+                    <li class="tag-item">
+                        <a class="tag-link" href="/tags/SpringDataJpa/">SpringDataJpa</a>
+                    </li>  
+                
+                    <li class="tag-item">
+                        <a class="tag-link" href="/tags/SpringMVC/">SpringMVC</a>
+                    </li>  
+                
+                    <li class="tag-item">
+                        <a class="tag-link" href="/tags/Tomcat/">Tomcat</a>
+                    </li>  
+                
+                    <li class="tag-item">
+                        <a class="tag-link" href="/tags/author-czx/">author-czx</a>
+                    </li>  
+                
+                    <li class="tag-item">
+                        <a class="tag-link" href="/tags/author-lyc/">author-lyc</a>
+                    </li>  
+                
+                    <li class="tag-item">
+                        <a class="tag-link" href="/tags/author-zcg/">author-zcg</a>
+                    </li>  
+                
+                    <li class="tag-item">
+                        <a class="tag-link" href="/tags/jQuery/">jQuery</a>
+                    </li>  
+                
+                    <li class="tag-item">
+                        <a class="tag-link" href="/tags/springboot/">springboot</a>
+                    </li>  
+                
+                    <li class="tag-item">
+                        <a class="tag-link" href="/tags/tomact/">tomact</a>
+                    </li>  
+                
+                    <li class="tag-item">
+                        <a class="tag-link" href="/tags/%E4%BD%93%E9%AA%8C%E5%AE%9E%E4%B9%A0/">体验实习</a>
+                    </li>  
+                
+                    <li class="tag-item">
+                        <a class="tag-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
+                    </li>  
+                
+        </ul>
+    
+    </div>
+
+    <!-- <div class="sidebar__block">
+        <h3 class="block__title">友情链接</h3>
+        <ul class="block-list">
+            
+        </ul>
+    </div> -->
+</aside>
+</main>
+
+
+        
+            <!-- 页脚 -->
+<footer class="page__footer">
+    <section class="footer__top">
+        <div class="page__container footer__container">
+            
+            <div class="footer-top__item footer-top__item--2">
+                <h3 class="item__title">关于</h3>
+                <div class="item__content">
+                    <p class="item__text"></p>
+                    <ul class="footer__contact-info">
+                        <li class="contact-info__item">
+                            <i class="iconfont icon-address"></i>
+                            <span></span>
+                        </li>
+                        <li class="contact-info__item">
+                            <i class="iconfont icon-email2"></i>
+                            <span></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            
+            
+            
+            
+            
+        </div>
+    </section>
+    <section class="footer__bottom">
+        <div class="page__container footer__container">
+            <p class="footer__copyright">©
+                <a href="https://github.com/Mrminfive/hexo-theme-skapp" target="_blank">Skapp</a> 2017 powered by
+                <a href="http://hexo.io/" target="_blank">Hexo</a>, made by 
+                <a href="https://github.com/Mrminfive" target="_blank">minfive</a>.
+            </p>
+            <ul class="footer__social-network clearfix">
+                
+            </ul>
+        </div>
+    </section>
+</footer>
+        
+
+        
+            <!-- 返回顶部 -->
+<div id="back-top" class="back-top back-top--hidden js-hidden">
+    <i class="iconfont icon-top"></i>
+</div>
+        
+    </div>
+
+    <!-- build:js /js/common.js -->
+        <script type="text/javascript" src="js/common/utils.js"></script>
+        <script type="text/javascript" src="js/common/pack.js"></script>
+        <script type="text/javascript" src="js/common/animation.js"></script>
+        <script type="text/javascript" src="js/layout/loading.js"></script>
+        <script type="text/javascript" src="js/layout/header.js"></script>
+        <script type="text/javascript" src="js/layout/back-top.js"></script>
+        <script type="text/javascript" src="js/layout/post.js"></script>
+    <!-- endbuild -->
+
+    
+    
+<script src="/js/page/post.js"></script>
+
+
+
+    
+    
+
+
+
+    <!-- 不蒜子统计 -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+     
+
+
+
+
+
+
+
+
+</body>
+</html>
