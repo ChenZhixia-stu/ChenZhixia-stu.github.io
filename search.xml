@@ -163,6 +163,33 @@
     
     
     <entry>
+      <title>SpringMVC-day2</title>
+      <link href="/2020/02/11/SpringMVC-day2-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/"/>
+      <url>/2020/02/11/SpringMVC-day2-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<p>SpringMVC：<br>    Spring框架的一个子模块，主要是用来将前后台两者进行数据传递时，进行封装处理的。</p><pre><code>项目搭建流程：    1.配置前端控制器         web.xml文件中，针对整个项目的配置。    2.编写真正实现逻辑的Controller处理器        如何将请求传递到Controller？        127.0.0.1:8889/springMVCDemo/first2        通过映射器：通过bean对象的name值,和url请求的资源名 做匹配        如何触发Controller的方法？        通过适配器：先判断处理类是不是实现Controller接口，如果实现调用handleRequest方法。    3.返回ModelAndView对象        Model携带数据        View表示显示页面的逻辑视图名，将来视图解析器会加前缀后缀找到唯一的资源。    4.前端控制器，渲染视图        将Model的数据传递给view视图。</code></pre><p>SpringMVC的注解方式编写代码：</p><p>1.将服务器的所有项目先移除<br>2.再将mvc添加到服务器中</p><p>编写完的代码，一定要保存。ctrl+s</p><p>一起看一下，大家统一出现的问题：<br>    1.在web.xml文件中，通过 / 拦截所有请求；<br>    2.SpringMVC-servlet.xml<br>        1)&lt;context:component-scan base-package=”com.briup.web.controller”&gt;<br>                                                包名，写错了。<br>        2)视图解析器：<br>    3.在FormController中，<br>        1）@RequestMapping(value = “/t1”)</p><p>public class Student{</p><pre><code>private int id = 10;private String name= &quot;tom&quot;;public void run(){//.....}</code></pre><p>}</p><p>后台可以向前台传递数据。<br>    后台—&gt;前台<br>     1.后台的Controller ，返回结果：ModelAndView,就可以携带数据给前台；</p><pre><code>2.后台的Controller，返回结果：String,表示需要加载的逻辑视图名是谁。                    方法参数列表：HttpSession  session携带参数给前台。3.后台的Controller，上面添加了@ResponseBody的注解，表示直接将返回的结果，以响应体的形式传递给前台。</code></pre><p>前台如何将数据传递给后台，后台该如何接收？</p><pre><code>前台页面的，form表单。</code></pre><p>FormTwoController</p><p>异步交互<br>同步操作</p><p>get请求<br><a href="http://127.0.0.1:8889/mvc/submit/t1?name=张三&amp;pwd=123&amp;age=20#" target="_blank" rel="noopener">http://127.0.0.1:8889/mvc/submit/t1?name=张三&amp;pwd=123&amp;age=20#</a></p><pre><code>url?name</code></pre><p>post请求<br><a href="http://127.0.0.1:8889/mvc/submit/t1" target="_blank" rel="noopener">http://127.0.0.1:8889/mvc/submit/t1</a><br>    url, 数据是放到请求体中的。</p><p>javascript        js</p><p>获取组建，添加事件。</p><p>学习：1.如何跳过controller，直接访问页面<br>     2.如何使用js。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> author-czx </tag>
+            
+            <tag> SpringMVC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Springboot</title>
       <link href="/2020/02/11/Spring-Boot/"/>
       <url>/2020/02/11/Spring-Boot/</url>
@@ -182,33 +209,6 @@
             <tag> author-czx </tag>
             
             <tag> springboot </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>SpringMVC的梳理</title>
-      <link href="/2020/02/11/SpringMVC%E7%9A%84%E6%A2%B3%E7%90%86/"/>
-      <url>/2020/02/11/SpringMVC%E7%9A%84%E6%A2%B3%E7%90%86/</url>
-      
-        <content type="html"><![CDATA[<p>SpringMVC的梳理<br>    MVC<br>    Model：保存数据<br>    View: 用来展示页面的（逻辑视图名）<br>    Controller: 处理请求，编写逻辑代码的</p><p>前后台数据交互。</p><p>一、SpringMVC 编写项目流程：<br>    1.导入.jar包</p><pre><code>2.在    web.xml中配置前端控制器    &lt;!-- 第一步：配置前端控制器 会在WEB-INF下面自动读取 &lt;servletname&gt;-servlet.xml配置文件 --&gt;    &lt;servlet&gt;        &lt;servlet-name&gt;SpringMVC&lt;/servlet-name&gt;        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;    &lt;/servlet&gt;    &lt;!-- 将来拦截哪些请求, / 表示拦截所有请求 --&gt;    &lt;servlet-mapping&gt;        &lt;servlet-name&gt;SpringMVC&lt;/servlet-name&gt;        &lt;url-pattern&gt;/&lt;/url-pattern&gt;    &lt;/servlet-mapping&gt;3.默认在WEB-INF下面，编写SpringMVC-servlet.xml    1.读取注解的配置。        &lt;!-- 识别mvc注解 --&gt;        &lt;mvc:annotation-driven&gt;&lt;/mvc:annotation-driven&gt;        &lt;!-- 识别Spring注解,扫描指定包下的类携带的注解 --&gt;        &lt;context:component-scan         base-package=&quot;com.briup.web.controller&quot;&gt;&lt;/context:component-scan&gt;    2.视图解析器，作用：给逻辑视图名加前缀和后缀。        &lt;!-- 视图解析器 --&gt;         &lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;               &lt;property name=&quot;viewClass&quot; value=&quot;org.springframework.web.servlet.view.JstlView&quot;/&gt;              &lt;!-- 前缀 --&gt;             &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/jsp/&quot;/&gt;              &lt;!-- 后缀 --&gt;              &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;/&gt;          &lt;/bean&gt;     3.静态资源无法访问        &lt;!-- 解决静态资源无法访问问题 --&gt;        &lt;mvc:default-servlet-handler/&gt;4.编写Controller。@Controller:表示当前类交给Spring管理，当前类是一个Controller@RequestMapping(&quot;/test&quot;): 即当映射器又当适配器。给当前类加一个请求路径。                          用户通过里面的地址，可以找到对应的方法。    @Controller    @RequestMapping(&quot;/test&quot;)    public class Test{        @RequestMapping(&quot;/t1&quot;)        public String t1(){            //逻辑代码        }    }</code></pre><p>二、js和jquery的知识点<br>    编写步骤：<br>        1.<script>引入jquery-1.8.3.min.js文件<br>        2.在<script type="text/javascript"><br>                //编写jquery代码</p><pre><code>    1.找到标签        $(&quot;#id&quot;)：id选择器    2.添加事件                    单击事件。  点击之后触发的方法        $(&quot;#id&quot;).on(&quot;click&quot;,  function(){                //点击之后触发的逻辑代码        });    3.获取表单里面的数据（注：前台给后台传递数据，数据来源一般为form表单）        $(&quot;input[name=&apos;属性的值&apos;]&quot;).val();        var pwd1 = $(&quot;input[name=&apos;pwd&apos;]&quot;).val();    4.发送ajax请求        1.发送get请求            $.get(&quot;submit/t2&quot;,{key:value,key:value...},function(data){})                 第一个参数：把数据提交给的地址                 第二个参数：要传递的数据，value表示真正的值，key表示给后台接收的关键字                 第三个参数：请求成功之后，后台返回的数据，用data来接受。        2.发送post请求            $.post(url,values,function(data){})&lt;/script&gt;</code></pre></script></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 框架 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> author-czx </tag>
-            
-            <tag> SpringMVC </tag>
             
         </tags>
       
@@ -244,11 +244,11 @@
     
     
     <entry>
-      <title>SpringMVC-day2</title>
-      <link href="/2020/02/11/SpringMVC-day2-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/"/>
-      <url>/2020/02/11/SpringMVC-day2-%E9%9A%8F%E5%A0%82%E7%AC%94%E8%AE%B0/</url>
+      <title>SpringMVC的梳理</title>
+      <link href="/2020/02/11/SpringMVC%E7%9A%84%E6%A2%B3%E7%90%86/"/>
+      <url>/2020/02/11/SpringMVC%E7%9A%84%E6%A2%B3%E7%90%86/</url>
       
-        <content type="html"><![CDATA[<p>SpringMVC：<br>    Spring框架的一个子模块，主要是用来将前后台两者进行数据传递时，进行封装处理的。</p><pre><code>项目搭建流程：    1.配置前端控制器         web.xml文件中，针对整个项目的配置。    2.编写真正实现逻辑的Controller处理器        如何将请求传递到Controller？        127.0.0.1:8889/springMVCDemo/first2        通过映射器：通过bean对象的name值,和url请求的资源名 做匹配        如何触发Controller的方法？        通过适配器：先判断处理类是不是实现Controller接口，如果实现调用handleRequest方法。    3.返回ModelAndView对象        Model携带数据        View表示显示页面的逻辑视图名，将来视图解析器会加前缀后缀找到唯一的资源。    4.前端控制器，渲染视图        将Model的数据传递给view视图。</code></pre><p>SpringMVC的注解方式编写代码：</p><p>1.将服务器的所有项目先移除<br>2.再将mvc添加到服务器中</p><p>编写完的代码，一定要保存。ctrl+s</p><p>一起看一下，大家统一出现的问题：<br>    1.在web.xml文件中，通过 / 拦截所有请求；<br>    2.SpringMVC-servlet.xml<br>        1)&lt;context:component-scan base-package=”com.briup.web.controller”&gt;<br>                                                包名，写错了。<br>        2)视图解析器：<br>    3.在FormController中，<br>        1）@RequestMapping(value = “/t1”)</p><p>public class Student{</p><pre><code>private int id = 10;private String name= &quot;tom&quot;;public void run(){//.....}</code></pre><p>}</p><p>后台可以向前台传递数据。<br>    后台—&gt;前台<br>     1.后台的Controller ，返回结果：ModelAndView,就可以携带数据给前台；</p><pre><code>2.后台的Controller，返回结果：String,表示需要加载的逻辑视图名是谁。                    方法参数列表：HttpSession  session携带参数给前台。3.后台的Controller，上面添加了@ResponseBody的注解，表示直接将返回的结果，以响应体的形式传递给前台。</code></pre><p>前台如何将数据传递给后台，后台该如何接收？</p><pre><code>前台页面的，form表单。</code></pre><p>FormTwoController</p><p>异步交互<br>同步操作</p><p>get请求<br><a href="http://127.0.0.1:8889/mvc/submit/t1?name=张三&amp;pwd=123&amp;age=20#" target="_blank" rel="noopener">http://127.0.0.1:8889/mvc/submit/t1?name=张三&amp;pwd=123&amp;age=20#</a></p><pre><code>url?name</code></pre><p>post请求<br><a href="http://127.0.0.1:8889/mvc/submit/t1" target="_blank" rel="noopener">http://127.0.0.1:8889/mvc/submit/t1</a><br>    url, 数据是放到请求体中的。</p><p>javascript        js</p><p>获取组建，添加事件。</p><p>学习：1.如何跳过controller，直接访问页面<br>     2.如何使用js。</p>]]></content>
+        <content type="html"><![CDATA[<p>SpringMVC的梳理<br>    MVC<br>    Model：保存数据<br>    View: 用来展示页面的（逻辑视图名）<br>    Controller: 处理请求，编写逻辑代码的</p><p>前后台数据交互。</p><p>一、SpringMVC 编写项目流程：<br>    1.导入.jar包</p><pre><code>2.在    web.xml中配置前端控制器    &lt;!-- 第一步：配置前端控制器 会在WEB-INF下面自动读取 &lt;servletname&gt;-servlet.xml配置文件 --&gt;    &lt;servlet&gt;        &lt;servlet-name&gt;SpringMVC&lt;/servlet-name&gt;        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;    &lt;/servlet&gt;    &lt;!-- 将来拦截哪些请求, / 表示拦截所有请求 --&gt;    &lt;servlet-mapping&gt;        &lt;servlet-name&gt;SpringMVC&lt;/servlet-name&gt;        &lt;url-pattern&gt;/&lt;/url-pattern&gt;    &lt;/servlet-mapping&gt;3.默认在WEB-INF下面，编写SpringMVC-servlet.xml    1.读取注解的配置。        &lt;!-- 识别mvc注解 --&gt;        &lt;mvc:annotation-driven&gt;&lt;/mvc:annotation-driven&gt;        &lt;!-- 识别Spring注解,扫描指定包下的类携带的注解 --&gt;        &lt;context:component-scan         base-package=&quot;com.briup.web.controller&quot;&gt;&lt;/context:component-scan&gt;    2.视图解析器，作用：给逻辑视图名加前缀和后缀。        &lt;!-- 视图解析器 --&gt;         &lt;bean class=&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&gt;               &lt;property name=&quot;viewClass&quot; value=&quot;org.springframework.web.servlet.view.JstlView&quot;/&gt;              &lt;!-- 前缀 --&gt;             &lt;property name=&quot;prefix&quot; value=&quot;/WEB-INF/jsp/&quot;/&gt;              &lt;!-- 后缀 --&gt;              &lt;property name=&quot;suffix&quot; value=&quot;.jsp&quot;/&gt;          &lt;/bean&gt;     3.静态资源无法访问        &lt;!-- 解决静态资源无法访问问题 --&gt;        &lt;mvc:default-servlet-handler/&gt;4.编写Controller。@Controller:表示当前类交给Spring管理，当前类是一个Controller@RequestMapping(&quot;/test&quot;): 即当映射器又当适配器。给当前类加一个请求路径。                          用户通过里面的地址，可以找到对应的方法。    @Controller    @RequestMapping(&quot;/test&quot;)    public class Test{        @RequestMapping(&quot;/t1&quot;)        public String t1(){            //逻辑代码        }    }</code></pre><p>二、js和jquery的知识点<br>    编写步骤：<br>        1.<script>引入jquery-1.8.3.min.js文件<br>        2.在<script type="text/javascript"><br>                //编写jquery代码</p><pre><code>    1.找到标签        $(&quot;#id&quot;)：id选择器    2.添加事件                    单击事件。  点击之后触发的方法        $(&quot;#id&quot;).on(&quot;click&quot;,  function(){                //点击之后触发的逻辑代码        });    3.获取表单里面的数据（注：前台给后台传递数据，数据来源一般为form表单）        $(&quot;input[name=&apos;属性的值&apos;]&quot;).val();        var pwd1 = $(&quot;input[name=&apos;pwd&apos;]&quot;).val();    4.发送ajax请求        1.发送get请求            $.get(&quot;submit/t2&quot;,{key:value,key:value...},function(data){})                 第一个参数：把数据提交给的地址                 第二个参数：要传递的数据，value表示真正的值，key表示给后台接收的关键字                 第三个参数：请求成功之后，后台返回的数据，用data来接受。        2.发送post请求            $.post(url,values,function(data){})&lt;/script&gt;</code></pre></script></p>]]></content>
       
       
       <categories>
@@ -271,25 +271,25 @@
     
     
     <entry>
-      <title>SpringDataJpa</title>
-      <link href="/2020/02/11/SpringDataJpa/"/>
-      <url>/2020/02/11/SpringDataJpa/</url>
+      <title>Tomcat的再次认识</title>
+      <link href="/2020/02/11/Tomcat%E7%9A%84%E5%86%8D%E6%AC%A1%E8%AE%A4%E8%AF%86/"/>
+      <url>/2020/02/11/Tomcat%E7%9A%84%E5%86%8D%E6%AC%A1%E8%AE%A4%E8%AF%86/</url>
       
-        <content type="html"><![CDATA[<p><img src="/2020/02/11/SpringDataJpa/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpringDataJpa%5C1598681865782.png" alt="1598681865782"></p><p><img src="/2020/02/11/SpringDataJpa/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpringDataJpa%5C1598685023842.png" alt="1598685023842"></p><p><img src="/2020/02/11/SpringDataJpa/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpringDataJpa%5C1598778412759.png" alt="1598778412759"></p><p><img src="/2020/02/11/SpringDataJpa/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpringDataJpa%5C1598781459093.png" alt="1598781459093"></p><p>@mappedBy在OneToMany在<strong>One</strong>的一方，而且mappedBy的值应该为One的<strong>表名</strong>，并且<strong>变量名要跟mappedBy的值一致</strong></p><p><img src="/2020/02/11/SpringDataJpa/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpringDataJpa%5C1598791664160.png" alt="1598791664160"></p><p>一对一关联：<br>外键列，放到哪一方都可以。</p><p>多对一：</p><p>外键列放在多的一方。</p><p><img src="/2020/02/11/SpringDataJpa/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpringDataJpa%5C1598836696806.png" alt="1598836696806"></p><p>thymeleaf语法提示加</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure><p><img src="/2020/02/11/SpringDataJpa/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpringDataJpa%5C1598854922177.png" alt="1598854922177"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Tomcat的再次认识"><a href="#Tomcat的再次认识" class="headerlink" title="Tomcat的再次认识"></a>Tomcat的再次认识</h1><h2 id="1-下载tomcat"><a href="#1-下载tomcat" class="headerlink" title="1.下载tomcat"></a>1.下载tomcat</h2><p>官网：<a href="http://tomcat.apache.org/" target="_blank" rel="noopener">http://tomcat.apache.org/</a></p><p>选择合适的压缩包，比如我的是win10且64字节，我就选64的。</p><p>解压到自己想放的地方。</p><h2 id="2-启动tomcat的方法"><a href="#2-启动tomcat的方法" class="headerlink" title="2.启动tomcat的方法"></a>2.启动tomcat的方法</h2><h4 id="1-双击tomcat-bin-startup-bat（不要关闭这个窗口）"><a href="#1-双击tomcat-bin-startup-bat（不要关闭这个窗口）" class="headerlink" title="(1).双击tomcat/bin/startup.bat（不要关闭这个窗口）"></a>(1).双击tomcat/bin/startup.bat（不要关闭这个窗口）</h4><h4 id="2-在浏览器输入"><a href="#2-在浏览器输入" class="headerlink" title="(2).在浏览器输入"></a>(2).在浏览器输入</h4><blockquote><p>localhost:8080</p></blockquote><blockquote><p>127.0.0.1:8080</p></blockquote><blockquote><p>机主地址:8080</p></blockquote><p>比如我的地址是: </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.0.103：8080</span><br></pre></td></tr></table></figure><p>(端口号看个人，可以根据需要去修改)</p><h2 id="3-如何查看本机IP"><a href="#3-如何查看本机IP" class="headerlink" title="3.如何查看本机IP"></a>3.如何查看本机IP</h2><h4 id="1-在CMD中输入"><a href="#1-在CMD中输入" class="headerlink" title="(1).在CMD中输入"></a>(1).在CMD中输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig</span><br></pre></td></tr></table></figure><img src="/2020/02/11/Tomcat%E7%9A%84%E5%86%8D%E6%AC%A1%E8%AE%A4%E8%AF%86/Users\Fantastic\AppData\Roaming\Typora\typora-user-images\image-20200117205311744.png" alt="image-20200117205311744" style="zoom: 67%;"><h4 id="2-IPv4地址"><a href="#2-IPv4地址" class="headerlink" title="(2).IPv4地址"></a>(2).IPv4地址</h4><p>比如我的IP为 192.168.1.110（刘钰川的）</p><h2 id="4-tomcat启动可能出现的问题"><a href="#4-tomcat启动可能出现的问题" class="headerlink" title="4.tomcat启动可能出现的问题"></a>4.tomcat启动可能出现的问题</h2><h4 id="1-startup-bat双击后一闪而过："><a href="#1-startup-bat双击后一闪而过：" class="headerlink" title="(1).startup.bat双击后一闪而过："></a>(1).startup.bat双击后一闪而过：</h4><p>原因：没配置好JAVA_HOME环境变量（jdk的目录没有配置到PATH的环境变量里），tomcat找不到jdk；</p><p>解决：用JAVA_HOME替换掉jdk的在PATH中到配置等意的地方。</p><h4 id="2-startup-bat启动报错："><a href="#2-startup-bat启动报错：" class="headerlink" title="(2).startup.bat启动报错："></a>(2).startup.bat启动报错：</h4><p>原因：已经开启了startup.bat，端口号被占用</p><p>解决：</p><h5 id="1-找到占用的端口号，并找到对应的进程，杀死该进程："><a href="#1-找到占用的端口号，并找到对应的进程，杀死该进程：" class="headerlink" title="[1].找到占用的端口号，并找到对应的进程，杀死该进程："></a>[1].找到占用的端口号，并找到对应的进程，杀死该进程：</h5><p>在CMD中输入</p><p>netstat-ano</p><p>得到所有程序的端口号；</p><p>右击任务栏选择管理器，</p><p>在查看中打开PID，</p><p>把PID对应于端口号的进程右击结束，一般选择杀死进程。</p><h5 id="2-修改自身的端口号："><a href="#2-修改自身的端口号：" class="headerlink" title="[2].修改自身的端口号："></a>[2].修改自身的端口号：</h5><p>tomcat/conf/server.xml右击文本打开，</p><p>大致在69行，出现port=”8080”和redirectPort=”8443”随你修改，然后保存；</p><p>大致在116行，也改端口号；</p><p>大致在22行，也改；</p><p>一般会把port改成80，即http协议的默认端口号，访问的时候，就可以不用输入80；</p><p>端口号改了以后，访问的端口号也要记得保持一致。</p><h2 id="5-tomcat的关闭"><a href="#5-tomcat的关闭" class="headerlink" title="5.tomcat的关闭"></a>5.tomcat的关闭</h2><h4 id="1-强制关闭："><a href="#1-强制关闭：" class="headerlink" title="(1).强制关闭："></a>(1).强制关闭：</h4><p>点击x</p><h4 id="2-正常关闭："><a href="#2-正常关闭：" class="headerlink" title="(2).正常关闭："></a>(2).正常关闭：</h4><p>tomcat/bin/shutdown.bat双击</p><p>或者</p><p>tomcat/bin/startup.bat双击开启的窗口里输入Ctrl+c</p>]]></content>
       
       
       <categories>
           
-          <category> 数据库 </category>
+          <category> lyc </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> author-czx </tag>
+            <tag> tomact </tag>
             
-            <tag> SpringDataJpa </tag>
+            <tag> author-lyc </tag>
             
         </tags>
       
@@ -325,25 +325,25 @@
     
     
     <entry>
-      <title>Tomcat的再次认识</title>
-      <link href="/2020/02/11/Tomcat%E7%9A%84%E5%86%8D%E6%AC%A1%E8%AE%A4%E8%AF%86/"/>
-      <url>/2020/02/11/Tomcat%E7%9A%84%E5%86%8D%E6%AC%A1%E8%AE%A4%E8%AF%86/</url>
+      <title>SpringDataJpa</title>
+      <link href="/2020/02/11/SpringDataJpa/"/>
+      <url>/2020/02/11/SpringDataJpa/</url>
       
-        <content type="html"><![CDATA[<h1 id="Tomcat的再次认识"><a href="#Tomcat的再次认识" class="headerlink" title="Tomcat的再次认识"></a>Tomcat的再次认识</h1><h2 id="1-下载tomcat"><a href="#1-下载tomcat" class="headerlink" title="1.下载tomcat"></a>1.下载tomcat</h2><p>官网：<a href="http://tomcat.apache.org/" target="_blank" rel="noopener">http://tomcat.apache.org/</a></p><p>选择合适的压缩包，比如我的是win10且64字节，我就选64的。</p><p>解压到自己想放的地方。</p><h2 id="2-启动tomcat的方法"><a href="#2-启动tomcat的方法" class="headerlink" title="2.启动tomcat的方法"></a>2.启动tomcat的方法</h2><h4 id="1-双击tomcat-bin-startup-bat（不要关闭这个窗口）"><a href="#1-双击tomcat-bin-startup-bat（不要关闭这个窗口）" class="headerlink" title="(1).双击tomcat/bin/startup.bat（不要关闭这个窗口）"></a>(1).双击tomcat/bin/startup.bat（不要关闭这个窗口）</h4><h4 id="2-在浏览器输入"><a href="#2-在浏览器输入" class="headerlink" title="(2).在浏览器输入"></a>(2).在浏览器输入</h4><blockquote><p>localhost:8080</p></blockquote><blockquote><p>127.0.0.1:8080</p></blockquote><blockquote><p>机主地址:8080</p></blockquote><p>比如我的地址是: </p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.0.103：8080</span><br></pre></td></tr></table></figure><p>(端口号看个人，可以根据需要去修改)</p><h2 id="3-如何查看本机IP"><a href="#3-如何查看本机IP" class="headerlink" title="3.如何查看本机IP"></a>3.如何查看本机IP</h2><h4 id="1-在CMD中输入"><a href="#1-在CMD中输入" class="headerlink" title="(1).在CMD中输入"></a>(1).在CMD中输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig</span><br></pre></td></tr></table></figure><img src="/2020/02/11/Tomcat%E7%9A%84%E5%86%8D%E6%AC%A1%E8%AE%A4%E8%AF%86/Users\Fantastic\AppData\Roaming\Typora\typora-user-images\image-20200117205311744.png" alt="image-20200117205311744" style="zoom: 67%;"><h4 id="2-IPv4地址"><a href="#2-IPv4地址" class="headerlink" title="(2).IPv4地址"></a>(2).IPv4地址</h4><p>比如我的IP为 192.168.1.110（刘钰川的）</p><h2 id="4-tomcat启动可能出现的问题"><a href="#4-tomcat启动可能出现的问题" class="headerlink" title="4.tomcat启动可能出现的问题"></a>4.tomcat启动可能出现的问题</h2><h4 id="1-startup-bat双击后一闪而过："><a href="#1-startup-bat双击后一闪而过：" class="headerlink" title="(1).startup.bat双击后一闪而过："></a>(1).startup.bat双击后一闪而过：</h4><p>原因：没配置好JAVA_HOME环境变量（jdk的目录没有配置到PATH的环境变量里），tomcat找不到jdk；</p><p>解决：用JAVA_HOME替换掉jdk的在PATH中到配置等意的地方。</p><h4 id="2-startup-bat启动报错："><a href="#2-startup-bat启动报错：" class="headerlink" title="(2).startup.bat启动报错："></a>(2).startup.bat启动报错：</h4><p>原因：已经开启了startup.bat，端口号被占用</p><p>解决：</p><h5 id="1-找到占用的端口号，并找到对应的进程，杀死该进程："><a href="#1-找到占用的端口号，并找到对应的进程，杀死该进程：" class="headerlink" title="[1].找到占用的端口号，并找到对应的进程，杀死该进程："></a>[1].找到占用的端口号，并找到对应的进程，杀死该进程：</h5><p>在CMD中输入</p><p>netstat-ano</p><p>得到所有程序的端口号；</p><p>右击任务栏选择管理器，</p><p>在查看中打开PID，</p><p>把PID对应于端口号的进程右击结束，一般选择杀死进程。</p><h5 id="2-修改自身的端口号："><a href="#2-修改自身的端口号：" class="headerlink" title="[2].修改自身的端口号："></a>[2].修改自身的端口号：</h5><p>tomcat/conf/server.xml右击文本打开，</p><p>大致在69行，出现port=”8080”和redirectPort=”8443”随你修改，然后保存；</p><p>大致在116行，也改端口号；</p><p>大致在22行，也改；</p><p>一般会把port改成80，即http协议的默认端口号，访问的时候，就可以不用输入80；</p><p>端口号改了以后，访问的端口号也要记得保持一致。</p><h2 id="5-tomcat的关闭"><a href="#5-tomcat的关闭" class="headerlink" title="5.tomcat的关闭"></a>5.tomcat的关闭</h2><h4 id="1-强制关闭："><a href="#1-强制关闭：" class="headerlink" title="(1).强制关闭："></a>(1).强制关闭：</h4><p>点击x</p><h4 id="2-正常关闭："><a href="#2-正常关闭：" class="headerlink" title="(2).正常关闭："></a>(2).正常关闭：</h4><p>tomcat/bin/shutdown.bat双击</p><p>或者</p><p>tomcat/bin/startup.bat双击开启的窗口里输入Ctrl+c</p>]]></content>
+        <content type="html"><![CDATA[<p><img src="/2020/02/11/SpringDataJpa/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpringDataJpa%5C1598681865782.png" alt="1598681865782"></p><p><img src="/2020/02/11/SpringDataJpa/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpringDataJpa%5C1598685023842.png" alt="1598685023842"></p><p><img src="/2020/02/11/SpringDataJpa/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpringDataJpa%5C1598778412759.png" alt="1598778412759"></p><p><img src="/2020/02/11/SpringDataJpa/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpringDataJpa%5C1598781459093.png" alt="1598781459093"></p><p>@mappedBy在OneToMany在<strong>One</strong>的一方，而且mappedBy的值应该为One的<strong>表名</strong>，并且<strong>变量名要跟mappedBy的值一致</strong></p><p><img src="/2020/02/11/SpringDataJpa/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpringDataJpa%5C1598791664160.png" alt="1598791664160"></p><p>一对一关联：<br>外键列，放到哪一方都可以。</p><p>多对一：</p><p>外键列放在多的一方。</p><p><img src="/2020/02/11/SpringDataJpa/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpringDataJpa%5C1598836696806.png" alt="1598836696806"></p><p>thymeleaf语法提示加</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure><p><img src="/2020/02/11/SpringDataJpa/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpringDataJpa%5C1598854922177.png" alt="1598854922177"></p>]]></content>
       
       
       <categories>
           
-          <category> lyc </category>
+          <category> 数据库 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> tomact </tag>
+            <tag> author-czx </tag>
             
-            <tag> author-lyc </tag>
+            <tag> SpringDataJpa </tag>
             
         </tags>
       

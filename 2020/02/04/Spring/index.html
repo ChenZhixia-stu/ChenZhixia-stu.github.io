@@ -1,147 +1,256 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8" />
-    
-        <title>Spring学习 | </title>
-    
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-<meta name="format-detection" content="telephone=no">
-<meta name="author" content="’小伙子" />
-<meta name="designer" content="minfive" />
-<meta name="keywords" content="null"/>
-<meta name="description" content="" />
-
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black" />
-<meta name="format-detection" content="telephone=yes" />
-<meta name="mobile-web-app-capable" content="yes" />
-<meta name="robots" content="all" />
-
-<link rel="canonical" href="http://yoursite.com/2020/02/04/Spring/index.html">
-
-<link rel="icon" type="image/png" href="undefined" sizes="32x32">
+<link rel="stylesheet" href="/css/main.css">
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":"ture","preload":"ture"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="第1章 Spring概述1.1 Spring概述1.1 Spring是什么Spring是分层的Java SE&#x2F;EE 应用的 full-stack 轻量级开源框架，以IoC （Inverse Of Control 反转控制）和AOP（Aspect Oriented Programming 面向切面编程）为内核，提供了展现层SpringMVC和持久层Spring JDBC 以及业务层事务管理等众多的企">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring学习">
+<meta property="og:url" content="http://yoursite.com/2020/02/04/Spring/index.html">
+<meta property="og:site_name" content="‘小伙子的博客">
+<meta property="og:description" content="第1章 Spring概述1.1 Spring概述1.1 Spring是什么Spring是分层的Java SE&#x2F;EE 应用的 full-stack 轻量级开源框架，以IoC （Inverse Of Control 反转控制）和AOP（Aspect Oriented Programming 面向切面编程）为内核，提供了展现层SpringMVC和持久层Spring JDBC 以及业务层事务管理等众多的企">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1595147734387.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1595148356707.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1595236303966.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1595241652364.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1595241716184.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1595261172843.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1595262401178.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1595263759007.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1595425611518.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1596264582456.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1596266292411.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1596266269491.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1596267224779.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1596268411386.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1596268460678.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1596277761650.png">
+<meta property="article:published_time" content="2020-02-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-09-27T08:32:43.930Z">
+<meta property="article:author" content="’小伙子">
+<meta property="article:tag" content="Spring">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/04/Spring/D:%5CProgram_Files%5CChenZhixia-stu%5Csource%5C_posts%5CSpring%5C1595147734387.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/02/04/Spring/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Spring学习 | ‘小伙子的博客</title>
+  
 
 
 
 
 
 
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
 
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
 
+</head>
 
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
 
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
 
-<!-- Prefetch -->
-
-
-
-
-
-
-<!-- CSS -->
-
-<link rel="stylesheet" href="/scss/base/index.css">
-
-
-<!-- RSS -->
-<link rel="alternate" href="/atom.xml" title="‘小伙子的博客">
-
-<!-- 统计 -->
-<!-- 百度统计 -->
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-    
-    
-    
-<link rel="stylesheet" href="/scss/views/page/post.css">
-
-
-<meta name="generator" content="Hexo 4.2.0"></head>
-<body ontouchstart>
-    
-        <!-- loading 页面 -->
-<div id="page-loading" class="page page-loading" style="background-image: url('undefined')"></div>
-    
-
-    <div id="page" class="page js-hidden">
-        
-    <!-- 页头 -->
-<header class="page__small-header page__header--small">
-    <nav class="page__navbar">
-        <div class="page__container navbar-container">
-            <a class="page__logo" href="/" title="‘小伙子的博客" alt="‘小伙子的博客">
-                <img src="undefined" alt="‘小伙子的博客">
-            </a>
-
-            <nav class="page__nav">
-                <ul class="nav__list clearfix">
-                    
-                </ul>
-            </nav>
-
-            <button class="page__menu-btn" type="button">
-                <i class="iconfont icon-menu"></i>
-            </button>
-        </div>
-    </nav>
-</header>
-
-
-        
-    <main class="page__container page__main">
-    <div class="page__content">
-        <article class="page__post">
-    <div class="post__cover">
-        <img src="undefined" alt="Spring学习">
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">‘小伙子的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
+  </div>
 
-    <header class="post__info">
-        <h1 class="post__title">Spring学习</h1>
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
 
-        <div class="post__mark">
-            <div class="mark__block">
-                <i class="mark__icon iconfont icon-write"></i>
-                <ul class="mark__list clearfix">
-                    
-                        <li class="mark__item">
-                            <a href="/">undefined</a>
-                        </li>
-                    
-                </ul>
-            </div>
-            
-            <div class="mark__block">
-                <i class="mark__icon iconfont icon-time"></i>
-                <ul class="mark__list clearfix">
-                    <li class="mark__item"><span>2020-02-04</span></li>
-                </ul>
-            </div>
 
-            <div class="mark__block">
-                <i class="mark__icon iconfont icon-tab"></i>
-                <ul class="mark__list clearfix">
-                    
-                        <li class="mark__item">
-                            <a href="/tags/Spring/">Spring</a>
-                        </li>
-                    
-                </ul>
-            </div>
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
 
-            
-        </div>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
     </header>
 
-    <div class="post__content">
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/ChenZhixia-stu" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/04/Spring/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/66.jpg">
+      <meta itemprop="name" content="’小伙子">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="‘小伙子的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring学习
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-04 00:00:00" itemprop="dateCreated datePublished" datetime="2020-02-04T00:00:00+08:00">2020-02-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-27 16:32:43" itemprop="dateModified" datetime="2020-09-27T16:32:43+08:00">2020-09-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/02/04/Spring/" class="post-meta-item leancloud_visitors" data-flag-title="Spring学习" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
         <h1 id="第1章-Spring概述"><a href="#第1章-Spring概述" class="headerlink" title="第1章 Spring概述"></a>第1章 Spring概述</h1><h2 id="1-1-Spring概述"><a href="#1-1-Spring概述" class="headerlink" title="1.1 Spring概述"></a>1.1 Spring概述</h2><h3 id="1-1-Spring是什么"><a href="#1-1-Spring是什么" class="headerlink" title="1.1 Spring是什么"></a>1.1 Spring是什么</h3><p>Spring是分层的Java SE/EE 应用的 full-stack 轻量级开源框架，以IoC （Inverse Of Control 反转控制）和AOP（Aspect Oriented Programming 面向切面编程）为内核，提供了展现层SpringMVC和持久层Spring JDBC 以及业务层事务管理等众多的企业级应用技术，还能整合开源世界众多知名的第三方框架和类库，逐渐成为使用最多的Java EE 企业应用开源框架。</p>
 <h3 id="1-1-2-Spring的优势"><a href="#1-1-2-Spring的优势" class="headerlink" title="1.1.2 Spring的优势"></a>1.1.2 Spring的优势</h3><p><strong>方便解耦，简化开发</strong></p>
 <p>通过Spring提供的IOC容器，可以将对象间的依赖关系交由Spring进行控制，避免硬编码所造成的过度程序耦合。用户也不必再为单例模式类、属性文件解析等这些很底层的需求编写代码，可以更专注于上层的应用。</p>
@@ -556,262 +665,294 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class">@<span class="title">ContextConfiguration</span>(<span class="title">classes</span> </span>= SpringConfig<span class="class">.<span class="keyword">class</span>)</span></span><br><span class="line"><span class="class"><span class="title">public</span> <span class="title">class</span> <span class="title">AccountServiceTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span>  IAccountService as;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">testTransfer</span><span class="params">()</span></span>&#123;</span><br><span class="line">        as.transfer(<span class="string">"ddd"</span>,<span class="string">"eee"</span>,<span class="number">3333f</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-
-        
-        <div class="post-announce">
-            感谢您的阅读，本文由
-            <a href="http://yoursite.com">‘小伙子的博客</a>
-            版权所有。如若转载，请注明出处：‘小伙子的博客（<a href="http://yoursite.com/2020/02/04/Spring/">http://yoursite.com/2020/02/04/Spring/</a>）
-        </div>
-        
-
-        <div class="post__prevs">
-            <div class="post__prev">
-                
-            </div>
-            <div class="post__prev post__prev--right">
-                
-                <a href="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/" title="JavaWeb学习">JavaWeb学习<i class="iconfont icon-next"></i></a>
-                
-            </div>
-        </div>
-    </div>
-</article>
-
-        
-        
     </div>
 
-    <aside class="page__sidebar">
-    <!--  -->
-
-    <form id="page-search-from" class="page__search-from" action="/search/">
-        <label class="search-form__item">
-            <input class="input" type="text" name="search" placeholder="Search...">
-            <i class="iconfont icon-search"></i>
-        </label>
-    </form>
-
+    
+    
     
 
-    <div class="sidebar__block">
-        <h3 class="block__title">文章分类</h3>
-        <ul class="block-list"><li class="block-list-item"><a class="block-list-link" href="/categories/%E6%A1%86%E6%9E%B6/">框架</a><span class="block-list-count">4</span></li><li class="block-list-item"><a class="block-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><span class="block-list-count">1</span></li><li class="block-list-item"><a class="block-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><span class="block-list-count">1</span></li><li class="block-list-item"><a class="block-list-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><span class="block-list-count">2</span></li><li class="block-list-item"><a class="block-list-link" href="/categories/lyc/">lyc</a><span class="block-list-count">1</span></li><li class="block-list-item"><a class="block-list-link" href="/categories/czx/">czx</a><span class="block-list-count">4</span></li></ul>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Spring/" rel="tag"># Spring</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/04/Javaweb%E5%AD%A6%E4%B9%A0/" rel="next" title="JavaWeb学习">
+      JavaWeb学习 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
+      </footer>
     
-    <div class="sidebar__block">
-        <h3 class="block__title">最新文章</h3>
-        
-        <ul class="block-list latest-post-list">
-            
-                    <li class="latest-post-item">
-                        <a href="/2020/09/28/springmvc%E5%86%8D%E5%AD%A6%E4%B9%A0/" title="springmvc再学习">
-                            <div class="item__cover">
-                                <img src="undefined" alt="springmvc再学习" />
-                            </div>
-                            <div class="item__info">
-                                <h3 class="item__title">springmvc再学习</h3>
-                                <span class="item__text">2020-09-28</span>
-                            </div>
-                        </a>
-                    </li>
-                
-                    <li class="latest-post-item">
-                        <a href="/2020/09/26/Swagger/" title="Swagger">
-                            <div class="item__cover">
-                                <img src="undefined" alt="Swagger" />
-                            </div>
-                            <div class="item__info">
-                                <h3 class="item__title">Swagger</h3>
-                                <span class="item__text">2020-09-26</span>
-                            </div>
-                        </a>
-                    </li>
-                
-                    <li class="latest-post-item">
-                        <a href="/2020/09/25/BootStrap/" title="BootStrap">
-                            <div class="item__cover">
-                                <img src="undefined" alt="BootStrap" />
-                            </div>
-                            <div class="item__info">
-                                <h3 class="item__title">BootStrap</h3>
-                                <span class="item__text">2020-09-25</span>
-                            </div>
-                        </a>
-                    </li>
-                
-                    <li class="latest-post-item">
-                        <a href="/2020/09/19/json/" title="json">
-                            <div class="item__cover">
-                                <img src="undefined" alt="json" />
-                            </div>
-                            <div class="item__info">
-                                <h3 class="item__title">json</h3>
-                                <span class="item__text">2020-09-19</span>
-                            </div>
-                        </a>
-                    </li>
-                
-        </ul>
-    
-    </div>
+  </article>
+  
+  
+  
 
-    <div class="sidebar__block">
-        <h3 class="block__title">文章标签</h3>
-        
-        <ul class="block-list tag-list clearfix">
-            
-                    <li class="tag-item">
-                        <a class="tag-link" href="/tags/Mybatis/">Mybatis</a>
-                    </li>  
-                
-                    <li class="tag-item">
-                        <a class="tag-link" href="/tags/Servlet/">Servlet</a>
-                    </li>  
-                
-                    <li class="tag-item">
-                        <a class="tag-link" href="/tags/Spring/">Spring</a>
-                    </li>  
-                
-                    <li class="tag-item">
-                        <a class="tag-link" href="/tags/SpringDataJpa/">SpringDataJpa</a>
-                    </li>  
-                
-                    <li class="tag-item">
-                        <a class="tag-link" href="/tags/SpringMVC/">SpringMVC</a>
-                    </li>  
-                
-                    <li class="tag-item">
-                        <a class="tag-link" href="/tags/Tomcat/">Tomcat</a>
-                    </li>  
-                
-                    <li class="tag-item">
-                        <a class="tag-link" href="/tags/author-czx/">author-czx</a>
-                    </li>  
-                
-                    <li class="tag-item">
-                        <a class="tag-link" href="/tags/author-lyc/">author-lyc</a>
-                    </li>  
-                
-                    <li class="tag-item">
-                        <a class="tag-link" href="/tags/author-zcg/">author-zcg</a>
-                    </li>  
-                
-                    <li class="tag-item">
-                        <a class="tag-link" href="/tags/jQuery/">jQuery</a>
-                    </li>  
-                
-                    <li class="tag-item">
-                        <a class="tag-link" href="/tags/springboot/">springboot</a>
-                    </li>  
-                
-                    <li class="tag-item">
-                        <a class="tag-link" href="/tags/tomact/">tomact</a>
-                    </li>  
-                
-                    <li class="tag-item">
-                        <a class="tag-link" href="/tags/%E4%BD%93%E9%AA%8C%E5%AE%9E%E4%B9%A0/">体验实习</a>
-                    </li>  
-                
-                    <li class="tag-item">
-                        <a class="tag-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
-                    </li>  
-                
-        </ul>
-    
-    </div>
-
-    <!-- <div class="sidebar__block">
-        <h3 class="block__title">友情链接</h3>
-        <ul class="block-list">
-            
-        </ul>
-    </div> -->
-</aside>
-</main>
+  </div>
 
 
-        
-            <!-- 页脚 -->
-<footer class="page__footer">
-    <section class="footer__top">
-        <div class="page__container footer__container">
-            
-            <div class="footer-top__item footer-top__item--2">
-                <h3 class="item__title">关于</h3>
-                <div class="item__content">
-                    <p class="item__text"></p>
-                    <ul class="footer__contact-info">
-                        <li class="contact-info__item">
-                            <i class="iconfont icon-address"></i>
-                            <span></span>
-                        </li>
-                        <li class="contact-info__item">
-                            <i class="iconfont icon-email2"></i>
-                            <span></span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+          </div>
+          
 
-            
-            
-            
-            
-            
-        </div>
-    </section>
-    <section class="footer__bottom">
-        <div class="page__container footer__container">
-            <p class="footer__copyright">©
-                <a href="https://github.com/Mrminfive/hexo-theme-skapp" target="_blank">Skapp</a> 2017 powered by
-                <a href="http://hexo.io/" target="_blank">Hexo</a>, made by 
-                <a href="https://github.com/Mrminfive" target="_blank">minfive</a>.
-            </p>
-            <ul class="footer__social-network clearfix">
-                
-            </ul>
-        </div>
-    </section>
-</footer>
-        
-
-        
-            <!-- 返回顶部 -->
-<div id="back-top" class="back-top back-top--hidden js-hidden">
-    <i class="iconfont icon-top"></i>
-</div>
-        
-    </div>
-
-    <!-- build:js /js/common.js -->
-        <script type="text/javascript" src="js/common/utils.js"></script>
-        <script type="text/javascript" src="js/common/pack.js"></script>
-        <script type="text/javascript" src="js/common/animation.js"></script>
-        <script type="text/javascript" src="js/layout/loading.js"></script>
-        <script type="text/javascript" src="js/layout/header.js"></script>
-        <script type="text/javascript" src="js/layout/back-top.js"></script>
-        <script type="text/javascript" src="js/layout/post.js"></script>
-    <!-- endbuild -->
-
-    
-    
-<script src="/js/page/post.js"></script>
-
-
-
-    
-    
-
-
-
-    <!-- 不蒜子统计 -->
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
 </script>
 
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
 
-     
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第1章-Spring概述"><span class="nav-number">1.</span> <span class="nav-text">第1章 Spring概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Spring概述"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 Spring概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Spring是什么"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 Spring是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-Spring的优势"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2 Spring的优势</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第2章-Spring"><span class="nav-number">2.</span> <span class="nav-text">第2章 Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-工厂模式解耦"><span class="nav-number">2.1.</span> <span class="nav-text">1.工厂模式解耦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-分析工厂模式中的问题并改造"><span class="nav-number">2.2.</span> <span class="nav-text">2.分析工厂模式中的问题并改造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-IOC的概念和作用"><span class="nav-number">2.3.</span> <span class="nav-text">3.IOC的概念和作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Spring的IOC解决程序的耦合"><span class="nav-number">2.4.</span> <span class="nav-text">使用Spring的IOC解决程序的耦合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-准备Spring开发包"><span class="nav-number">2.4.0.1.</span> <span class="nav-text">1.准备Spring开发包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-在resources资源包下创建一个xxx-xml文件"><span class="nav-number">2.5.</span> <span class="nav-text">2.在resources资源包下创建一个xxx.xml文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-测试"><span class="nav-number">2.6.</span> <span class="nav-text">3.测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-ApplicationContext的三个常用实现类"><span class="nav-number">2.7.</span> <span class="nav-text">4.ApplicationContext的三个常用实现类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-BeanFactory和ApplicationContext的区别"><span class="nav-number">2.8.</span> <span class="nav-text">5.BeanFactory和ApplicationContext的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-bean"><span class="nav-number">2.9.</span> <span class="nav-text">6.bean</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-三种创建bean对象的方式"><span class="nav-number">2.9.1.</span> <span class="nav-text">1.三种创建bean对象的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-bean对象的作用范围"><span class="nav-number">2.9.2.</span> <span class="nav-text">2.bean对象的作用范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-bean对象的生命周期"><span class="nav-number">2.9.3.</span> <span class="nav-text">3.bean对象的生命周期</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Spring的依赖注入"><span class="nav-number">2.10.</span> <span class="nav-text">7.Spring的依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用构造函数注入"><span class="nav-number">2.10.1.</span> <span class="nav-text">1.使用构造函数注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-set方法注入"><span class="nav-number">2.10.2.</span> <span class="nav-text">2.set方法注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-复杂类型的注入"><span class="nav-number">2.10.3.</span> <span class="nav-text">3.复杂类型的注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-常用IOC注解按照作用分类"><span class="nav-number">2.10.4.</span> <span class="nav-text">4.常用IOC注解按照作用分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-用于创建的component注解"><span class="nav-number">2.10.5.</span> <span class="nav-text">5.用于创建的component注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-由component衍生的注解"><span class="nav-number">2.10.6.</span> <span class="nav-text">6.由component衍生的注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-用于注入数据的："><span class="nav-number">2.10.7.</span> <span class="nav-text">7.用于注入数据的：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-基于XML的IOC案例"><span class="nav-number">2.10.8.</span> <span class="nav-text">9.基于XML的IOC案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-注解IOC案例"><span class="nav-number">2.10.9.</span> <span class="nav-text">10.注解IOC案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-Configuration和ComponentScan"><span class="nav-number">2.10.10.</span> <span class="nav-text">11.Configuration和ComponentScan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-Bean注解"><span class="nav-number">2.10.11.</span> <span class="nav-text">12.Bean注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-AnnotationConfigApplicationContext使用"><span class="nav-number">2.10.12.</span> <span class="nav-text">13.AnnotationConfigApplicationContext使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-Import注解"><span class="nav-number">2.10.13.</span> <span class="nav-text">14.Import注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15-PropertySources注解"><span class="nav-number">2.10.14.</span> <span class="nav-text">15.PropertySources注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16-Spring整合Junit"><span class="nav-number">2.10.15.</span> <span class="nav-text">16.Spring整合Junit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-动态代理"><span class="nav-number">2.11.</span> <span class="nav-text">8.动态代理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基于接口的动态代理"><span class="nav-number">2.11.1.</span> <span class="nav-text">1.基于接口的动态代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-基于子类的动态代理"><span class="nav-number">2.11.2.</span> <span class="nav-text">2.基于子类的动态代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-使用动态代理实现事务控制"><span class="nav-number">2.11.3.</span> <span class="nav-text">3.使用动态代理实现事务控制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-AOP"><span class="nav-number">2.12.</span> <span class="nav-text">9.AOP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-AOP相关术语"><span class="nav-number">2.12.1.</span> <span class="nav-text">1.AOP相关术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Spring基于xml的AOP-编写必要的代码"><span class="nav-number">2.12.2.</span> <span class="nav-text">2.Spring基于xml的AOP-编写必要的代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-四种常用的通知类型"><span class="nav-number">2.12.3.</span> <span class="nav-text">3.四种常用的通知类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-通用化切入点表达式"><span class="nav-number">2.12.4.</span> <span class="nav-text">4.通用化切入点表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-环绕通知"><span class="nav-number">2.12.5.</span> <span class="nav-text">5.环绕通知</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-基于注解的AOP配置"><span class="nav-number">2.12.6.</span> <span class="nav-text">6.基于注解的AOP配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-JdbcTemplate"><span class="nav-number">2.13.</span> <span class="nav-text">10.JdbcTemplate</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-JdbcTemplate的概述和作用"><span class="nav-number">2.13.1.</span> <span class="nav-text">1.JdbcTemplate的概述和作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用"><span class="nav-number">2.13.2.</span> <span class="nav-text">2.使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-JdbcTemplate的CRUD操作"><span class="nav-number">2.13.3.</span> <span class="nav-text">3.JdbcTemplate的CRUD操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-jdbcDaoSupport的使用以及Dao的两种编写方式"><span class="nav-number">2.13.4.</span> <span class="nav-text">4.jdbcDaoSupport的使用以及Dao的两种编写方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-基于xml的AOP实现事务控制"><span class="nav-number">2.14.</span> <span class="nav-text">11.基于xml的AOP实现事务控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-作业-基于注解的aop实现事务控制"><span class="nav-number">2.15.</span> <span class="nav-text">12.作业 基于注解的aop实现事务控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-Spring基于xml的声明式事务控制"><span class="nav-number">2.16.</span> <span class="nav-text">13.Spring基于xml的声明式事务控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-spring基于纯注解的声明式事务控制"><span class="nav-number">2.17.</span> <span class="nav-text">14. spring基于纯注解的声明式事务控制</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="’小伙子"
+      src="/images/66.jpg">
+  <p class="site-author-name" itemprop="name">’小伙子</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ChenZhixia-stu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ChenZhixia-stu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1760405308@qq.com" title="E-Mail → mailto:1760405308@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://music.163.com/#/user/home?id=411741257" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;411741257" rel="noopener" target="_blank">网易云音乐</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">’小伙子</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    url = encodeURI(url);
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              })
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.getAttribute('id'));
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id'     : '',
+            'X-LC-Key'    : '',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
@@ -819,6 +960,25 @@
 
 
 
+
+
+
+
+
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout: 3000,
+        priority: true,
+        ignores: [uri => uri.includes('#'),uri => uri == 'http://yoursite.com/2020/02/04/Spring/',]
+      });
+      });
+  </script>
 
 </body>
 </html>
